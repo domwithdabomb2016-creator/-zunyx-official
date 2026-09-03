@@ -1,79 +1,384 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<title>ZUNYX OFFICIAL</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZUNYX OFFICIAL — Made For More.</title>
+
 <style>
-body{margin:0;background:#090909;color:white;font-family:Arial;text-align:center}
-header{padding:25px;border-bottom:1px solid #333}
-h1{font-size:55px;font-style:italic;margin:10px}
-p{color:#aaa}
-button{padding:15px 25px;border:0;background:white;color:black;font-weight:bold;cursor:pointer}
-.hero{padding:100px 20px}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;padding:30px}
-.card{background:#151515;padding:25px}
-.shirt{height:220px;background:linear-gradient(#222,#050505);margin-bottom:20px}
-.cart{position:fixed;right:20px;top:20px;background:white;color:black;padding:12px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#090909;color:#fff;font-family:Arial,Helvetica,sans-serif}
+button{font:inherit;cursor:pointer}
+
+.top{height:32px;background:#fff;color:#000;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;letter-spacing:.08em}
+
+nav{position:sticky;top:0;z-index:20;height:72px;background:rgba(9,9,9,.94);border-bottom:1px solid #292929;display:flex;align-items:center;justify-content:space-between;padding:0 5%}
+
+.logo{font-size:29px;font-weight:1000;font-style:italic;letter-spacing:-.08em}
+.logo span{display:block;font-size:8px;letter-spacing:.45em;text-align:center;font-style:normal;margin-top:-3px}
+
+.navlinks{display:flex;gap:30px;font-size:12px;font-weight:800}
+.navlinks a{color:#fff;text-decoration:none}
+
+.icons{display:flex;gap:10px}
+.icon{background:none;border:0;color:#fff;font-size:21px;width:38px;height:38px}
+
+.hero{min-height:620px;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:70px 7%;background:radial-gradient(circle at 75% 40%,#242424 0,#101010 35%,#090909 70%)}
+
+.hero h1{font-size:clamp(60px,9vw,130px);line-height:.8;margin:15px 0;font-style:italic;letter-spacing:-.08em}
+.hero p{max-width:430px;color:#bdbdbd;line-height:1.7}
+.eyebrow{font-size:12px;font-weight:900;letter-spacing:.22em}
+
+.cta{border:1px solid #fff;background:#fff;color:#000;padding:15px 28px;font-weight:900;margin-top:15px}
+
+.hero-art{height:480px;border:1px solid #333;background:linear-gradient(135deg,#171717,#050505);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero-art:after{content:"Z";font-size:420px;font-weight:1000;font-style:italic;color:#1b1b1b;position:absolute}
+.model{z-index:1;width:48%;height:72%;border:2px solid #444;border-radius:30px 30px 8px 8px;background:linear-gradient(#222,#090909)}
+.model:before{content:"ZUNYX";display:block;text-align:center;margin-top:80px;font-size:24px;font-weight:900;font-style:italic}
+
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #292929;border-bottom:1px solid #292929}
+.benefit{padding:24px;text-align:center}
+.benefit b{display:block;font-size:12px;letter-spacing:.08em}
+.benefit small{color:#888}
+
+section{padding:70px 5%}
+.sectionhead{display:flex;justify-content:space-between;align-items:end;margin-bottom:30px}
+.sectionhead h2{font-size:36px;margin:0}
+
+.filter{display:flex;gap:8px}
+.filter button{background:#151515;border:1px solid #333;color:#fff;padding:9px 13px;font-size:11px}
+.filter button.active{background:#fff;color:#000}
+
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:#111;border:1px solid #222;position:relative}
+.pic{height:330px;background:linear-gradient(145deg,#e9e9e9,#8c8c8c);display:flex;align-items:center;justify-content:center;color:#111;overflow:hidden}
+
+.product-shape{width:45%;height:62%;background:linear-gradient(#1d1d1d,#050505);border-radius:18px 18px 6px 6px;box-shadow:0 25px 40px #555;position:relative}
+.product-shape:after{content:"Z";position:absolute;right:12px;top:30px;color:#fff;font-size:20px;font-weight:900;font-style:italic}
+
+.info{padding:16px}
+.info h3{font-size:13px;margin:0 0 8px}
+.price{font-weight:900}
+
+.add{width:100%;margin-top:12px;padding:12px;background:#333;color:#777;border:1px solid #444;font-weight:900;cursor:not-allowed}
+
+.tag{position:absolute;top:12px;left:12px;background:#fff;color:#000;padding:7px 9px;font-size:9px;font-weight:900;z-index:2}
+.soldout{opacity:.62}
+
+.story{background:#f3f3f3;color:#0a0a0a;display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.story h2{font-size:58px;line-height:.9;margin:0}
+.story p{line-height:1.8;color:#444}
+.quote{font-size:30px;font-weight:900;font-style:italic;align-self:center}
+
+.news{display:flex;justify-content:space-between;align-items:center;gap:30px;border:1px solid #292929;padding:35px}
+.news h2{margin:0 0 8px}
+.news p{margin:0;color:#888}
+
+.email{display:flex;min-width:360px}
+.email input{flex:1;background:#111;border:1px solid #444;color:#fff;padding:14px}
+.email button{border:0;background:#fff;color:#000;padding:0 20px;font-weight:900}
+
+footer{border-top:1px solid #222;padding:45px 5%;display:flex;justify-content:space-between;color:#777;font-size:11px}
+.footerlogo{color:#fff;font-size:28px;font-weight:1000;font-style:italic}
+
+.drawer{position:fixed;right:-430px;top:0;width:min(430px,100%);height:100%;background:#101010;z-index:50;border-left:1px solid #333;padding:25px;transition:.3s;overflow:auto}
+.drawer.open{right:0}
+.drawerhead{display:flex;justify-content:space-between;align-items:center}
+.close{background:none;border:0;color:#fff;font-size:28px}
+
+.modal{display:none;position:fixed;inset:0;background:#000b;z-index:60;align-items:center;justify-content:center;padding:20px}
+.modal.show{display:flex}
+.modalbox{background:#111;border:1px solid #444;max-width:500px;width:100%;padding:30px}
+
+.toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%) translateY(30px);opacity:0;background:#fff;color:#000;padding:13px 20px;font-size:12px;font-weight:900;z-index:80;transition:.25s}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+@media(max-width:850px){
+.navlinks{display:none}
+.hero{grid-template-columns:1fr;padding:55px 6%}
+.hero-art{height:330px}
+.benefits{grid-template-columns:1fr}
+.grid{grid-template-columns:repeat(2,1fr)}
+.pic{height:250px}
+.story{grid-template-columns:1fr}
+.news{display:block}
+.email{min-width:0;margin-top:25px}
+footer{display:block}
+.footerlogo{margin-bottom:20px}
+}
 </style>
 </head>
+
 <body>
 
-<div class="cart">🛍 BAG: <span id="count">0</span></div>
+<div class="top">ZUNYX OFFICIAL • DROP 001 IS LIVE • HOODIE SOLD OUT</div>
 
-<header>
-<h1>ZUNYX</h1>
-<p>OFFICIAL • MADE FOR MORE.</p>
+<nav>
+<div class="logo">ZUNYX<span>OFFICIAL</span></div>
+
+<div class="navlinks">
+<a href="#shop">SHOP</a>
+<a href="#collections">COLLECTIONS</a>
+<a href="#about">ABOUT</a>
+</div>
+
+<div class="icons">
+<button class="icon" onclick="openCart()">🛍</button>
+</div>
+</nav>
+
+<header class="hero">
+
+<div>
+<div class="eyebrow">ZUNYX OFFICIAL / 001</div>
+
+<h1>MADE<br>FOR MORE.</h1>
+
+<p>
+Performance-driven essentials built for training, movement and everyday life.
+Drop 001 is here.
+</p>
+
+<button class="cta" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
+SHOP DROP 001 →
+</button>
+</div>
+
+<div class="hero-art">
+<div class="model"></div>
+</div>
+
 </header>
 
-<section class="hero">
-<p>ZUNYX OFFICIAL</p>
-<h1>MADE FOR MORE.</h1>
-<p>Performance wear built for those who demand more.</p>
-<button onclick="shop()">SHOP DROP 001</button>
+<div class="benefits">
+
+<div class="benefit">
+🚚
+<b>FREE UK SHIPPING</b>
+<small>On orders over £75</small>
+</div>
+
+<div class="benefit">
+↩️
+<b>EASY RETURNS</b>
+<small>14 day return policy</small>
+</div>
+
+<div class="benefit">
+🔒
+<b>SECURE CHECKOUT</b>
+<small>Protected payments</small>
+</div>
+
+</div>
+
+<section id="shop">
+
+<div class="sectionhead">
+
+<div>
+<div class="eyebrow">THE FIRST DROP</div>
+<h2>DROP 001</h2>
+</div>
+
+<div class="filter">
+<button class="active" onclick="filterProducts('all',this)">ALL</button>
+<button onclick="filterProducts('tops',this)">TOPS</button>
+<button onclick="filterProducts('bottoms',this)">BOTTOMS</button>
+</div>
+
+</div>
+
+<div class="grid" id="products"></div>
+
 </section>
 
-<h2>DROP 001</h2>
+<section class="story" id="about">
 
-<div class="products">
+<div>
+<div class="eyebrow">THE ZUNYX MINDSET</div>
 
-<div class="card">
-<div class="shirt"></div>
-<h3>ZUNYX PERFORMANCE HOODIE</h3>
-<p>£59.99</p>
-<button onclick="add()">ADD TO BAG</button>
+<h2>DON'T FOLLOW.<br>BUILD.</h2>
+
+<p>
+ZUNYX is made for people who want more from themselves.
+No shortcuts. No noise. Just progress — one session, one rep, one day at a time.
+</p>
 </div>
 
-<div class="card">
-<div class="shirt"></div>
-<h3>ZUNYX PERFORMANCE JOGGERS</h3>
-<p>£49.99</p>
-<button onclick="add()">ADD TO BAG</button>
+<div class="quote">
+“Your next level starts when you stop waiting for it.”
 </div>
 
-<div class="card">
-<div class="shirt"></div>
-<h3>ZUNYX ACTIVE TEE</h3>
-<p>£29.99</p>
-<button onclick="add()">ADD TO BAG</button>
+</section>
+
+<section id="collections">
+
+<div class="news">
+
+<div>
+<h2>BE THE FIRST TO KNOW.</h2>
+<p>Get early access to new drops and exclusive releases.</p>
+</div>
+
+<div class="email">
+<input id="email" placeholder="Your email address">
+<button onclick="subscribe()">→</button>
 </div>
 
 </div>
 
-<footer style="padding:50px">
-ZUNYX OFFICIAL<br>
-MADE FOR MORE.
+</section>
+
+<footer>
+
+<div>
+<div class="footerlogo">ZUNYX</div>
+<div>OFFICIAL • MADE FOR MORE.</div>
+</div>
+
+<div>© 2026 ZUNYX OFFICIAL • DROP 001</div>
+
 </footer>
 
+<aside class="drawer" id="cart">
+
+<div class="drawerhead">
+<h2>YOUR BAG</h2>
+<button class="close" onclick="closeCart()">×</button>
+</div>
+
+<div id="cartitems"></div>
+<div id="carttotal"></div>
+
+</aside>
+
+<div class="modal" id="modal">
+
+<div class="modalbox">
+
+<h2>CHECKOUT</h2>
+
+<p style="color:#888">
+This is a working demo checkout — no real payment is taken.
+</p>
+
+<input placeholder="Full name">
+<input placeholder="Email">
+<input placeholder="Delivery address">
+
+<button onclick="placeOrder()">PLACE DEMO ORDER</button>
+
+<button onclick="document.getElementById('modal').classList.remove('show')">
+CANCEL
+</button>
+
+</div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
 <script>
-let count=0;
-function add(){
-count++;
-document.getElementById("count").textContent=count;
-alert("Added to your ZUNYX bag!");
+
+const products=[
+{
+id:1,
+name:'ZUNYX DROP 001 HOODIE',
+price:35.99,
+type:'tops',
+shape:'',
+tag:'SOLD OUT'
 }
-function shop(){
-document.querySelector(".products").scrollIntoView({behavior:"smooth"});
+];
+
+let cart=[];
+
+function renderProducts(list=products){
+
+document.getElementById('products').innerHTML=list.map(p=>`
+
+<article class="card soldout">
+
+<div class="tag">${p.tag}</div>
+
+<div class="pic">
+<div class="product-shape ${p.shape}"></div>
+</div>
+
+<div class="info">
+
+<h3>${p.name}</h3>
+
+<div class="price">
+£${p.price.toFixed(2)}
+</div>
+
+<button class="add" disabled>
+OUT OF STOCK
+</button>
+
+</div>
+
+</article>
+
+`).join('');
+
 }
+
+function filterProducts(type,btn){
+
+document.querySelectorAll('.filter button')
+.forEach(x=>x.classList.remove('active'));
+
+btn.classList.add('active');
+
+renderProducts(
+type==='all'
+?products
+:products.filter(p=>p.type===type)
+);
+
+}
+
+function openCart(){
+document.getElementById('cart').classList.add('open');
+}
+
+function closeCart(){
+document.getElementById('cart').classList.remove('open');
+}
+
+function subscribe(){
+
+const e=document.getElementById('email');
+
+if(!e.value.includes('@')){
+toast('ENTER A VALID EMAIL');
+return;
+}
+
+e.value='';
+toast('YOU’RE ON THE ZUNYX LIST');
+
+}
+
+function toast(msg){
+
+const t=document.getElementById('toast');
+
+t.textContent=msg;
+t.classList.add('show');
+
+setTimeout(()=>{
+t.classList.remove('show');
+},2200);
+
+}
+
+renderProducts();
+
 </script>
 
 </body>
