@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ZUNYX OFFICIAL</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#050505;color:#fff}
+nav{height:70px;padding:0 7%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #222;position:sticky;top:0;background:#050505;z-index:5}
+.logo{font-size:25px;font-weight:900;letter-spacing:2px}nav a{color:#fff;text-decoration:none;margin-left:25px;font-size:13px;font-weight:bold}
+.hero{min-height:72vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:60px 20px}
+.hero h1{font-size:clamp(50px,12vw,120px);margin:0;font-weight:900;letter-spacing:-5px}.hero p{color:#aaa;letter-spacing:3px}
+.btn{display:inline-block;margin-top:20px;background:#fff;color:#000;padding:14px 25px;text-decoration:none;font-weight:900}
+section{padding:70px 7%;max-width:1200px;margin:auto}h2{font-size:38px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+.product{background:#101010;border:1px solid #252525}.product img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;background:#080808}
+.info{padding:22px}.badge{font-size:11px;letter-spacing:2px;color:#999}.price{font-size:22px;font-weight:900;margin:10px 0 18px}
+.add{width:100%;padding:14px;background:#fff;color:#000;border:0;font-weight:900;cursor:pointer}
+#bag{position:fixed;right:20px;bottom:20px;background:#fff;color:#000;padding:13px 18px;font-weight:900;border:0;cursor:pointer;z-index:10}
+footer{border-top:1px solid #222;padding:35px 7%;color:#777;text-align:center}
+</style>
+</head>
+<body>
+<nav><div class="logo">ZUNYX</div><div><a href="#shop">SHOP</a><a href="#about">ABOUT</a></div></nav>
+<div class="hero"><div><h1>ZUNYX</h1><p>MADE FOR MORE.</p><a class="btn" href="#shop">SHOP DROP 001</a></div></div>
+<section id="shop"><h2>DROP 001</h2><div class="products">
+<div class="product"><img src="hoodie-shop.png" alt="ZUNYX Drop 001 Hoodie"><div class="info"><span class="badge">DROP 001</span><h3>ZUNYX DROP 001 HOODIE</h3><div class="price">£35.99</div><button class="add" onclick="addToBag('ZUNYX DROP 001 HOODIE',35.99)">ADD TO BAG</button></div></div>
+<div class="product"><img src="cap-shop.png" alt="ZUNYX Cap"><div class="info"><span class="badge">DROP 001</span><h3>ZUNYX CAP</h3><div class="price">£19.99</div><button class="add" onclick="addToBag('ZUNYX CAP',19.99)">ADD TO BAG</button></div></div>
+</div></section>
+<section id="about"><h2>MADE FOR MORE.</h2><p>Performance-inspired sportswear built for people who refuse to stop.</p></section>
+<button id="bag" onclick="showBag()">BAG (0)</button>
+<footer>© 2026 ZUNYX OFFICIAL • DROP 001</footer>
+<script>
+let bag=[];
+function addToBag(name,price){bag.push({name,price});document.getElementById('bag').textContent='BAG ('+bag.length+')';alert(name+' added to bag.')}
+function showBag(){if(!bag.length){alert('Your bag is empty.');return}let total=bag.reduce((s,x)=>s+x.price,0);alert(bag.map(x=>x.name+' — £'+x.price.toFixed(2)).join('\n')+'\n\nTotal: £'+total.toFixed(2));}
+</script>
+</body></html>
