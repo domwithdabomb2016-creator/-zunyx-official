@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZUNYX OFFICIAL</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#050505;color:#fff;font-family:Arial,sans-serif}
+a{text-decoration:none;color:inherit}.top{text-align:center;background:#fff;color:#000;padding:9px;font-size:10px;font-weight:900;letter-spacing:2px}
+nav{position:sticky;top:0;z-index:5;padding:18px 5%;display:flex;justify-content:space-between;background:#050505ee;border-bottom:1px solid #222}
+.logo{font-size:25px;font-weight:1000;letter-spacing:3px}.links{display:flex;gap:20px;font-size:11px;font-weight:900}
+.hero{padding:90px 6%;min-height:65vh;display:flex;align-items:center;background:radial-gradient(circle at 75%,#30164a,#050505 65%);position:relative;overflow:hidden}
+.hero:after{content:"ZUNYX";position:absolute;right:-20px;bottom:-45px;font-size:18vw;font-weight:1000;color:#111}
+.hero>div{position:relative;z-index:1}.eyebrow{font-size:10px;letter-spacing:5px;color:#aaa;font-weight:900;margin-bottom:18px}
+h1{font-size:clamp(58px,11vw,120px);line-height:.82;letter-spacing:-5px;margin:0;font-weight:1000}.hero p{color:#aaa;max-width:550px;line-height:1.6;margin:24px 0}
+.cta{display:inline-block;border:1px solid #a84cff;padding:15px 22px;font-size:11px;font-weight:1000}
+section{padding:70px 5%}.head{margin-bottom:28px}.head h2{font-size:44px;margin:5px 0;font-weight:1000}.head p{color:#777}
+.filters{display:flex;gap:10px;margin-bottom:25px}.filter{padding:10px 16px;border:1px solid #333;border-radius:999px;background:#0b0b0b;color:#fff;font-size:10px;font-weight:900}.filter.active{background:#fff;color:#000}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.card{background:#0b0b0b;border:1px solid #242424;border-radius:12px;overflow:hidden;position:relative}
+.product-image{aspect-ratio:1;background:#111}.product-image img{width:100%;height:100%;object-fit:cover;display:block}.badge{position:absolute;top:14px;left:14px;background:#fff;color:#000;padding:7px 10px;font-size:9px;font-weight:1000;z-index:2}
+.info{padding:18px}.info h3{margin:0 0 7px;font-size:15px}.price{font-size:18px;font-weight:1000;color:#b35cff}.desc{color:#888;font-size:11px;margin-top:7px}
+select{width:100%;margin-top:15px;padding:12px;background:#111;color:#aaa;border:1px solid #333;border-radius:6px}.buy{width:100%;margin-top:9px;padding:12px;background:#202020;color:#777;border:0;border-radius:6px;font-weight:900}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #222;border-bottom:1px solid #222}.benefits div{padding:28px 10px;text-align:center;border-right:1px solid #222;font-size:11px;font-weight:900}.benefits div:last-child{border:0}.benefits span{display:block;color:#777;font-weight:400;margin-top:7px}
+.mindset{text-align:center;background:#090909}.mindset h2{font-size:clamp(48px,9vw,100px);margin:8px 0;font-weight:1000}.mindset p{max-width:650px;margin:auto;color:#999;line-height:1.7}
+footer{padding:35px 5%;display:flex;justify-content:space-between;color:#666;font-size:10px}
+@media(max-width:700px){.links{gap:12px}.hero{min-height:58vh}.grid{grid-template-columns:1fr}.benefits{grid-template-columns:1fr}.benefits div{border-right:0;border-bottom:1px solid #222}.benefits div:last-child{border-bottom:0}}
+</style>
+
+<style>
+.cart-icon{position:fixed;top:18px;right:20px;z-index:9999;width:48px;height:48px;border:1px solid #444;border-radius:50%;background:#111;color:#fff;cursor:pointer;font-size:22px}
+.cart-number{position:absolute;right:-3px;top:-3px;min-width:18px;height:18px;border-radius:50%;background:#fff;color:#000;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:10000;opacity:0;pointer-events:none;transition:.25s}
+.cart-overlay.show{opacity:1;pointer-events:auto}
+.cart-panel{position:fixed;right:-390px;top:0;width:min(390px,92vw);height:100vh;background:#101010;color:#fff;z-index:10001;padding:28px;box-sizing:border-box;transition:.3s;box-shadow:-15px 0 40px rgba(0,0,0,.5)}
+.cart-panel.open{right:0}.cart-close{float:right;background:none;border:0;color:#fff;font-size:30px;cursor:pointer}.cart-panel h2{margin-top:40px}.cart-empty{margin-top:40px;color:#aaa;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="top">ZUNYX OFFICIAL — MADE FOR MORE.</div>
+<nav><a class="logo" href="#top">ZUNYX</a><div class="links"><a href="#top">HOME</a><a href="#shop">SHOP</a><a href="#mindset">MINDSET</a></div></nav>
+<section class="hero" id="top"><div><div class="eyebrow">ZUNYX OFFICIAL / DROP 001</div><h1>MADE<br>FOR MORE.</h1><p>Exclusive. Limited. Built for the ones who refuse to stop.</p><a class="cta" href="#shop">EXPLORE THE DROP →</a></div></section>
+<section id="shop"><div class="head"><div class="eyebrow">DROP 001</div><h2>SHOP ZUNYX</h2><p>Two pieces. One mindset.</p></div>
+<div class="filters"><button class="filter active" onclick="filterProducts('all')">ALL</button><button class="filter" onclick="filterProducts('hoodie')">HOODIES</button><button class="filter" onclick="filterProducts('cap')">CAPS</button></div>
+<div class="grid">
+<article class="card" data-type="hoodie"><span class="badge">SOLD OUT</span><div class="product-image"><img src="zunyx-hoodie.jpg" alt="ZUNYX hoodie"></div><div class="info"><h3>ZUNYX HOODIE</h3><div class="price">£35.99</div><div class="desc">Black / Heavy Blend · Youth + Adult</div>
+<div class="desc">50% Cotton · 50% Polyester</div>
+<div class="desc">Soft, comfortable and made for everyday wear.</div><select disabled><option>Choose size</option><option>Youth S</option><option>Youth M</option><option>Youth L</option><option>Youth XL</option><option>Adult S</option><option>Adult M</option><option>Adult L</option><option>Adult XL</option><option>Adult 2XL</option><option>Adult 3XL</option><option>Adult 4XL</option><option>Adult 5XL</option></select><button class="buy" disabled>SOLD OUT</button></div></article>
+<article class="card" data-type="cap"><span class="badge">SOLD OUT</span><div class="product-image"><img src="zunyx-cap.jpg" alt="ZUNYX cap"></div><div class="info"><h3>ZUNYX CAP</h3><div class="price">£19.99</div><div class="desc">Black / ZUNYX Official</div><button class="buy" disabled>SOLD OUT</button></div></article>
+</div></section>
+<div class="benefits"><div>▣<br>SECURE CHECKOUT<span>100% safe & secure</span></div><div>▱<br>FAST SHIPPING<span>Tracked worldwide</span></div><div>✦<br>PREMIUM QUALITY<span>Built to last</span></div></div>
+<section class="mindset" id="mindset"><div class="eyebrow">THE ZUNYX MINDSET</div><h2>BUILT FOR MORE.</h2><p>ZUNYX is built for more — more focus, more discipline, more progress. No shortcuts. No noise. Just progress — one session, one rep, one day at a time.</p></section>
+<footer><strong>ZUNYX OFFICIAL</strong><span>© 2026 ZUNYX · MADE FOR MORE.</span></footer>
+<script>
+function filterProducts(type){
+ document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));
+ event.currentTarget.classList.add('active');
+ document.querySelectorAll('.card').forEach(c=>c.style.display=(type==='all'||c.dataset.type===type)?'block':'none');
+}
+</script>
+
+<button class="cart-icon" onclick="toggleCart()" aria-label="Shopping cart">🛒<span class="cart-number">0</span></button>
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<aside class="cart-panel" id="cartPanel">
+<button class="cart-close" onclick="toggleCart()">×</button>
+<h2>YOUR CART</h2>
+<div class="cart-empty">Your cart is empty.<br><br>Products are currently sold out.</div>
+</aside>
+
+<script>
+function toggleCart(){
+ document.getElementById('cartPanel').classList.toggle('open');
+ document.getElementById('cartOverlay').classList.toggle('show');
+}
+</script>
+</body></html>
