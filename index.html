@@ -4,283 +4,159 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ZUNYX</title>
+
 <style>
 *{box-sizing:border-box}
-body{
- margin:0;
- font-family:Arial,sans-serif;
- background:#fff;
- color:#111;
-}
-header{
- background:#000;
- color:#fff;
- padding:20px;
- display:flex;
- justify-content:space-between;
- align-items:center;
- position:sticky;
- top:0;
- z-index:10;
-}
-.logo{
- font-size:28px;
- font-weight:900;
- letter-spacing:4px;
-}
-button{
- border:0;
- cursor:pointer;
-}
-.cartBtn{
- background:#fff;
- color:#000;
- padding:10px 18px;
- border-radius:20px;
- font-weight:bold;
-}
-.hero{
- background:#000;
- color:#fff;
- text-align:center;
- padding:100px 20px;
-}
-.hero h1{
- font-size:70px;
- margin:0;
- letter-spacing:8px;
-}
-.hero p{
- color:#bbb;
-}
-.shop{
- padding:60px 20px;
- max-width:1100px;
- margin:auto;
-}
-.shop h2{
- text-align:center;
- font-size:40px;
-}
-.products{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:25px;
-}
-.product{
- border:1px solid #ddd;
- border-radius:15px;
- overflow:hidden;
- background:#fff;
-}
-.product img{
- width:100%;
- height:450px;
- object-fit:cover;
- display:block;
-}
-.info{
- padding:20px;
-}
-.info h3{
- margin:0;
- font-size:22px;
-}
-.price{
- margin:10px 0;
- font-size:18px;
-}
-.add{
- width:100%;
- background:#000;
- color:#fff;
- padding:14px;
- border-radius:8px;
- font-weight:bold;
-}
-.add:hover{
- background:#333;
-}
-.about{
- background:#000;
- color:#fff;
- text-align:center;
- padding:70px 20px;
-}
-.about p{
- max-width:600px;
- margin:auto;
- color:#bbb;
- line-height:1.6;
-}
-footer{
- background:#000;
- color:#777;
- text-align:center;
- padding:25px;
-}
-#cart{
- display:none;
- position:fixed;
- right:0;
- top:0;
- width:360px;
- max-width:100%;
- height:100%;
- background:#fff;
- z-index:100;
- padding:25px;
- box-shadow:-5px 0 20px #0004;
-}
-#cart h2{
- margin-top:0;
-}
-.close{
- background:#eee;
- padding:8px 12px;
- border-radius:50%;
- float:right;
-}
-.item{
- padding:15px 0;
- border-bottom:1px solid #ddd;
- display:flex;
- justify-content:space-between;
-}
-.remove{
- background:#eee;
- padding:7px;
- border-radius:6px;
-}
-.total{
- font-size:22px;
- font-weight:bold;
- margin-top:25px;
-}
-.checkout{
- width:100%;
- background:#000;
- color:#fff;
- padding:15px;
- margin-top:20px;
- border-radius:8px;
- font-weight:bold;
-}
+body{margin:0;font-family:Arial,sans-serif;background:#fff;color:#111}
+header{background:#000;color:#fff;padding:20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+.logo{font-size:28px;font-weight:900;letter-spacing:4px}
+button{border:0;cursor:pointer}
+.cartBtn{background:#fff;color:#000;padding:10px 18px;border-radius:20px;font-weight:bold}
+
+.hero{background:#000;color:#fff;text-align:center;padding:100px 20px}
+.hero h1{font-size:70px;margin:0;letter-spacing:8px}
+.hero p{color:#bbb}
+
+.shop{padding:60px 20px;max-width:1100px;margin:auto}
+.shop h2{text-align:center;font-size:40px}
+.products{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+
+.product{border:1px solid #ddd;border-radius:15px;overflow:hidden;background:#fff}
+.product img{width:100%;height:450px;object-fit:cover;display:block}
+.info{padding:20px}
+.info h3{margin:0;font-size:22px}
+.price{margin:10px 0;font-size:18px}
+.add{width:100%;background:#000;color:#fff;padding:14px;border-radius:8px;font-weight:bold}
+.add:hover{background:#333}
+
+.about{background:#000;color:#fff;text-align:center;padding:70px 20px}
+.about p{max-width:600px;margin:auto;color:#bbb;line-height:1.6}
+footer{background:#000;color:#777;text-align:center;padding:25px}
+
+#cart{display:none;position:fixed;right:0;top:0;width:360px;max-width:100%;height:100%;background:#fff;z-index:100;padding:25px;box-shadow:-5px 0 20px #0004}
+#cart h2{margin-top:0}
+.close{background:#eee;padding:8px 12px;border-radius:50%;float:right}
+.item{padding:15px 0;border-bottom:1px solid #ddd;display:flex;justify-content:space-between}
+.remove{background:#eee;padding:7px;border-radius:6px}
+.total{font-size:22px;font-weight:bold;margin-top:25px}
+.checkout{width:100%;background:#000;color:#fff;padding:15px;margin-top:20px;border-radius:8px;font-weight:bold}
+
 @media(max-width:700px){
- .products{grid-template-columns:1fr}
- .hero h1{font-size:50px}
- .product img{height:400px}
+.products{grid-template-columns:1fr}
+.hero h1{font-size:50px}
+.product img{height:400px}
 }
 </style>
 </head>
+
 <body>
+
 <header>
 <div class="logo">ZUNYX</div>
-<button class="cartBtn" onclick="openCart()">
-CART (<span id="count">0</span>)
-</button>
+<button class="cartBtn" onclick="openCart()">CART (<span id="count">0</span>)</button>
 </header>
+
 <section class="hero">
 <h1>ZUNYX</h1>
 <p>MOVE DIFFERENT.</p>
 </section>
+
 <section class="shop">
 <h2>SHOP</h2>
+
 <div class="products">
+
 <div class="product">
-<img src="product1.jpg" onerror="this.src='https://placehold.co/800x1000?text=ZUNYX+1'">
+<img src="product1.jpg" onerror="this.src='https://placehold.co/800x1000?text=ZUNYX+HOODIE'">
 <div class="info">
-<h3>ZUNYX ESSENTIAL</h3>
-<div class="price">£45</div>
-<button class="add" onclick="add('ZUNYX Essential',45)">
-ADD TO CART
-</button>
+<h3>ZUNYX HOODIE</h3>
+<div class="price">£34.99</div>
+<button class="add" onclick="add('ZUNYX Hoodie',34.99)">ADD TO CART</button>
 </div>
 </div>
+
 <div class="product">
-<img src="product2.jpg" onerror="this.src='https://placehold.co/800x1000?text=ZUNYX+2'">
+<img src="product2.jpg" onerror="this.src='https://placehold.co/800x1000?text=ZUNYX+PERFORMANCE'">
 <div class="info">
 <h3>ZUNYX PERFORMANCE</h3>
 <div class="price">£55</div>
-<button class="add" onclick="add('ZUNYX Performance',55)">
-ADD TO CART
-</button>
+<button class="add" onclick="add('ZUNYX Performance',55)">ADD TO CART</button>
 </div>
 </div>
+
 </div>
 </section>
+
 <section class="about">
 <h2>ABOUT ZUNYX</h2>
-<p>
-Built different. Made for movement. ZUNYX is a new generation
-sportswear brand focused on clean style and strong identity.
-</p>
+<p>Built different. Made for movement. ZUNYX is a new generation sportswear brand focused on clean style and strong identity.</p>
 </section>
-<footer>
-© 2026 ZUNYX
-</footer>
+
+<footer>© 2026 ZUNYX</footer>
+
 <div id="cart">
 <button class="close" onclick="closeCart()">×</button>
 <h2>Your Cart</h2>
-<div id="items">
-Your cart is empty.
+<div id="items">Your cart is empty.</div>
+<div class="total">Total: £<span id="total">0</span></div>
+<button class="checkout" onclick="checkout()">CHECKOUT</button>
 </div>
-<div class="total">
-Total: £<span id="total">0</span>
-</div>
-<button class="checkout" onclick="checkout()">
-CHECKOUT
-</button>
-</div>
+
 <script>
 let cart=[];
+
 function add(name,price){
- cart.push({name,price});
- update();
- openCart();
+cart.push({name,price});
+update();
+openCart();
 }
+
 function remove(i){
- cart.splice(i,1);
- update();
+cart.splice(i,1);
+update();
 }
+
 function update(){
- document.getElementById("count").textContent=cart.length;
- let box=document.getElementById("items");
- let total=0;
- if(cart.length===0){
-  box.innerHTML="Your cart is empty.";
-  document.getElementById("total").textContent="0";
-  return;
- }
- box.innerHTML="";
- cart.forEach((x,i)=>{
-  total+=x.price;
-  box.innerHTML+=`
-  <div class="item">
-   <div>
-    <b>${x.name}</b><br>
-    £${x.price}
-   </div>
-   <button class="remove" onclick="remove(${i})">
-   ×
-   </button>
-  </div>`;
- });
- document.getElementById("total").textContent=total;
+document.getElementById("count").textContent=cart.length;
+let box=document.getElementById("items");
+let total=0;
+
+if(cart.length===0){
+box.innerHTML="Your cart is empty.";
+document.getElementById("total").textContent="0.00";
+return;
 }
+
+box.innerHTML="";
+
+cart.forEach((x,i)=>{
+total+=x.price;
+box.innerHTML+=`
+<div class="item">
+<div><b>${x.name}</b><br>£${x.price.toFixed(2)}</div>
+<button class="remove" onclick="remove(${i})">×</button>
+</div>`;
+});
+
+document.getElementById("total").textContent=total.toFixed(2);
+}
+
 function openCart(){
- document.getElementById("cart").style.display="block";
+document.getElementById("cart").style.display="block";
 }
+
 function closeCart(){
- document.getElementById("cart").style.display="none";
+document.getElementById("cart").style.display="none";
 }
+
 function checkout(){
- if(cart.length===0){
-  alert("Your cart is empty!");
-  return;
- }
- alert("ZUNYX checkout coming soon!");
+if(cart.length===0){
+alert("Your cart is empty!");
+return;
+}
+alert("ZUNYX checkout coming soon!");
 }
 </script>
+
 </body>
 </html>
