@@ -1,86 +1,625 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ZUNYX ALPHA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ZUNYX — MADE FOR MORE</title>
 
 <style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
-height:100vh;
-background:#000;
-color:#fff;
-font-family:Arial,Helvetica,sans-serif;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-overflow:hidden;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#050505;
+  color:#fff;
+  overflow-x:hidden;
 }
 
-.box{
-padding:40px;
+/* HEADER */
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:22px 6%;
+  background:rgba(0,0,0,.65);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .logo{
-font-size:clamp(70px,18vw,180px);
-font-weight:1000;
-letter-spacing:15px;
-line-height:.8;
+  font-size:28px;
+  font-weight:1000;
+  letter-spacing:-2px;
 }
 
-.tag{
-margin-top:40px;
-font-size:18px;
-letter-spacing:10px;
-font-weight:bold;
+nav{
+  display:flex;
+  gap:30px;
 }
 
-.status{
-margin-top:35px;
-font-size:10px;
-letter-spacing:4px;
-color:#555;
+nav a{
+  color:white;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:2px;
 }
 
-.circle{
-position:fixed;
-width:500px;
-height:500px;
-border-radius:50%;
-background:white;
-opacity:.04;
-filter:blur(100px);
-z-index:-1;
+.cart{
+  border:1px solid white;
+  padding:10px 15px;
+  border-radius:30px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  padding:120px 20px 60px;
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  width:700px;
+  height:700px;
+  background:radial-gradient(circle,rgba(255,255,255,.15),transparent 65%);
+  animation:pulse 5s infinite alternate;
+}
+
+@keyframes pulse{
+  from{transform:scale(.8);opacity:.4}
+  to{transform:scale(1.3);opacity:.9}
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+.hero-tag{
+  font-size:12px;
+  letter-spacing:5px;
+  margin-bottom:25px;
+  opacity:.7;
+}
+
+.hero h1{
+  font-size:clamp(70px,17vw,190px);
+  line-height:.8;
+  font-weight:1000;
+  letter-spacing:-9px;
+  background:linear-gradient(90deg,#fff,#777,#fff);
+  background-size:200%;
+  -webkit-background-clip:text;
+  color:transparent;
+  animation:gradient 4s infinite linear;
+}
+
+@keyframes gradient{
+  to{background-position:200%}
+}
+
+.hero h2{
+  margin-top:35px;
+  font-size:clamp(30px,6vw,70px);
+  letter-spacing:-3px;
+}
+
+.hero p{
+  margin-top:18px;
+  color:#999;
+  font-size:14px;
+  letter-spacing:2px;
+}
+
+.buttons{
+  margin-top:35px;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-block;
+  padding:16px 25px;
+  border-radius:50px;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:1px;
+}
+
+.btn-white{
+  background:#fff;
+  color:#000;
+}
+
+.btn-dark{
+  border:1px solid #555;
+  color:#fff;
+}
+
+.scroll{
+  position:absolute;
+  bottom:30px;
+  font-size:10px;
+  letter-spacing:4px;
+  color:#666;
+}
+
+/* TICKER */
+.ticker{
+  background:#fff;
+  color:#000;
+  overflow:hidden;
+  white-space:nowrap;
+  padding:15px 0;
+  font-size:13px;
+  font-weight:bold;
+  letter-spacing:4px;
+}
+
+.ticker span{
+  display:inline-block;
+  animation:move 15s linear infinite;
+}
+
+@keyframes move{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* SECTIONS */
+section{
+  padding:110px 6%;
+}
+
+.intro{
+  max-width:850px;
+}
+
+.small{
+  color:#777;
+  font-size:11px;
+  letter-spacing:4px;
+  margin-bottom:20px;
+}
+
+.intro h2{
+  font-size:clamp(40px,7vw,85px);
+  letter-spacing:-4px;
+  line-height:.95;
+}
+
+.intro p{
+  margin-top:25px;
+  max-width:600px;
+  color:#999;
+  line-height:1.7;
+}
+
+/* PRODUCTS */
+.shop-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:45px;
+}
+
+.shop-title h2{
+  font-size:clamp(45px,7vw,90px);
+  letter-spacing:-5px;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
+}
+
+.product{
+  background:#111;
+  border:1px solid #222;
+  overflow:hidden;
+  transition:.4s;
+}
+
+.product:hover{
+  transform:translateY(-10px);
+  border-color:#555;
+}
+
+.product-image{
+  width:100%;
+  height:auto;
+  display:block;
+  background:#eee;
+}
+
+.product-info{
+  padding:25px;
+}
+
+.badge{
+  display:inline-block;
+  font-size:9px;
+  letter-spacing:2px;
+  border:1px solid #555;
+  padding:7px 10px;
+  margin-bottom:18px;
+}
+
+.product h3{
+  font-size:25px;
+  letter-spacing:-1px;
+}
+
+.price{
+  color:#aaa;
+  margin-top:8px;
+}
+
+.buy{
+  display:block;
+  margin-top:22px;
+  background:#fff;
+  color:#000;
+  text-align:center;
+  padding:15px;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+
+/* STANDARD */
+.standard{
+  min-height:80vh;
+  display:flex;
+  align-items:center;
+}
+
+.standard h2{
+  font-size:clamp(55px,10vw,130px);
+  line-height:.85;
+  letter-spacing:-7px;
+}
+
+.standard p{
+  margin-top:30px;
+  max-width:550px;
+  color:#888;
+  line-height:1.7;
+}
+
+/* FOOTER */
+footer{
+  border-top:1px solid #222;
+  padding:50px 6%;
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+}
+
+footer strong{
+  font-size:25px;
+  letter-spacing:-1px;
+}
+
+footer p{
+  color:#666;
+  font-size:11px;
+  margin-top:8px;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+  header{
+    padding:18px 5%;
+  }
+
+  .logo{
+    font-size:23px;
+  }
+
+  nav{
+    gap:14px;
+  }
+
+  nav a{
+    font-size:9px;
+  }
+
+  .cart{
+    padding:8px 10px;
+    font-size:9px;
+  }
+
+  .hero h1{
+    letter-spacing:-5px;
+  }
+
+  .products{
+    grid-template-columns:1fr;
+  }
+
+  .shop-title{
+    display:block;
+  }
+
+  .shop-title h2{
+    margin-bottom:15px;
+  }
+
+  section{
+    padding:80px 5%;
+  }
+
+  footer{
+    flex-direction:column;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="circle"></div>
+<header>
+  <div class="logo">ZUNYX</div>
 
-<div class="box">
+  <nav>
+    <a href="#shop">SHOP</a>
+    <a href="#standard">ABOUT</a>
+  </nav>
 
-<div class="logo">
-ZUNYX
+  <div class="cart">CART <span id="cartCount">0</span></div>
+</header>
+
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="hero-tag">
+      ZUNYX SPORTSWEAR • 2026
+    </div>
+
+    <h1>ZUNYX</h1>
+
+    <h2>MADE FOR MORE.</h2>
+
+    <p>
+      PERFORMANCE. IDENTITY. MOVEMENT.
+    </p>
+
+    <div class="buttons">
+      <a href="#shop" class="btn btn-white">
+        SHOP THE DROP
+      </a>
+
+      <a href="#standard" class="btn btn-dark">
+        THE ZUNYX STANDARD
+      </a>
+    </div>
+
+  </div>
+
+  <div class="scroll">
+    SCROLL TO EXPLORE ↓
+  </div>
+
+</section>
+
+
+<!-- TICKER -->
+<div class="ticker">
+  <span>
+    ZUNYX • MADE FOR MORE • ZUNYX • MADE FOR MORE • ZUNYX • MADE FOR MORE • ZUNYX • MADE FOR MORE •
+  </span>
 </div>
 
-<div class="tag">
-MADE FOR MORE.
-</div>
 
-<div class="status">
-ALPHA VERSION • 2026
-</div>
+<!-- INTRO -->
+<section>
 
-</div>
+  <div class="intro">
+
+    <div class="small">
+      WELCOME TO ZUNYX
+    </div>
+
+    <h2>
+      BUILT TO<br>
+      MOVE.
+    </h2>
+
+    <p>
+      ZUNYX is sportswear built around movement, confidence
+      and individuality. No limits. No excuses. Just more.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- SHOP -->
+<section id="shop">
+
+  <div class="shop-title">
+
+    <div>
+      <div class="small">
+        THE DROP
+      </div>
+
+      <h2>SHOP.</h2>
+    </div>
+
+  </div>
+
+
+  <div class="products">
+
+    <!-- HOODIE -->
+    <div class="product">
+
+      <img
+        src="product1.jpg"
+        alt="ZUNYX Hoodie"
+        class="product-image"
+      >
+
+      <div class="product-info">
+
+        <div class="badge">
+          LIMITED DROP
+        </div>
+
+        <h3>ZUNYX HOODIE</h3>
+
+        <div class="price">
+          £34.99
+        </div>
+
+        <a
+          href="#"
+          class="buy"
+          onclick="addToCart('ZUNYX HOODIE',34.99);return false;"
+        >
+          ADD TO CART
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- CAP -->
+    <div class="product">
+
+      <img
+        src="product2.jpg"
+        alt="ZUNYX Cap"
+        class="product-image"
+      >
+
+      <div class="product-info">
+
+        <div class="badge">
+          NEW ARRIVAL
+        </div>
+
+        <h3>ZUNYX CAP</h3>
+
+        <div class="price">
+          £19.99
+        </div>
+
+        <a
+          href="#"
+          class="buy"
+          onclick="addToCart('ZUNYX CAP',19.99);return false;"
+        >
+          ADD TO CART
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- BRAND -->
+<section id="standard" class="standard">
+
+  <div>
+
+    <div class="small">
+      THE ZUNYX STANDARD
+    </div>
+
+    <h2>
+      MADE<br>
+      FOR<br>
+      MORE.
+    </h2>
+
+    <p>
+      We don't make sportswear for standing still.
+      ZUNYX is for the people who keep moving,
+      keep pushing and keep becoming more.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+  <div>
+    <strong>ZUNYX</strong>
+    <p>MADE FOR MORE.</p>
+  </div>
+
+  <div>
+    <p>© 2026 ZUNYX</p>
+    <p>ALL RIGHTS RESERVED.</p>
+  </div>
+
+</footer>
+
+
+<script>
+
+let cart = [];
+
+function addToCart(name,price){
+
+  cart.push({
+    name:name,
+    price:price
+  });
+
+  document.getElementById("cartCount").textContent = cart.length;
+
+  alert(
+    name +
+    " added to your ZUNYX cart."
+  );
+}
+
+</script>
 
 </body>
 </html>
