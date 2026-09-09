@@ -1,100 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ZUNYX Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZUNYX</title>
 <style>
 body{
 margin:0;
-font-family:Arial,sans-serif;
-background:#f7f7f7;
+font-family:Arial;
+background:#f4f4f4;
 color:#111;
 }
 header{
-background:#111;
+background:#000;
 color:white;
-padding:22px;
+padding:20px;
 display:flex;
 justify-content:space-between;
 align-items:center;
 }
 .logo{
-font-size:30px;
-font-weight:900;
+font-size:28px;
+font-weight:bold;
 letter-spacing:5px;
+}
+button{
+cursor:pointer;
 }
 .cart{
 background:white;
-color:#111;
 border:0;
-padding:12px 20px;
-border-radius:30px;
+padding:10px 18px;
+border-radius:20px;
 font-weight:bold;
 }
 .hero{
-background:#111;
+background:#000;
 color:white;
 text-align:center;
-padding:100px 20px;
+padding:90px 20px;
 }
 .hero h1{
-font-size:80px;
+font-size:70px;
 margin:0;
-letter-spacing:10px;
+letter-spacing:8px;
 }
 .hero p{
-font-size:18px;
+color:#aaa;
 letter-spacing:3px;
-color:#bbb;
 }
 .shop{
-max-width:1100px;
+max-width:1000px;
 margin:auto;
 padding:60px 20px;
 }
-h2{
+.shop h2{
 text-align:center;
 font-size:40px;
 }
-.grid{
+.products{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:25px;
 }
-.card{
+.product{
 background:white;
 border-radius:15px;
 overflow:hidden;
-box-shadow:0 5px 20px #0001;
 }
-.card img{
+.product img{
 width:100%;
-height:480px;
+height:450px;
 object-fit:cover;
 }
 .info{
-padding:22px;
+padding:20px;
 }
 .name{
-font-size:24px;
+font-size:22px;
 font-weight:bold;
 }
 .price{
-font-size:19px;
+font-size:18px;
 margin:10px 0 20px;
 }
 .add{
 width:100%;
-padding:15px;
-background:#111;
+padding:14px;
+background:#000;
 color:white;
 border:0;
 border-radius:8px;
 font-weight:bold;
 }
 .about{
-background:#111;
+background:#000;
 color:white;
 text-align:center;
 padding:70px 20px;
@@ -102,11 +102,11 @@ padding:70px 20px;
 .about p{
 max-width:600px;
 margin:auto;
-line-height:1.7;
-color:#bbb;
+line-height:1.6;
+color:#aaa;
 }
 footer{
-background:#111;
+background:#000;
 color:#777;
 text-align:center;
 padding:25px;
@@ -116,29 +116,25 @@ display:none;
 position:fixed;
 right:0;
 top:0;
-height:100%;
-width:360px;
+width:350px;
 max-width:100%;
+height:100%;
 background:white;
 padding:25px;
-z-index:50;
-box-shadow:-5px 0 25px #0004;
+z-index:100;
+box-shadow:-5px 0 20px #0005;
 }
 .close{
 float:right;
 border:0;
 border-radius:50%;
-padding:10px;
+padding:8px 12px;
 }
 .item{
-border-bottom:1px solid #ddd;
 padding:15px 0;
+border-bottom:1px solid #ddd;
 display:flex;
 justify-content:space-between;
-}
-.remove{
-border:0;
-padding:7px;
 }
 .total{
 font-size:22px;
@@ -149,23 +145,27 @@ margin-top:25px;
 width:100%;
 padding:15px;
 margin-top:20px;
-background:#111;
+background:#000;
 color:white;
 border:0;
 border-radius:8px;
+font-weight:bold;
 }
 @media(max-width:700px){
-.grid{grid-template-columns:1fr}
-.hero h1{font-size:50px}
-.card img{height:400px}
+.products{
+grid-template-columns:1fr;
+}
+.hero h1{
+font-size:50px;
+}
 }
 </style>
 </head>
 <body>
 <header>
 <div class="logo">ZUNYX</div>
-<button class="cart" onclick="showCart()">
-CART (<span id="number">0</span>)
+<button class="cart" onclick="openCart()">
+CART (<span id="count">0</span>)
 </button>
 </header>
 <section class="hero">
@@ -173,26 +173,34 @@ CART (<span id="number">0</span>)
 <p>MOVE DIFFERENT.</p>
 </section>
 <section class="shop">
-<h2>SHOP ZUNYX</h2>
-<div class="grid">
-<div class="card">
-<img src="product1.jpg" alt="ZUNYX Hoodie">
+<h2>SHOP</h2>
+<div class="products">
+<div class="product">
+<img src="product1.jpg">
 <div class="info">
-<div class="name">ZUNYX HOODIE</div>
-<div class="price">£34.99</div>
+<div class="name">
+ZUNYX HOODIE
+</div>
+<div class="price">
+£34.99
+</div>
 <button class="add"
-onclick="addItem('ZUNYX Hoodie',34.99)">
+onclick="add('ZUNYX Hoodie',34.99)">
 ADD TO CART
 </button>
 </div>
 </div>
-<div class="card">
-<img src="product2.jpg" alt="ZUNYX Performance">
+<div class="product">
+<img src="product2.jpg">
 <div class="info">
-<div class="name">ZUNYX PERFORMANCE</div>
-<div class="price">£55.00</div>
+<div class="name">
+ZUNYX PERFORMANCE
+</div>
+<div class="price">
+£55.00
+</div>
 <button class="add"
-onclick="addItem('ZUNYX Performance',55)">
+onclick="add('ZUNYX Performance',55)">
 ADD TO CART
 </button>
 </div>
@@ -200,80 +208,79 @@ ADD TO CART
 </div>
 </section>
 <section class="about">
-<h2>THE ZUNYX STANDARD</h2>
+<h2>ABOUT ZUNYX</h2>
 <p>
-Built different. Designed for movement.
-ZUNYX brings together sportswear and street style
-for people who want to stand out.
+ZUNYX is built different.
+Sportswear for people who move different.
 </p>
 </section>
 <footer>
 © 2026 ZUNYX
 </footer>
 <div id="cartBox">
-<button class="close" onclick="hideCart()">×</button>
+<button class="close" onclick="closeCart()">×</button>
 <h2>YOUR CART</h2>
-<div id="list">
+<div id="items">
 Your cart is empty.
 </div>
 <div class="total">
-TOTAL £<span id="sum">0.00</span>
+TOTAL: £<span id="total">0.00</span>
 </div>
 <button class="checkout" onclick="checkout()">
 CHECKOUT
 </button>
 </div>
 <script>
-let basket=[];
-function addItem(name,price){
-basket.push({
+let cart=[];
+function add(name,price){
+cart.push({
 name:name,
 price:price
 });
-update();
-showCart();
+updateCart();
+openCart();
 }
-function update(){
-document.getElementById("number").innerText=basket.length;
-let list=document.getElementById("list");
+function remove(i){
+cart.splice(i,1);
+updateCart();
+}
+function updateCart(){
+document.getElementById("count").innerText=cart.length;
+let box=document.getElementById("items");
 let total=0;
-list.innerHTML="";
-if(basket.length===0){
-list.innerHTML="Your cart is empty.";
+box.innerHTML="";
+if(cart.length===0){
+box.innerHTML="Your cart is empty.";
 }else{
-basket.forEach(function(item,i){
+cart.forEach(function(item,i){
 total+=item.price;
-list.innerHTML+=`
+box.innerHTML+=`
 <div class="item">
 <span>
 <b>${item.name}</b><br>
 £${item.price.toFixed(2)}
 </span>
-<button class="remove"
-onclick="removeItem(${i})">
-×
+<button onclick="remove(${i})">
+REMOVE
 </button>
 </div>
 `;
 });
 }
-document.getElementById("sum").innerText=total.toFixed(2);
+document.getElementById("total").innerText=
+total.toFixed(2);
 }
-function removeItem(i){
-basket.splice(i,1);
-update();
-}
-function showCart(){
+function openCart(){
 document.getElementById("cartBox").style.display="block";
 }
-function hideCart(){
+function closeCart(){
 document.getElementById("cartBox").style.display="none";
 }
 function checkout(){
-if(basket.length===0){
+if(cart.length===0){
 alert("Your cart is empty!");
 }else{
-alert("ZUNYX checkout coming soon!");
+alert("Checkout coming soon!");
 }
 }
 </script>
