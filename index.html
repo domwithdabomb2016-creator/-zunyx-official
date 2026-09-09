@@ -3,30 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ZUNYX — MOVE DIFFERENT</title>
-
+<title>ZUNYX — MADE FOR MORE</title>
 <style>
-
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 }
-
 html{
 scroll-behavior:smooth;
 }
-
 body{
 font-family:Arial,Helvetica,sans-serif;
 background:#050505;
 color:#fff;
 overflow-x:hidden;
 }
-
-/* ================= HEADER ================= */
-
 header{
 position:fixed;
 top:0;
@@ -34,570 +26,340 @@ left:0;
 width:100%;
 height:74px;
 z-index:1000;
-
 display:flex;
 align-items:center;
 justify-content:space-between;
-
 padding:0 30px;
-
 background:rgba(0,0,0,.65);
 backdrop-filter:blur(18px);
-
 border-bottom:1px solid rgba(255,255,255,.1);
 }
-
 .logo{
 font-size:27px;
 font-weight:1000;
 letter-spacing:7px;
-
-text-shadow:
-0 0 15px rgba(255,255,255,.3);
+text-shadow:0 0 15px rgba(255,255,255,.3);
 }
-
 .nav{
 display:flex;
 gap:32px;
 }
-
 .nav a{
 color:#999;
 text-decoration:none;
-
 font-size:11px;
 font-weight:bold;
 letter-spacing:3px;
-
 transition:.25s;
 }
-
 .nav a:hover{
 color:#fff;
 }
-
 .cart-button{
 background:#fff;
 color:#000;
-
 border:0;
 border-radius:30px;
-
 padding:12px 19px;
-
 font-size:11px;
 font-weight:900;
-
 cursor:pointer;
-
 transition:.25s;
 }
-
 .cart-button:hover{
 transform:scale(1.07);
 box-shadow:0 0 25px rgba(255,255,255,.25);
 }
-
-
-/* ================= HERO ================= */
-
 .hero{
 height:100vh;
 min-height:650px;
-
 position:relative;
-
 display:flex;
 align-items:center;
 justify-content:center;
-
 text-align:center;
-
 overflow:hidden;
-
 background:#000;
 }
-
-/* MOVING LIGHTS */
-
 .hero:before{
 content:"";
-
 position:absolute;
-
 width:700px;
 height:700px;
-
 border-radius:50%;
-
 background:#fff;
-
 opacity:.045;
-
 filter:blur(120px);
-
 animation:pulse 5s ease-in-out infinite;
 }
-
 .hero:after{
 content:"";
-
 position:absolute;
-
 width:400px;
 height:400px;
-
 border-radius:50%;
-
 background:#fff;
-
 opacity:.025;
-
 filter:blur(100px);
-
 animation:float 8s ease-in-out infinite;
 }
-
 @keyframes pulse{
-
 0%,100%{
 transform:scale(.8);
 opacity:.025;
 }
-
 50%{
 transform:scale(1.25);
 opacity:.07;
 }
-
 }
-
 @keyframes float{
-
 0%,100%{
 transform:translate(-180px,80px);
 }
-
 50%{
 transform:translate(180px,-80px);
 }
-
 }
-
 .hero-content{
 position:relative;
-
 z-index:2;
-
 animation:heroIn 1.2s ease;
 }
-
 @keyframes heroIn{
-
 from{
 opacity:0;
 transform:translateY(35px);
 }
-
 to{
 opacity:1;
 transform:translateY(0);
 }
-
 }
-
 .est{
 font-size:10px;
-
 letter-spacing:7px;
-
 color:#777;
-
 margin-bottom:28px;
 }
-
 .hero h1{
 font-size:clamp(65px,16vw,185px);
-
 font-weight:1000;
-
 letter-spacing:14px;
-
 line-height:.82;
-
 background:linear-gradient(
 90deg,
 #444,
 #fff,
 #444
 );
-
 background-size:300%;
-
 -webkit-background-clip:text;
-
 color:transparent;
-
 animation:shine 4s linear infinite;
-
-text-shadow:0 0 50px rgba(255,255,255,.08);
 }
-
 @keyframes shine{
-
 0%{
 background-position:300%;
 }
-
 100%{
 background-position:-300%;
 }
-
 }
-
 .hero-sub{
 margin-top:32px;
-
 font-size:15px;
-
 letter-spacing:8px;
-
 color:#aaa;
 }
-
 .hero-buttons{
 margin-top:42px;
-
 display:flex;
-
 justify-content:center;
-
 gap:14px;
-
 flex-wrap:wrap;
 }
-
 .btn{
 padding:16px 31px;
-
 border-radius:40px;
-
 text-decoration:none;
-
 font-size:11px;
-
 font-weight:900;
-
 letter-spacing:2px;
-
 transition:.3s;
 }
-
 .primary{
 background:#fff;
-
 color:#000;
 }
-
 .secondary{
 border:1px solid #444;
-
 color:#fff;
 }
-
 .btn:hover{
 transform:translateY(-5px);
-
 box-shadow:0 15px 30px rgba(0,0,0,.3);
 }
-
-
-/* ================= SCROLL ================= */
-
 .scroll{
 position:absolute;
-
 bottom:30px;
-
 left:50%;
-
 transform:translateX(-50%);
-
 font-size:9px;
-
 letter-spacing:4px;
-
 color:#555;
-
 animation:bounce 2s infinite;
 }
-
 @keyframes bounce{
-
 0%,100%{
 transform:translate(-50%,0);
 }
-
 50%{
 transform:translate(-50%,8px);
 }
-
 }
-
-
-/* ================= MARQUEE ================= */
-
 .marquee{
 overflow:hidden;
-
 background:#fff;
-
 color:#000;
-
 padding:15px 0;
-
 white-space:nowrap;
-
 font-size:11px;
-
 font-weight:1000;
-
 letter-spacing:4px;
 }
-
 .marquee-track{
 display:inline-block;
-
 animation:marquee 20s linear infinite;
 }
-
 @keyframes marquee{
-
 from{
 transform:translateX(0);
 }
-
 to{
 transform:translateX(-50%);
 }
-
 }
-
-
-/* ================= DROP TITLE ================= */
-
 .drop{
 text-align:center;
-
 padding:110px 20px 60px;
-
 background:#050505;
 }
-
 .drop-label{
 font-size:10px;
-
 letter-spacing:6px;
-
 color:#666;
-
 margin-bottom:18px;
 }
-
 .drop h2{
 font-size:clamp(45px,8vw,90px);
-
 font-weight:1000;
-
 letter-spacing:4px;
 }
-
 .drop p{
 margin-top:18px;
-
 color:#666;
-
 font-size:14px;
 }
-
-
-/* ================= SHOP ================= */
-
 .shop{
 max-width:1150px;
-
 margin:auto;
-
 padding:20px 20px 120px;
 }
-
 .products{
 display:grid;
-
 grid-template-columns:1fr 1fr;
-
 gap:30px;
 }
-
-
-/* ================= PRODUCT ================= */
-
 .product{
 position:relative;
-
 background:#0c0c0c;
-
 border:1px solid #222;
-
 border-radius:24px;
-
 overflow:hidden;
-
 transition:.4s;
-
 box-shadow:0 10px 40px rgba(0,0,0,.4);
 }
-
 .product:hover{
 transform:translateY(-12px);
-
 border-color:#555;
-
-box-shadow:
-0 30px 80px rgba(255,255,255,.08);
+box-shadow:0 30px 80px rgba(255,255,255,.08);
 }
-
 .badge{
 position:absolute;
-
 top:18px;
 left:18px;
-
 z-index:3;
-
 background:#fff;
-
 color:#000;
-
 padding:8px 12px;
-
 border-radius:20px;
-
 font-size:9px;
-
 font-weight:1000;
-
 letter-spacing:2px;
 }
-
 .image-wrap{
 background:#e9e9e9;
-
 overflow:hidden;
-
 position:relative;
 }
-
 .product-image{
 width:100%;
-
 height:auto;
-
 display:block;
-
 object-fit:contain;
-
 transition:.6s;
 }
-
 .product:hover .product-image{
 transform:scale(1.035);
 }
-
 .product-info{
 padding:28px;
 }
-
 .product-tag{
 font-size:9px;
-
 letter-spacing:4px;
-
 color:#666;
-
 margin-bottom:12px;
 }
-
 .product-name{
 font-size:28px;
-
 font-weight:1000;
 }
-
 .price{
 font-size:20px;
-
 font-weight:bold;
-
 margin-top:9px;
-
 color:#ccc;
 }
-
 .add{
 width:100%;
-
 margin-top:25px;
-
 padding:17px;
-
 border:1px solid #333;
-
 border-radius:10px;
-
 background:#fff;
-
 color:#000;
-
 font-size:11px;
-
 font-weight:1000;
-
 letter-spacing:2px;
-
 cursor:pointer;
-
 transition:.3s;
 }
-
 .add:hover{
 background:#ddd;
-
 transform:translateY(-3px);
-
 box-shadow:0 10px 30px rgba(255,255,255,.1);
 }
-
-
-/* ================= BRAND SECTION ================= */
-
 .brand{
 min-height:600px;
-
 display:flex;
-
 align-items:center;
-
 justify-content:center;
-
 text-align:center;
-
 padding:100px 20px;
-
 position:relative;
-
 overflow:hidden;
-
 background:
 radial-gradient(
 circle at center,
@@ -605,758 +367,405 @@ circle at center,
 #050505 55%,
 #000 100%
 );
-
 border-top:1px solid #1d1d1d;
 border-bottom:1px solid #1d1d1d;
 }
-
 .brand-content{
 max-width:850px;
-
 position:relative;
-
 z-index:2;
 }
-
 .brand h2{
 font-size:clamp(50px,10vw,110px);
-
 font-weight:1000;
-
 line-height:.9;
-
 letter-spacing:5px;
 }
-
 .brand p{
 max-width:600px;
-
 margin:30px auto 0;
-
 color:#777;
-
 line-height:1.9;
-
 font-size:15px;
 }
-
-
-/* ================= FOOTER ================= */
-
 footer{
 background:#000;
-
 text-align:center;
-
 padding:60px 20px;
 }
-
 .footer-logo{
 font-size:32px;
-
 font-weight:1000;
-
 letter-spacing:8px;
 }
-
 footer p{
 margin-top:17px;
-
 font-size:9px;
-
 letter-spacing:3px;
-
 color:#444;
 }
-
-
-/* ================= CART ================= */
-
 .overlay{
 display:none;
-
 position:fixed;
-
 inset:0;
-
 background:rgba(0,0,0,.8);
-
 backdrop-filter:blur(7px);
-
 z-index:1500;
 }
-
 .overlay.show{
 display:block;
 }
-
 .cart{
 position:fixed;
-
 top:0;
-
 right:-450px;
-
 width:430px;
-
 max-width:100%;
-
 height:100%;
-
 background:#fff;
-
 color:#000;
-
 z-index:1600;
-
 padding:28px;
-
 transition:.4s;
-
 overflow-y:auto;
 }
-
 .cart.show{
 right:0;
 }
-
 .cart-header{
 display:flex;
-
 align-items:center;
-
 justify-content:space-between;
-
 padding-bottom:22px;
-
 border-bottom:1px solid #ddd;
 }
-
 .cart-header h2{
 font-size:27px;
 }
-
 .close{
 width:40px;
 height:40px;
-
 border:0;
-
 border-radius:50%;
-
 background:#eee;
-
 font-size:22px;
-
 cursor:pointer;
 }
-
 .cart-item{
 display:flex;
-
 align-items:center;
-
 justify-content:space-between;
-
 gap:15px;
-
 padding:20px 0;
-
 border-bottom:1px solid #ddd;
 }
-
 .item-name{
 font-weight:bold;
 }
-
 .item-price{
 color:#777;
-
 margin-top:5px;
 }
-
 .remove{
 border:0;
-
 background:#eee;
-
 padding:9px;
-
 border-radius:7px;
-
 font-size:10px;
-
 font-weight:bold;
-
 cursor:pointer;
 }
-
 .empty{
 text-align:center;
-
 padding:45px 0;
-
 color:#888;
 }
-
 .cart-bottom{
 margin-top:28px;
 }
-
 .total{
 display:flex;
-
 justify-content:space-between;
-
 font-size:22px;
-
 font-weight:1000;
 }
-
 .checkout{
 width:100%;
-
 padding:18px;
-
 margin-top:22px;
-
 background:#000;
-
 color:#fff;
-
 border:0;
-
 border-radius:10px;
-
 font-weight:900;
-
 cursor:pointer;
 }
-
-
-/* ================= MOBILE ================= */
-
 @media(max-width:700px){
-
 header{
 padding:0 16px;
 }
-
 .logo{
 font-size:21px;
-
 letter-spacing:5px;
 }
-
 .nav{
 display:none;
 }
-
 .hero{
 min-height:650px;
 }
-
 .hero h1{
 letter-spacing:7px;
 }
-
 .hero-sub{
 letter-spacing:4px;
 }
-
 .products{
 grid-template-columns:1fr;
 }
-
 .drop{
 padding-top:80px;
 }
-
 .brand{
 min-height:480px;
 }
-
 .cart{
 width:100%;
 }
-
 }
-
 </style>
-
 </head>
-
-
 <body>
-
-
-<!-- HEADER -->
-
 <header>
-
 <div class="logo">
 ZUNYX
 </div>
-
 <nav class="nav">
-
-<a href="#shop">
-SHOP
-</a>
-
-<a href="#brand">
-ABOUT
-</a>
-
+<a href="#shop">SHOP</a>
+<a href="#brand">ABOUT</a>
 </nav>
-
-<button
-class="cart-button"
-onclick="openCart()"
->
-
+<button class="cart-button" onclick="openCart()">
 CART (<span id="count">0</span>)
-
 </button>
-
 </header>
-
-
-<!-- HERO -->
-
 <section class="hero">
-
 <div class="hero-content">
-
 <div class="est">
 EST. 2026 • THE FIRST DROP
 </div>
-
-<h1>
-ZUNYX
-</h1>
-
+<h1>ZUNYX</h1>
 <div class="hero-sub">
-MOVE DIFFERENT.
+MADE FOR MORE.
 </div>
-
 <div class="hero-buttons">
-
-<a
-href="#shop"
-class="btn primary"
->
+<a href="#shop" class="btn primary">
 SHOP THE DROP
 </a>
-
-<a
-href="#brand"
-class="btn secondary"
->
+<a href="#brand" class="btn secondary">
 THE ZUNYX STANDARD
 </a>
-
 </div>
-
 </div>
-
 <div class="scroll">
 SCROLL TO EXPLORE ↓
 </div>
-
 </section>
-
-
-<!-- MARQUEE -->
-
 <div class="marquee">
-
 <div class="marquee-track">
-
-ZUNYX • MOVE DIFFERENT • BUILT DIFFERENT •
-ZUNYX • MOVE DIFFERENT • BUILT DIFFERENT •
-ZUNYX • MOVE DIFFERENT • BUILT DIFFERENT •
-ZUNYX • MOVE DIFFERENT • BUILT DIFFERENT •
-
+ZUNYX • MADE FOR MORE • BUILT DIFFERENT •
+ZUNYX • MADE FOR MORE • BUILT DIFFERENT •
+ZUNYX • MADE FOR MORE • BUILT DIFFERENT •
+ZUNYX • MADE FOR MORE • BUILT DIFFERENT •
 </div>
-
 </div>
-
-
-<!-- DROP -->
-
 <section class="drop">
-
 <div class="drop-label">
 01 / THE FIRST DROP
 </div>
-
 <h2>
 NO ORDINARY GEAR.
 </h2>
-
 <p>
 Two pieces. One identity.
 </p>
-
 </section>
-
-
-<!-- PRODUCTS -->
-
-<section
-class="shop"
-id="shop"
->
-
+<section class="shop" id="shop">
 <div class="products">
-
-
-<!-- HOODIE -->
-
 <div class="product">
-
 <div class="badge">
 LIMITED DROP
 </div>
-
 <div class="image-wrap">
-
 <img
 src="product1.jpg"
 alt="ZUNYX Hoodie"
 class="product-image"
 >
-
 </div>
-
 <div class="product-info">
-
 <div class="product-tag">
 ZUNYX ESSENTIALS
 </div>
-
 <div class="product-name">
 ZUNYX HOODIE
 </div>
-
 <div class="price">
 £34.99
 </div>
-
 <button
 class="add"
 onclick="addToCart('ZUNYX Hoodie',34.99)"
 >
 ADD TO CART
 </button>
-
 </div>
-
 </div>
-
-
-<!-- CAP -->
-
 <div class="product">
-
 <div class="badge">
 NEW ARRIVAL
 </div>
-
 <div class="image-wrap">
-
 <img
 src="product2.jpg"
 alt="ZUNYX Cap"
 class="product-image"
 >
-
 </div>
-
 <div class="product-info">
-
 <div class="product-tag">
 ZUNYX ACCESSORIES
 </div>
-
 <div class="product-name">
 ZUNYX CAP
 </div>
-
 <div class="price">
 £19.99
 </div>
-
 <button
 class="add"
 onclick="addToCart('ZUNYX Cap',19.99)"
 >
 ADD TO CART
 </button>
-
 </div>
-
 </div>
-
-
 </div>
-
 </section>
-
-
-<!-- BRAND -->
-
-<section
-class="brand"
-id="brand"
->
-
+<section class="brand" id="brand">
 <div class="brand-content">
-
 <div class="drop-label">
 THE ZUNYX STANDARD
 </div>
-
 <h2>
-MOVE<br>
-DIFFERENT.
+MADE FOR<br>
+MORE.
 </h2>
-
 <p>
 ZUNYX isn't made to blend in.
 It's made for movement, confidence and individuality.
 Wear the difference.
 </p>
-
 </div>
-
 </section>
-
-
-<!-- FOOTER -->
-
 <footer>
-
 <div class="footer-logo">
 ZUNYX
 </div>
-
 <p>
 © 2026 ZUNYX — ALL RIGHTS RESERVED
 </p>
-
 </footer>
-
-
-<!-- OVERLAY -->
-
-<div
-id="overlay"
-class="overlay"
-onclick="closeCart()"
-></div>
-
-
-<!-- CART -->
-
-<div
-id="cart"
-class="cart"
->
-
+<div id="overlay" class="overlay" onclick="closeCart()"></div>
+<div id="cart" class="cart">
 <div class="cart-header">
-
 <h2>
 YOUR CART
 </h2>
-
-<button
-class="close"
-onclick="closeCart()"
->
+<button class="close" onclick="closeCart()">
 ×
 </button>
-
 </div>
-
-
 <div id="items">
-
 <div class="empty">
 Your cart is empty.
 </div>
-
 </div>
-
-
 <div class="cart-bottom">
-
 <div class="total">
-
-<span>
-TOTAL
-</span>
-
+<span>TOTAL</span>
 <span>
 £<span id="total">0.00</span>
 </span>
-
 </div>
-
-
-<button
-class="checkout"
-onclick="checkout()"
->
+<button class="checkout" onclick="checkout()">
 CHECKOUT
 </button>
-
 </div>
-
 </div>
-
-
 <script>
-
 let cart=[];
-
-
 function addToCart(name,price){
-
 cart.push({
 name:name,
 price:price
 });
-
 updateCart();
-
 openCart();
-
 }
-
-
 function removeItem(index){
-
 cart.splice(index,1);
-
 updateCart();
-
 }
-
-
 function updateCart(){
-
 document.getElementById("count").textContent=cart.length;
-
 const items=document.getElementById("items");
-
 let total=0;
-
-
 if(cart.length===0){
-
 items.innerHTML=
 '<div class="empty">Your cart is empty.</div>';
-
 document.getElementById("total").textContent="0.00";
-
 return;
-
 }
-
-
 items.innerHTML="";
-
-
 cart.forEach(function(item,index){
-
 total+=item.price;
-
 items.innerHTML+=`
-
 <div class="cart-item">
-
 <div>
-
 <div class="item-name">
 ${item.name}
 </div>
-
 <div class="item-price">
 £${item.price.toFixed(2)}
 </div>
-
 </div>
-
 <button
 class="remove"
 onclick="removeItem(${index})"
 >
 REMOVE
 </button>
-
 </div>
-
 `;
-
 });
-
-
 document.getElementById("total").textContent=
 total.toFixed(2);
-
 }
-
-
 function openCart(){
-
-document
-.getElementById("cart")
-.classList
-.add("show");
-
-document
-.getElementById("overlay")
-.classList
-.add("show");
-
+document.getElementById("cart").classList.add("show");
+document.getElementById("overlay").classList.add("show");
 }
-
-
 function closeCart(){
-
-document
-.getElementById("cart")
-.classList
-.remove("show");
-
-document
-.getElementById("overlay")
-.classList
-.remove("show");
-
+document.getElementById("cart").classList.remove("show");
+document.getElementById("overlay").classList.remove("show");
 }
-
-
 function checkout(){
-
 if(cart.length===0){
-
 alert("Your cart is empty!");
-
 return;
-
 }
-
-alert(
-"ZUNYX checkout is coming soon."
-);
-
+alert("ZUNYX checkout is coming soon.");
 }
-
 </script>
-
-
 </body>
 </html>
