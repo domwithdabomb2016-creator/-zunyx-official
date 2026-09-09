@@ -1,14 +1,622 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>ZUNYX TEST</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZUNYX | Move Different</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f5f5;
+  color:#111;
+}
+
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  height:72px;
+  background:#000;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 22px;
+}
+
+.logo{
+  font-size:27px;
+  font-weight:900;
+  letter-spacing:6px;
+}
+
+.cart-button{
+  background:#fff;
+  color:#000;
+  border:0;
+  border-radius:30px;
+  padding:12px 18px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero{
+  min-height:560px;
+  background:#000;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:60px 20px;
+}
+
+.hero h1{
+  font-size:clamp(60px,14vw,140px);
+  font-weight:900;
+  letter-spacing:12px;
+}
+
+.hero p{
+  margin-top:25px;
+  color:#999;
+  letter-spacing:5px;
+  font-size:16px;
+}
+
+.shop-button{
+  display:inline-block;
+  margin-top:35px;
+  padding:16px 30px;
+  background:#fff;
+  color:#000;
+  text-decoration:none;
+  border-radius:30px;
+  font-weight:bold;
+}
+
+/* SHOP */
+.shop{
+  max-width:1100px;
+  margin:auto;
+  padding:75px 20px;
+}
+
+.shop-title{
+  text-align:center;
+  font-size:44px;
+  font-weight:900;
+  margin-bottom:45px;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+/* PRODUCTS */
+.product{
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid #ddd;
+  transition:.25s;
+}
+
+.product:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 35px #0002;
+}
+
+/* FULL IMAGE - NO CROPPING */
+.product-image{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+  background:#eee;
+}
+
+.product-info{
+  padding:24px;
+}
+
+.tag{
+  color:#888;
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:2px;
+  margin-bottom:9px;
+}
+
+.product-name{
+  font-size:25px;
+  font-weight:900;
+}
+
+.price{
+  font-size:19px;
+  font-weight:bold;
+  margin:10px 0 22px;
+}
+
+.add{
+  width:100%;
+  padding:16px;
+  border:0;
+  border-radius:9px;
+  background:#000;
+  color:#fff;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* ABOUT */
+.about{
+  background:#000;
+  color:#fff;
+  text-align:center;
+  padding:85px 20px;
+}
+
+.about h2{
+  font-size:40px;
+  margin-bottom:20px;
+}
+
+.about p{
+  max-width:650px;
+  margin:auto;
+  color:#999;
+  line-height:1.8;
+}
+
+/* FOOTER */
+footer{
+  background:#000;
+  color:#666;
+  text-align:center;
+  padding:30px;
+  font-size:12px;
+  letter-spacing:2px;
+}
+
+/* CART */
+.overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#0008;
+  z-index:150;
+}
+
+.overlay.show{
+  display:block;
+}
+
+.cart{
+  position:fixed;
+  right:-430px;
+  top:0;
+  width:420px;
+  max-width:100%;
+  height:100%;
+  background:#fff;
+  z-index:200;
+  padding:25px;
+  transition:.3s;
+  overflow-y:auto;
+}
+
+.cart.show{
+  right:0;
+}
+
+.cart-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-bottom:20px;
+  border-bottom:1px solid #ddd;
+}
+
+.cart-header h2{
+  font-size:27px;
+}
+
+.close{
+  border:0;
+  background:#eee;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  font-size:23px;
+  cursor:pointer;
+}
+
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 0;
+  border-bottom:1px solid #ddd;
+}
+
+.item-name{
+  font-weight:bold;
+}
+
+.item-price{
+  color:#666;
+  margin-top:5px;
+}
+
+.remove{
+  border:0;
+  background:#eee;
+  padding:9px;
+  border-radius:7px;
+  cursor:pointer;
+}
+
+.empty{
+  text-align:center;
+  color:#888;
+  padding:35px 0;
+}
+
+.total{
+  display:flex;
+  justify-content:space-between;
+  margin-top:25px;
+  font-size:22px;
+  font-weight:900;
+}
+
+.checkout{
+  width:100%;
+  padding:17px;
+  margin-top:20px;
+  border:0;
+  border-radius:9px;
+  background:#000;
+  color:#fff;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+  .products{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    min-height:480px;
+  }
+
+  .hero h1{
+    letter-spacing:6px;
+  }
+
+  .shop-title{
+    font-size:35px;
+  }
+
+  .cart{
+    width:100%;
+  }
+}
+</style>
 </head>
 
-<body style="background:red;color:white;text-align:center;padding-top:100px;">
+<body>
 
-<h1 style="font-size:60px;">ZUNYX NEW TEST</h1>
+<header>
+  <div class="logo">ZUNYX</div>
 
-<p>IF YOU SEE THIS, THE NEW FILE IS WORKING.</p>
+  <button class="cart-button" onclick="openCart()">
+    CART (<span id="count">0</span>)
+  </button>
+</header>
+
+
+<section class="hero">
+
+  <div>
+    <h1>ZUNYX</h1>
+
+    <p>MOVE DIFFERENT.</p>
+
+    <a href="#shop" class="shop-button">
+      SHOP NOW
+    </a>
+  </div>
+
+</section>
+
+
+<section class="shop" id="shop">
+
+  <h2 class="shop-title">
+    SHOP ZUNYX
+  </h2>
+
+  <div class="products">
+
+    <!-- HOODIE -->
+
+    <div class="product">
+
+      <img
+        src="product1.jpg"
+        alt="ZUNYX Hoodie"
+        class="product-image"
+      >
+
+      <div class="product-info">
+
+        <div class="tag">
+          ZUNYX ESSENTIALS
+        </div>
+
+        <div class="product-name">
+          ZUNYX HOODIE
+        </div>
+
+        <div class="price">
+          £34.99
+        </div>
+
+        <button
+          class="add"
+          onclick="addToCart('ZUNYX Hoodie',34.99)"
+        >
+          ADD TO CART
+        </button>
+
+      </div>
+    </div>
+
+
+    <!-- CAP -->
+
+    <div class="product">
+
+      <img
+        src="product2.jpg"
+        alt="ZUNYX Cap"
+        class="product-image"
+      >
+
+      <div class="product-info">
+
+        <div class="tag">
+          ZUNYX ACCESSORIES
+        </div>
+
+        <div class="product-name">
+          ZUNYX CAP
+        </div>
+
+        <div class="price">
+          £24.99
+        </div>
+
+        <button
+          class="add"
+          onclick="addToCart('ZUNYX Cap',24.99)"
+        >
+          ADD TO CART
+        </button>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="about">
+
+  <h2>MOVE DIFFERENT.</h2>
+
+  <p>
+    ZUNYX is built for people who move different.
+    Clean sportswear. Strong style. No limits.
+  </p>
+
+</section>
+
+
+<footer>
+  © 2026 ZUNYX — ALL RIGHTS RESERVED
+</footer>
+
+
+<div
+  id="overlay"
+  class="overlay"
+  onclick="closeCart()"
+></div>
+
+
+<div id="cart" class="cart">
+
+  <div class="cart-header">
+
+    <h2>YOUR CART</h2>
+
+    <button
+      class="close"
+      onclick="closeCart()"
+    >
+      ×
+    </button>
+
+  </div>
+
+  <div id="items">
+
+    <div class="empty">
+      Your cart is empty.
+    </div>
+
+  </div>
+
+  <div class="total">
+
+    <span>TOTAL</span>
+
+    <span>
+      £<span id="total">0.00</span>
+    </span>
+
+  </div>
+
+  <button
+    class="checkout"
+    onclick="checkout()"
+  >
+    CHECKOUT
+  </button>
+
+</div>
+
+
+<script>
+
+let cart=[];
+
+
+function addToCart(name,price){
+
+  cart.push({
+    name:name,
+    price:price
+  });
+
+  updateCart();
+  openCart();
+
+}
+
+
+function removeItem(index){
+
+  cart.splice(index,1);
+
+  updateCart();
+
+}
+
+
+function updateCart(){
+
+  document.getElementById("count").textContent=cart.length;
+
+  const items=document.getElementById("items");
+
+  let total=0;
+
+  if(cart.length===0){
+
+    items.innerHTML=
+    '<div class="empty">Your cart is empty.</div>';
+
+    document.getElementById("total").textContent="0.00";
+
+    return;
+  }
+
+  items.innerHTML="";
+
+  cart.forEach(function(item,index){
+
+    total+=item.price;
+
+    items.innerHTML+=`
+
+      <div class="cart-item">
+
+        <div>
+
+          <div class="item-name">
+            ${item.name}
+          </div>
+
+          <div class="item-price">
+            £${item.price.toFixed(2)}
+          </div>
+
+        </div>
+
+        <button
+          class="remove"
+          onclick="removeItem(${index})"
+        >
+          REMOVE
+        </button>
+
+      </div>
+
+    `;
+
+  });
+
+  document.getElementById("total").textContent=
+    total.toFixed(2);
+
+}
+
+
+function openCart(){
+
+  document.getElementById("cart").classList.add("show");
+
+  document.getElementById("overlay").classList.add("show");
+
+}
+
+
+function closeCart(){
+
+  document.getElementById("cart").classList.remove("show");
+
+  document.getElementById("overlay").classList.remove("show");
+
+}
+
+
+function checkout(){
+
+  if(cart.length===0){
+
+    alert("Your cart is empty!");
+
+  }else{
+
+    alert(
+      "ZUNYX checkout is coming soon."
+    );
+
+  }
+
+}
+
+</script>
 
 </body>
 </html>
