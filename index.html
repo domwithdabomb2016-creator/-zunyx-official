@@ -21,7 +21,7 @@ scroll-behavior:smooth;
 body{
 font-family:Arial,Helvetica,sans-serif;
 background:#050505;
-color:white;
+color:#fff;
 overflow-x:hidden;
 }
 
@@ -32,54 +32,60 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-height:75px;
+height:74px;
 z-index:1000;
 
 display:flex;
 align-items:center;
 justify-content:space-between;
 
-padding:0 35px;
+padding:0 30px;
 
-background:rgba(0,0,0,.72);
-backdrop-filter:blur(15px);
+background:rgba(0,0,0,.65);
+backdrop-filter:blur(18px);
 
-border-bottom:1px solid rgba(255,255,255,.08);
+border-bottom:1px solid rgba(255,255,255,.1);
 }
 
 .logo{
 font-size:27px;
 font-weight:1000;
 letter-spacing:7px;
+
+text-shadow:
+0 0 15px rgba(255,255,255,.3);
 }
 
 .nav{
 display:flex;
-gap:30px;
+gap:32px;
 }
 
 .nav a{
-color:#aaa;
+color:#999;
 text-decoration:none;
-font-size:12px;
+
+font-size:11px;
 font-weight:bold;
-letter-spacing:2px;
+letter-spacing:3px;
+
 transition:.25s;
 }
 
 .nav a:hover{
-color:white;
+color:#fff;
 }
 
 .cart-button{
-background:white;
-color:black;
+background:#fff;
+color:#000;
+
 border:0;
 border-radius:30px;
 
 padding:12px 19px;
 
-font-size:12px;
+font-size:11px;
 font-weight:900;
 
 cursor:pointer;
@@ -88,162 +94,273 @@ transition:.25s;
 }
 
 .cart-button:hover{
-transform:scale(1.06);
+transform:scale(1.07);
+box-shadow:0 0 25px rgba(255,255,255,.25);
 }
+
 
 /* ================= HERO ================= */
 
 .hero{
-min-height:100vh;
+height:100vh;
+min-height:650px;
+
+position:relative;
 
 display:flex;
 align-items:center;
 justify-content:center;
 
-position:relative;
+text-align:center;
+
 overflow:hidden;
 
-background:
-radial-gradient(circle at 50% 40%,#242424 0%,#090909 35%,#000 70%);
+background:#000;
 }
+
+/* MOVING LIGHTS */
 
 .hero:before{
 content:"";
 
 position:absolute;
 
-width:600px;
-height:600px;
+width:700px;
+height:700px;
 
 border-radius:50%;
 
 background:#fff;
 
-opacity:.035;
+opacity:.045;
+
+filter:blur(120px);
+
+animation:pulse 5s ease-in-out infinite;
+}
+
+.hero:after{
+content:"";
+
+position:absolute;
+
+width:400px;
+height:400px;
+
+border-radius:50%;
+
+background:#fff;
+
+opacity:.025;
 
 filter:blur(100px);
+
+animation:float 8s ease-in-out infinite;
+}
+
+@keyframes pulse{
+
+0%,100%{
+transform:scale(.8);
+opacity:.025;
+}
+
+50%{
+transform:scale(1.25);
+opacity:.07;
+}
+
+}
+
+@keyframes float{
+
+0%,100%{
+transform:translate(-180px,80px);
+}
+
+50%{
+transform:translate(180px,-80px);
+}
+
 }
 
 .hero-content{
 position:relative;
+
 z-index:2;
 
-text-align:center;
+animation:heroIn 1.2s ease;
 }
 
-.small-title{
-font-size:11px;
-letter-spacing:6px;
-color:#888;
+@keyframes heroIn{
 
-margin-bottom:25px;
+from{
+opacity:0;
+transform:translateY(35px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+.est{
+font-size:10px;
+
+letter-spacing:7px;
+
+color:#777;
+
+margin-bottom:28px;
 }
 
 .hero h1{
-font-size:clamp(70px,16vw,180px);
+font-size:clamp(65px,16vw,185px);
 
 font-weight:1000;
 
-letter-spacing:15px;
+letter-spacing:14px;
 
-line-height:.8;
+line-height:.82;
 
 background:linear-gradient(
 90deg,
-#555,
+#444,
 #fff,
-#555
+#444
 );
 
-background-size:200%;
+background-size:300%;
 
 -webkit-background-clip:text;
+
 color:transparent;
 
-animation:shine 5s linear infinite;
+animation:shine 4s linear infinite;
+
+text-shadow:0 0 50px rgba(255,255,255,.08);
 }
 
 @keyframes shine{
 
 0%{
-background-position:200%;
+background-position:300%;
 }
 
 100%{
-background-position:-200%;
+background-position:-300%;
 }
 
 }
 
 .hero-sub{
-margin-top:35px;
+margin-top:32px;
 
-font-size:16px;
+font-size:15px;
 
-letter-spacing:7px;
+letter-spacing:8px;
 
 color:#aaa;
 }
 
 .hero-buttons{
-margin-top:40px;
+margin-top:42px;
 
 display:flex;
 
 justify-content:center;
 
-gap:15px;
+gap:14px;
 
 flex-wrap:wrap;
 }
 
-.primary-btn,
-.secondary-btn{
-padding:16px 30px;
+.btn{
+padding:16px 31px;
 
-border-radius:30px;
+border-radius:40px;
 
 text-decoration:none;
 
-font-weight:bold;
+font-size:11px;
 
-font-size:12px;
+font-weight:900;
 
-letter-spacing:1px;
+letter-spacing:2px;
 
-transition:.25s;
+transition:.3s;
 }
 
-.primary-btn{
-background:white;
-color:black;
+.primary{
+background:#fff;
+
+color:#000;
 }
 
-.secondary-btn{
+.secondary{
 border:1px solid #444;
-color:white;
+
+color:#fff;
 }
 
-.primary-btn:hover,
-.secondary-btn:hover{
-transform:translateY(-4px);
+.btn:hover{
+transform:translateY(-5px);
+
+box-shadow:0 15px 30px rgba(0,0,0,.3);
 }
+
+
+/* ================= SCROLL ================= */
+
+.scroll{
+position:absolute;
+
+bottom:30px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+font-size:9px;
+
+letter-spacing:4px;
+
+color:#555;
+
+animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+
+0%,100%{
+transform:translate(-50%,0);
+}
+
+50%{
+transform:translate(-50%,8px);
+}
+
+}
+
 
 /* ================= MARQUEE ================= */
 
 .marquee{
 overflow:hidden;
 
-background:white;
-color:black;
+background:#fff;
 
-padding:14px 0;
+color:#000;
+
+padding:15px 0;
 
 white-space:nowrap;
 
-font-size:12px;
+font-size:11px;
 
-font-weight:900;
+font-weight:1000;
 
 letter-spacing:4px;
 }
@@ -251,10 +368,10 @@ letter-spacing:4px;
 .marquee-track{
 display:inline-block;
 
-animation:move 18s linear infinite;
+animation:marquee 20s linear infinite;
 }
 
-@keyframes move{
+@keyframes marquee{
 
 from{
 transform:translateX(0);
@@ -266,28 +383,29 @@ transform:translateX(-50%);
 
 }
 
-/* ================= DROP ================= */
+
+/* ================= DROP TITLE ================= */
 
 .drop{
-background:#050505;
-
-padding:110px 20px;
-
 text-align:center;
+
+padding:110px 20px 60px;
+
+background:#050505;
 }
 
 .drop-label{
-color:#777;
+font-size:10px;
 
-font-size:11px;
+letter-spacing:6px;
 
-letter-spacing:5px;
+color:#666;
 
-margin-bottom:15px;
+margin-bottom:18px;
 }
 
 .drop h2{
-font-size:clamp(40px,8vw,80px);
+font-size:clamp(45px,8vw,90px);
 
 font-weight:1000;
 
@@ -295,12 +413,15 @@ letter-spacing:4px;
 }
 
 .drop p{
-color:#777;
-
 margin-top:18px;
+
+color:#666;
+
+font-size:14px;
 }
 
-/* ================= PRODUCTS ================= */
+
+/* ================= SHOP ================= */
 
 .shop{
 max-width:1150px;
@@ -318,30 +439,56 @@ grid-template-columns:1fr 1fr;
 gap:30px;
 }
 
+
+/* ================= PRODUCT ================= */
+
 .product{
-background:#101010;
+position:relative;
+
+background:#0c0c0c;
 
 border:1px solid #222;
 
-border-radius:22px;
+border-radius:24px;
 
 overflow:hidden;
 
-position:relative;
+transition:.4s;
 
-transition:.35s;
+box-shadow:0 10px 40px rgba(0,0,0,.4);
 }
 
 .product:hover{
-transform:translateY(-10px);
+transform:translateY(-12px);
 
 border-color:#555;
 
 box-shadow:
-0 25px 70px rgba(255,255,255,.08);
+0 30px 80px rgba(255,255,255,.08);
 }
 
-/* FULL IMAGE */
+.badge{
+position:absolute;
+
+top:18px;
+left:18px;
+
+z-index:3;
+
+background:#fff;
+
+color:#000;
+
+padding:8px 12px;
+
+border-radius:20px;
+
+font-size:9px;
+
+font-weight:1000;
+
+letter-spacing:2px;
+}
 
 .image-wrap{
 background:#e9e9e9;
@@ -360,11 +507,11 @@ display:block;
 
 object-fit:contain;
 
-transition:.5s;
+transition:.6s;
 }
 
 .product:hover .product-image{
-transform:scale(1.025);
+transform:scale(1.035);
 }
 
 .product-info{
@@ -372,27 +519,27 @@ padding:28px;
 }
 
 .product-tag{
-font-size:10px;
+font-size:9px;
 
-letter-spacing:3px;
+letter-spacing:4px;
 
-color:#777;
+color:#666;
 
 margin-bottom:12px;
 }
 
 .product-name{
-font-size:27px;
+font-size:28px;
 
 font-weight:1000;
 }
 
-.product-price{
-font-size:19px;
+.price{
+font-size:20px;
 
 font-weight:bold;
 
-margin-top:10px;
+margin-top:9px;
 
 color:#ccc;
 }
@@ -408,27 +555,34 @@ border:1px solid #333;
 
 border-radius:10px;
 
-background:white;
+background:#fff;
 
-color:black;
+color:#000;
 
-font-weight:900;
+font-size:11px;
+
+font-weight:1000;
+
+letter-spacing:2px;
 
 cursor:pointer;
 
-transition:.25s;
+transition:.3s;
 }
 
 .add:hover{
 background:#ddd;
 
-transform:translateY(-2px);
+transform:translateY(-3px);
+
+box-shadow:0 10px 30px rgba(255,255,255,.1);
 }
 
-/* ================= BRAND ================= */
+
+/* ================= BRAND SECTION ================= */
 
 .brand{
-min-height:500px;
+min-height:600px;
 
 display:flex;
 
@@ -438,69 +592,83 @@ justify-content:center;
 
 text-align:center;
 
-padding:80px 20px;
+padding:100px 20px;
+
+position:relative;
+
+overflow:hidden;
 
 background:
-linear-gradient(
-135deg,
-#000 0%,
-#111 50%,
+radial-gradient(
+circle at center,
+#191919 0%,
+#050505 55%,
 #000 100%
 );
 
-border-top:1px solid #222;
-border-bottom:1px solid #222;
+border-top:1px solid #1d1d1d;
+border-bottom:1px solid #1d1d1d;
 }
 
 .brand-content{
-max-width:800px;
+max-width:850px;
+
+position:relative;
+
+z-index:2;
 }
 
 .brand h2{
-font-size:clamp(45px,9vw,95px);
+font-size:clamp(50px,10vw,110px);
 
 font-weight:1000;
+
+line-height:.9;
 
 letter-spacing:5px;
 }
 
 .brand p{
-margin-top:25px;
+max-width:600px;
+
+margin:30px auto 0;
 
 color:#777;
 
-line-height:1.8;
+line-height:1.9;
 
-font-size:16px;
+font-size:15px;
 }
+
 
 /* ================= FOOTER ================= */
 
 footer{
-padding:50px 20px;
-
 background:#000;
 
 text-align:center;
+
+padding:60px 20px;
 }
 
 .footer-logo{
-font-size:30px;
+font-size:32px;
 
 font-weight:1000;
 
-letter-spacing:7px;
+letter-spacing:8px;
 }
 
 footer p{
-margin-top:15px;
+margin-top:17px;
 
-font-size:11px;
+font-size:9px;
 
-letter-spacing:2px;
+letter-spacing:3px;
 
-color:#555;
+color:#444;
 }
+
 
 /* ================= CART ================= */
 
@@ -511,9 +679,9 @@ position:fixed;
 
 inset:0;
 
-background:rgba(0,0,0,.75);
+background:rgba(0,0,0,.8);
 
-backdrop-filter:blur(5px);
+backdrop-filter:blur(7px);
 
 z-index:1500;
 }
@@ -525,9 +693,9 @@ display:block;
 .cart{
 position:fixed;
 
-right:-450px;
-
 top:0;
+
+right:-450px;
 
 width:430px;
 
@@ -543,7 +711,7 @@ z-index:1600;
 
 padding:28px;
 
-transition:.35s;
+transition:.4s;
 
 overflow-y:auto;
 }
@@ -555,9 +723,9 @@ right:0;
 .cart-header{
 display:flex;
 
-justify-content:space-between;
-
 align-items:center;
+
+justify-content:space-between;
 
 padding-bottom:22px;
 
@@ -565,7 +733,7 @@ border-bottom:1px solid #ddd;
 }
 
 .cart-header h2{
-font-size:26px;
+font-size:27px;
 }
 
 .close{
@@ -586,9 +754,11 @@ cursor:pointer;
 .cart-item{
 display:flex;
 
+align-items:center;
+
 justify-content:space-between;
 
-align-items:center;
+gap:15px;
 
 padding:20px 0;
 
@@ -600,9 +770,9 @@ font-weight:bold;
 }
 
 .item-price{
-margin-top:5px;
-
 color:#777;
+
+margin-top:5px;
 }
 
 .remove{
@@ -614,19 +784,23 @@ padding:9px;
 
 border-radius:7px;
 
+font-size:10px;
+
+font-weight:bold;
+
 cursor:pointer;
 }
 
 .empty{
 text-align:center;
 
-padding:40px 0;
+padding:45px 0;
 
 color:#888;
 }
 
 .cart-bottom{
-margin-top:25px;
+margin-top:28px;
 }
 
 .total{
@@ -634,17 +808,17 @@ display:flex;
 
 justify-content:space-between;
 
-font-size:21px;
+font-size:22px;
 
-font-weight:900;
+font-weight:1000;
 }
 
 .checkout{
 width:100%;
 
-padding:17px;
+padding:18px;
 
-margin-top:20px;
+margin-top:22px;
 
 background:#000;
 
@@ -652,12 +826,13 @@ color:#fff;
 
 border:0;
 
-border-radius:9px;
+border-radius:10px;
 
-font-weight:bold;
+font-weight:900;
 
 cursor:pointer;
 }
+
 
 /* ================= MOBILE ================= */
 
@@ -668,12 +843,17 @@ padding:0 16px;
 }
 
 .logo{
-font-size:22px;
-letter-spacing:4px;
+font-size:21px;
+
+letter-spacing:5px;
 }
 
 .nav{
 display:none;
+}
+
+.hero{
+min-height:650px;
 }
 
 .hero h1{
@@ -688,16 +868,12 @@ letter-spacing:4px;
 grid-template-columns:1fr;
 }
 
-.shop{
-padding-bottom:80px;
-}
-
 .drop{
-padding:80px 20px;
+padding-top:80px;
 }
 
 .brand{
-min-height:400px;
+min-height:480px;
 }
 
 .cart{
@@ -707,6 +883,7 @@ width:100%;
 }
 
 </style>
+
 </head>
 
 
@@ -723,8 +900,13 @@ ZUNYX
 
 <nav class="nav">
 
-<a href="#shop">SHOP</a>
-<a href="#brand">ABOUT</a>
+<a href="#shop">
+SHOP
+</a>
+
+<a href="#brand">
+ABOUT
+</a>
 
 </nav>
 
@@ -732,7 +914,9 @@ ZUNYX
 class="cart-button"
 onclick="openCart()"
 >
+
 CART (<span id="count">0</span>)
+
 </button>
 
 </header>
@@ -744,8 +928,8 @@ CART (<span id="count">0</span>)
 
 <div class="hero-content">
 
-<div class="small-title">
-EST. 2026 • ZUNYX
+<div class="est">
+EST. 2026 • THE FIRST DROP
 </div>
 
 <h1>
@@ -760,20 +944,24 @@ MOVE DIFFERENT.
 
 <a
 href="#shop"
-class="primary-btn"
+class="btn primary"
 >
 SHOP THE DROP
 </a>
 
 <a
 href="#brand"
-class="secondary-btn"
+class="btn secondary"
 >
-DISCOVER ZUNYX
+THE ZUNYX STANDARD
 </a>
 
 </div>
 
+</div>
+
+<div class="scroll">
+SCROLL TO EXPLORE ↓
 </div>
 
 </section>
@@ -785,9 +973,10 @@ DISCOVER ZUNYX
 
 <div class="marquee-track">
 
-ZUNYX • MOVE DIFFERENT • ZUNYX • MOVE DIFFERENT •
-ZUNYX • MOVE DIFFERENT • ZUNYX • MOVE DIFFERENT •
-ZUNYX • MOVE DIFFERENT • ZUNYX • MOVE DIFFERENT •
+ZUNYX • MOVE DIFFERENT • BUILT DIFFERENT •
+ZUNYX • MOVE DIFFERENT • BUILT DIFFERENT •
+ZUNYX • MOVE DIFFERENT • BUILT DIFFERENT •
+ZUNYX • MOVE DIFFERENT • BUILT DIFFERENT •
 
 </div>
 
@@ -799,21 +988,21 @@ ZUNYX • MOVE DIFFERENT • ZUNYX • MOVE DIFFERENT •
 <section class="drop">
 
 <div class="drop-label">
-THE FIRST DROP
+01 / THE FIRST DROP
 </div>
 
 <h2>
-BUILT DIFFERENT.
+NO ORDINARY GEAR.
 </h2>
 
 <p>
-Two essentials. One identity.
+Two pieces. One identity.
 </p>
 
 </section>
 
 
-<!-- SHOP -->
+<!-- PRODUCTS -->
 
 <section
 class="shop"
@@ -826,6 +1015,10 @@ id="shop"
 <!-- HOODIE -->
 
 <div class="product">
+
+<div class="badge">
+LIMITED DROP
+</div>
 
 <div class="image-wrap">
 
@@ -847,7 +1040,7 @@ ZUNYX ESSENTIALS
 ZUNYX HOODIE
 </div>
 
-<div class="product-price">
+<div class="price">
 £34.99
 </div>
 
@@ -866,6 +1059,10 @@ ADD TO CART
 <!-- CAP -->
 
 <div class="product">
+
+<div class="badge">
+NEW ARRIVAL
+</div>
 
 <div class="image-wrap">
 
@@ -887,13 +1084,13 @@ ZUNYX ACCESSORIES
 ZUNYX CAP
 </div>
 
-<div class="product-price">
-£24.99
+<div class="price">
+£19.99
 </div>
 
 <button
 class="add"
-onclick="addToCart('ZUNYX Cap',24.99)"
+onclick="addToCart('ZUNYX Cap',19.99)"
 >
 ADD TO CART
 </button>
@@ -927,9 +1124,9 @@ DIFFERENT.
 </h2>
 
 <p>
-ZUNYX is for those who don't follow the crowd.
-Performance. Streetwear. Attitude.
-Built for the next generation.
+ZUNYX isn't made to blend in.
+It's made for movement, confidence and individuality.
+Wear the difference.
 </p>
 
 </div>
@@ -952,7 +1149,7 @@ ZUNYX
 </footer>
 
 
-<!-- CART OVERLAY -->
+<!-- OVERLAY -->
 
 <div
 id="overlay"
@@ -1025,8 +1222,6 @@ CHECKOUT
 let cart=[];
 
 
-/* ADD */
-
 function addToCart(name,price){
 
 cart.push({
@@ -1041,8 +1236,6 @@ openCart();
 }
 
 
-/* REMOVE */
-
 function removeItem(index){
 
 cart.splice(index,1);
@@ -1051,8 +1244,6 @@ updateCart();
 
 }
 
-
-/* UPDATE */
 
 function updateCart(){
 
@@ -1118,8 +1309,6 @@ total.toFixed(2);
 }
 
 
-/* OPEN */
-
 function openCart(){
 
 document
@@ -1134,8 +1323,6 @@ document
 
 }
 
-
-/* CLOSE */
 
 function closeCart(){
 
@@ -1152,8 +1339,6 @@ document
 }
 
 
-/* CHECKOUT */
-
 function checkout(){
 
 if(cart.length===0){
@@ -1165,7 +1350,7 @@ return;
 }
 
 alert(
-"Thanks for shopping ZUNYX. Checkout is coming soon."
+"ZUNYX checkout is coming soon."
 );
 
 }
