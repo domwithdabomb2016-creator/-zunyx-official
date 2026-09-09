@@ -1,86 +1,1044 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ZUNYX ALPHA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ZUNYX — MADE FOR MORE</title>
 
 <style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-height:100vh;
-background:#000;
-color:#fff;
-font-family:Arial,Helvetica,sans-serif;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-overflow:hidden;
+    background:#050505;
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+    overflow-x:hidden;
 }
 
-.box{
-padding:40px;
+/* ===== HEADER ===== */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:74px;
+    z-index:9999;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 30px;
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(255,255,255,.1);
 }
 
 .logo{
-font-size:clamp(70px,18vw,180px);
-font-weight:1000;
-letter-spacing:15px;
-line-height:.8;
+    font-size:26px;
+    font-weight:1000;
+    letter-spacing:7px;
 }
 
-.tag{
-margin-top:40px;
-font-size:18px;
-letter-spacing:10px;
-font-weight:bold;
+.nav{
+    display:flex;
+    gap:32px;
 }
 
-.status{
-margin-top:35px;
-font-size:10px;
-letter-spacing:4px;
-color:#555;
+.nav a{
+    color:#888;
+    text-decoration:none;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:3px;
+    transition:.25s;
 }
 
-.circle{
-position:fixed;
-width:500px;
-height:500px;
-border-radius:50%;
-background:white;
-opacity:.04;
-filter:blur(100px);
-z-index:-1;
+.nav a:hover{
+    color:#fff;
 }
+
+.cart-button{
+    border:0;
+    background:#fff;
+    color:#000;
+    padding:12px 19px;
+    border-radius:30px;
+    font-size:10px;
+    font-weight:1000;
+    letter-spacing:1px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.cart-button:hover{
+    transform:scale(1.06);
+}
+
+/* ===== HERO ===== */
+
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+    background:
+    radial-gradient(
+        circle at center,
+        #202020 0%,
+        #080808 38%,
+        #000 75%
+    );
+}
+
+.hero-glow{
+    position:absolute;
+    width:650px;
+    height:650px;
+    border-radius:50%;
+    background:#fff;
+    opacity:.035;
+    filter:blur(120px);
+    animation:glow 5s ease-in-out infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        transform:scale(.7);
+        opacity:.02;
+    }
+
+    to{
+        transform:scale(1.3);
+        opacity:.07;
+    }
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    padding:20px;
+    animation:heroIn 1.2s ease;
+}
+
+@keyframes heroIn{
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.est{
+    color:#666;
+    font-size:10px;
+    letter-spacing:7px;
+    margin-bottom:30px;
+}
+
+.hero h1{
+    font-size:clamp(65px,17vw,185px);
+    font-weight:1000;
+    letter-spacing:13px;
+    line-height:.8;
+
+    background:linear-gradient(
+        90deg,
+        #333,
+        #fff,
+        #333
+    );
+
+    background-size:250%;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    animation:shine 4s linear infinite;
+}
+
+@keyframes shine{
+    from{
+        background-position:250%;
+    }
+
+    to{
+        background-position:-250%;
+    }
+}
+
+.hero-sub{
+    margin-top:35px;
+    color:#aaa;
+    font-size:15px;
+    font-weight:bold;
+    letter-spacing:8px;
+}
+
+.hero-buttons{
+    margin-top:42px;
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 30px;
+    border-radius:40px;
+    text-decoration:none;
+    font-size:10px;
+    font-weight:1000;
+    letter-spacing:2px;
+    transition:.3s;
+}
+
+.primary{
+    background:#fff;
+    color:#000;
+}
+
+.secondary{
+    border:1px solid #444;
+    color:#fff;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 35px rgba(255,255,255,.08);
+}
+
+.scroll{
+    position:absolute;
+    bottom:28px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#555;
+    font-size:9px;
+    letter-spacing:4px;
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform:translate(-50%,0);
+    }
+
+    50%{
+        transform:translate(-50%,8px);
+    }
+}
+
+/* ===== TICKER ===== */
+
+.ticker{
+    background:#fff;
+    color:#000;
+    padding:15px 0;
+    overflow:hidden;
+    white-space:nowrap;
+    font-size:10px;
+    font-weight:1000;
+    letter-spacing:4px;
+}
+
+.ticker-track{
+    display:inline-block;
+    animation:ticker 18s linear infinite;
+}
+
+@keyframes ticker{
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+/* ===== INTRO ===== */
+
+.intro{
+    text-align:center;
+    padding:115px 20px 65px;
+}
+
+.label{
+    color:#555;
+    font-size:9px;
+    letter-spacing:6px;
+    margin-bottom:20px;
+}
+
+.intro h2{
+    font-size:clamp(43px,8vw,90px);
+    font-weight:1000;
+    letter-spacing:3px;
+}
+
+.intro p{
+    margin-top:18px;
+    color:#666;
+    font-size:14px;
+}
+
+/* ===== SHOP ===== */
+
+.shop{
+    max-width:1150px;
+    margin:auto;
+    padding:20px 20px 120px;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.product{
+    position:relative;
+    overflow:hidden;
+    background:#0b0b0b;
+    border:1px solid #222;
+    border-radius:24px;
+    transition:.4s;
+    box-shadow:0 10px 40px rgba(0,0,0,.45);
+}
+
+.product:hover{
+    transform:translateY(-12px);
+    border-color:#555;
+    box-shadow:0 30px 80px rgba(255,255,255,.07);
+}
+
+.badge{
+    position:absolute;
+    top:18px;
+    left:18px;
+    z-index:5;
+    background:#fff;
+    color:#000;
+    padding:8px 12px;
+    border-radius:30px;
+    font-size:8px;
+    font-weight:1000;
+    letter-spacing:2px;
+}
+
+.product-image{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:contain;
+    background:#eee;
+    transition:.6s;
+}
+
+.product:hover .product-image{
+    transform:scale(1.04);
+}
+
+.product-info{
+    padding:28px;
+}
+
+.category{
+    color:#555;
+    font-size:8px;
+    letter-spacing:4px;
+    margin-bottom:12px;
+}
+
+.product-name{
+    font-size:27px;
+    font-weight:1000;
+    letter-spacing:1px;
+}
+
+.price{
+    margin-top:8px;
+    color:#aaa;
+    font-size:19px;
+    font-weight:bold;
+}
+
+.add{
+    width:100%;
+    margin-top:25px;
+    padding:17px;
+    border:0;
+    border-radius:10px;
+    background:#fff;
+    color:#000;
+    font-size:10px;
+    font-weight:1000;
+    letter-spacing:2px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.add:hover{
+    transform:translateY(-3px);
+    background:#ddd;
+}
+
+/* ===== BRAND ===== */
+
+.brand{
+    min-height:620px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:100px 20px;
+
+    background:
+    radial-gradient(
+        circle at center,
+        #181818 0%,
+        #050505 55%,
+        #000 100%
+    );
+
+    border-top:1px solid #1d1d1d;
+    border-bottom:1px solid #1d1d1d;
+}
+
+.brand-inner{
+    max-width:850px;
+}
+
+.brand h2{
+    font-size:clamp(55px,10vw,115px);
+    font-weight:1000;
+    line-height:.86;
+    letter-spacing:5px;
+}
+
+.brand p{
+    max-width:600px;
+    margin:35px auto 0;
+    color:#777;
+    font-size:15px;
+    line-height:1.9;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+    background:#000;
+    text-align:center;
+    padding:70px 20px;
+}
+
+.footer-logo{
+    font-size:31px;
+    font-weight:1000;
+    letter-spacing:9px;
+}
+
+footer p{
+    margin-top:16px;
+    color:#444;
+    font-size:8px;
+    letter-spacing:3px;
+}
+
+/* ===== CART ===== */
+
+.overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:10000;
+    background:rgba(0,0,0,.82);
+    backdrop-filter:blur(8px);
+}
+
+.overlay.show{
+    display:block;
+}
+
+.cart{
+    position:fixed;
+    top:0;
+    right:-450px;
+    width:430px;
+    max-width:100%;
+    height:100%;
+    z-index:10001;
+    background:#fff;
+    color:#000;
+    padding:28px;
+    overflow-y:auto;
+    transition:.4s;
+}
+
+.cart.show{
+    right:0;
+}
+
+.cart-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-bottom:22px;
+    border-bottom:1px solid #ddd;
+}
+
+.cart-header h2{
+    font-size:26px;
+}
+
+.close{
+    width:40px;
+    height:40px;
+    border:0;
+    border-radius:50%;
+    background:#eee;
+    font-size:22px;
+    cursor:pointer;
+}
+
+.cart-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    padding:20px 0;
+    border-bottom:1px solid #ddd;
+}
+
+.item-name{
+    font-weight:bold;
+}
+
+.item-price{
+    margin-top:5px;
+    color:#777;
+}
+
+.remove{
+    border:0;
+    background:#eee;
+    padding:9px;
+    border-radius:7px;
+    font-size:9px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.empty{
+    text-align:center;
+    padding:50px 0;
+    color:#888;
+}
+
+.cart-bottom{
+    margin-top:28px;
+}
+
+.total{
+    display:flex;
+    justify-content:space-between;
+    font-size:21px;
+    font-weight:1000;
+}
+
+.checkout{
+    width:100%;
+    padding:18px;
+    margin-top:22px;
+    border:0;
+    border-radius:10px;
+    background:#000;
+    color:#fff;
+    font-weight:1000;
+    cursor:pointer;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:700px){
+
+    header{
+        padding:0 15px;
+    }
+
+    .logo{
+        font-size:20px;
+        letter-spacing:5px;
+    }
+
+    .nav{
+        display:none;
+    }
+
+    .hero h1{
+        letter-spacing:6px;
+    }
+
+    .hero-sub{
+        letter-spacing:5px;
+    }
+
+    .products{
+        grid-template-columns:1fr;
+    }
+
+    .cart{
+        width:100%;
+    }
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="circle"></div>
-
-<div class="box">
+<header>
 
 <div class="logo">
 ZUNYX
 </div>
 
-<div class="tag">
+<nav class="nav">
+<a href="#shop">SHOP</a>
+<a href="#about">ABOUT</a>
+</nav>
+
+<button class="cart-button" onclick="openCart()">
+CART (<span id="count">0</span>)
+</button>
+
+</header>
+
+
+<section class="hero">
+
+<div class="hero-glow"></div>
+
+<div class="hero-content">
+
+<div class="est">
+EST. 2026 • THE FIRST DROP
+</div>
+
+<h1>
+ZUNYX
+</h1>
+
+<div class="hero-sub">
 MADE FOR MORE.
 </div>
 
-<div class="status">
-ALPHA VERSION • 2026
+<div class="hero-buttons">
+
+<a
+href="#shop"
+class="btn primary"
+>
+SHOP THE DROP
+</a>
+
+<a
+href="#about"
+class="btn secondary"
+>
+THE ZUNYX STANDARD
+</a>
+
 </div>
 
 </div>
+
+<div class="scroll">
+SCROLL TO EXPLORE ↓
+</div>
+
+</section>
+
+
+<div class="ticker">
+
+<div class="ticker-track">
+
+ZUNYX • MADE FOR MORE • BUILT FOR MORE •
+ZUNYX • MADE FOR MORE • BUILT FOR MORE •
+ZUNYX • MADE FOR MORE • BUILT FOR MORE •
+ZUNYX • MADE FOR MORE • BUILT FOR MORE •
+
+</div>
+
+</div>
+
+
+<section class="intro">
+
+<div class="label">
+01 / THE FIRST DROP
+</div>
+
+<h2>
+NO ORDINARY GEAR.
+</h2>
+
+<p>
+Two pieces. One identity.
+</p>
+
+</section>
+
+
+<section
+class="shop"
+id="shop"
+>
+
+<div class="products">
+
+
+<div class="product">
+
+<div class="badge">
+LIMITED DROP
+</div>
+
+<img
+src="product1.jpg"
+alt="ZUNYX Hoodie"
+class="product-image"
+>
+
+<div class="product-info">
+
+<div class="category">
+ZUNYX ESSENTIALS
+</div>
+
+<div class="product-name">
+ZUNYX HOODIE
+</div>
+
+<div class="price">
+£34.99
+</div>
+
+<button
+class="add"
+onclick="addToCart('ZUNYX Hoodie',34.99)"
+>
+ADD TO CART
+</button>
+
+</div>
+
+</div>
+
+
+<div class="product">
+
+<div class="badge">
+NEW ARRIVAL
+</div>
+
+<img
+src="product2.jpg"
+alt="ZUNYX Cap"
+class="product-image"
+>
+
+<div class="product-info">
+
+<div class="category">
+ZUNYX ACCESSORIES
+</div>
+
+<div class="product-name">
+ZUNYX CAP
+</div>
+
+<div class="price">
+£19.99
+</div>
+
+<button
+class="add"
+onclick="addToCart('ZUNYX Cap',19.99)"
+>
+ADD TO CART
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section
+class="brand"
+id="about"
+>
+
+<div class="brand-inner">
+
+<div class="label">
+THE ZUNYX STANDARD
+</div>
+
+<h2>
+MADE FOR<br>
+MORE.
+</h2>
+
+<p>
+ZUNYX is made for movement, confidence and individuality.
+Built with purpose. Designed to stand out.
+Wear the difference.
+</p>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div class="footer-logo">
+ZUNYX
+</div>
+
+<p>
+MADE FOR MORE • EST. 2026
+</p>
+
+</footer>
+
+
+<div
+id="overlay"
+class="overlay"
+onclick="closeCart()"
+></div>
+
+
+<div
+id="cart"
+class="cart"
+>
+
+<div class="cart-header">
+
+<h2>
+YOUR CART
+</h2>
+
+<button
+class="close"
+onclick="closeCart()"
+>
+×
+</button>
+
+</div>
+
+
+<div id="items">
+
+<div class="empty">
+Your cart is empty.
+</div>
+
+</div>
+
+
+<div class="cart-bottom">
+
+<div class="total">
+
+<span>
+TOTAL
+</span>
+
+<span>
+£<span id="total">0.00</span>
+</span>
+
+</div>
+
+<button
+class="checkout"
+onclick="checkout()"
+>
+CHECKOUT
+</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+let cart = [];
+
+
+function addToCart(name,price){
+
+cart.push({
+name:name,
+price:price
+});
+
+updateCart();
+openCart();
+
+}
+
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+updateCart();
+
+}
+
+
+function updateCart(){
+
+document.getElementById("count").textContent =
+cart.length;
+
+const items =
+document.getElementById("items");
+
+let total = 0;
+
+
+if(cart.length === 0){
+
+items.innerHTML =
+'<div class="empty">Your cart is empty.</div>';
+
+document.getElementById("total").textContent =
+"0.00";
+
+return;
+
+}
+
+
+items.innerHTML = "";
+
+
+cart.forEach(function(item,index){
+
+total += item.price;
+
+items.innerHTML += `
+
+<div class="cart-item">
+
+<div>
+
+<div class="item-name">
+${item.name}
+</div>
+
+<div class="item-price">
+£${item.price.toFixed(2)}
+</div>
+
+</div>
+
+<button
+class="remove"
+onclick="removeItem(${index})"
+>
+REMOVE
+</button>
+
+</div>
+
+`;
+
+});
+
+
+document.getElementById("total").textContent =
+total.toFixed(2);
+
+}
+
+
+function openCart(){
+
+document
+.getElementById("cart")
+.classList.add("show");
+
+document
+.getElementById("overlay")
+.classList.add("show");
+
+}
+
+
+function closeCart(){
+
+document
+.getElementById("cart")
+.classList.remove("show");
+
+document
+.getElementById("overlay")
+.classList.remove("show");
+
+}
+
+
+function checkout(){
+
+if(cart.length === 0){
+
+alert("Your cart is empty!");
+
+return;
+
+}
+
+alert(
+"ZUNYX CHECKOUT\n\n" +
+"MADE FOR MORE.\n\n" +
+"Checkout is coming soon."
+);
+
+}
+
+</script>
 
 </body>
 </html>
