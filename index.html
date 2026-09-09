@@ -4,610 +4,494 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ZUNYX — MADE FOR MORE</title>
+<title>ZUNYX ALPHA 02 — MADE FOR MORE</title>
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 html{
-    scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
-    background:#050505;
-    color:#fff;
-    font-family:Arial,Helvetica,sans-serif;
-    overflow-x:hidden;
+background:#050505;
+color:#fff;
+font-family:Arial,Helvetica,sans-serif;
+overflow-x:hidden;
 }
 
-/* ===== HEADER ===== */
+/* =========================
+   TOP BAR
+========================= */
 
-header{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:74px;
-    z-index:9999;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 30px;
-    background:rgba(0,0,0,.72);
-    backdrop-filter:blur(20px);
-    border-bottom:1px solid rgba(255,255,255,.1);
+.top{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:72px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 25px;
+background:rgba(0,0,0,.85);
+backdrop-filter:blur(18px);
+border-bottom:1px solid #222;
+z-index:9999;
 }
 
 .logo{
-    font-size:26px;
-    font-weight:1000;
-    letter-spacing:7px;
+font-size:24px;
+font-weight:900;
+letter-spacing:8px;
 }
 
-.nav{
-    display:flex;
-    gap:32px;
+.top button{
+background:#fff;
+color:#000;
+border:0;
+padding:12px 18px;
+border-radius:30px;
+font-size:10px;
+font-weight:900;
+cursor:pointer;
 }
 
-.nav a{
-    color:#888;
-    text-decoration:none;
-    font-size:10px;
-    font-weight:900;
-    letter-spacing:3px;
-    transition:.25s;
-}
-
-.nav a:hover{
-    color:#fff;
-}
-
-.cart-button{
-    border:0;
-    background:#fff;
-    color:#000;
-    padding:12px 19px;
-    border-radius:30px;
-    font-size:10px;
-    font-weight:1000;
-    letter-spacing:1px;
-    cursor:pointer;
-    transition:.25s;
-}
-
-.cart-button:hover{
-    transform:scale(1.06);
-}
-
-/* ===== HERO ===== */
+/* =========================
+   HERO
+========================= */
 
 .hero{
-    min-height:100vh;
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    overflow:hidden;
-    background:
-    radial-gradient(
-        circle at center,
-        #202020 0%,
-        #080808 38%,
-        #000 75%
-    );
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+overflow:hidden;
+
+background:
+radial-gradient(
+circle at 50% 50%,
+#222 0%,
+#0a0a0a 35%,
+#000 72%
+);
 }
 
-.hero-glow{
-    position:absolute;
-    width:650px;
-    height:650px;
-    border-radius:50%;
-    background:#fff;
-    opacity:.035;
-    filter:blur(120px);
-    animation:glow 5s ease-in-out infinite alternate;
+.hero:before{
+content:"";
+position:absolute;
+width:600px;
+height:600px;
+border-radius:50%;
+background:#fff;
+opacity:.035;
+filter:blur(100px);
+animation:heroGlow 4s ease-in-out infinite alternate;
 }
 
-@keyframes glow{
-    from{
-        transform:scale(.7);
-        opacity:.02;
-    }
+@keyframes heroGlow{
 
-    to{
-        transform:scale(1.3);
-        opacity:.07;
-    }
+from{
+transform:scale(.7);
 }
 
-.hero-content{
-    position:relative;
-    z-index:2;
-    padding:20px;
-    animation:heroIn 1.2s ease;
+to{
+transform:scale(1.3);
 }
 
-@keyframes heroIn{
-    from{
-        opacity:0;
-        transform:translateY(35px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
 }
 
-.est{
-    color:#666;
-    font-size:10px;
-    letter-spacing:7px;
-    margin-bottom:30px;
+.heroContent{
+position:relative;
+z-index:2;
+padding:25px;
 }
 
-.hero h1{
-    font-size:clamp(65px,17vw,185px);
-    font-weight:1000;
-    letter-spacing:13px;
-    line-height:.8;
-
-    background:linear-gradient(
-        90deg,
-        #333,
-        #fff,
-        #333
-    );
-
-    background-size:250%;
-
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    color:transparent;
-
-    animation:shine 4s linear infinite;
+.alphaTag{
+font-size:10px;
+letter-spacing:6px;
+color:#666;
+margin-bottom:25px;
 }
 
-@keyframes shine{
-    from{
-        background-position:250%;
-    }
-
-    to{
-        background-position:-250%;
-    }
+.heroTitle{
+font-size:clamp(70px,18vw,190px);
+font-weight:1000;
+letter-spacing:12px;
+line-height:.8;
 }
 
-.hero-sub{
-    margin-top:35px;
-    color:#aaa;
-    font-size:15px;
-    font-weight:bold;
-    letter-spacing:8px;
+.heroLine{
+width:100px;
+height:2px;
+background:#fff;
+margin:35px auto;
 }
 
-.hero-buttons{
-    margin-top:42px;
-    display:flex;
-    justify-content:center;
-    gap:14px;
-    flex-wrap:wrap;
+.heroSlogan{
+font-size:16px;
+font-weight:bold;
+letter-spacing:8px;
 }
 
-.btn{
-    padding:16px 30px;
-    border-radius:40px;
-    text-decoration:none;
-    font-size:10px;
-    font-weight:1000;
-    letter-spacing:2px;
-    transition:.3s;
+.heroText{
+margin-top:20px;
+font-size:12px;
+color:#666;
+letter-spacing:3px;
 }
 
-.primary{
-    background:#fff;
-    color:#000;
+.shopButton{
+display:inline-block;
+margin-top:38px;
+padding:17px 32px;
+background:#fff;
+color:#000;
+text-decoration:none;
+border-radius:40px;
+font-size:10px;
+font-weight:900;
+letter-spacing:2px;
+transition:.3s;
 }
 
-.secondary{
-    border:1px solid #444;
-    color:#fff;
+.shopButton:hover{
+transform:translateY(-5px) scale(1.03);
 }
 
-.btn:hover{
-    transform:translateY(-5px);
-    box-shadow:0 15px 35px rgba(255,255,255,.08);
+/* =========================
+   SECTION
+========================= */
+
+.section{
+max-width:1100px;
+margin:auto;
+padding:120px 20px;
 }
 
-.scroll{
-    position:absolute;
-    bottom:28px;
-    left:50%;
-    transform:translateX(-50%);
-    color:#555;
-    font-size:9px;
-    letter-spacing:4px;
-    animation:bounce 2s infinite;
+.sectionHeader{
+text-align:center;
+margin-bottom:60px;
 }
 
-@keyframes bounce{
-    0%,100%{
-        transform:translate(-50%,0);
-    }
-
-    50%{
-        transform:translate(-50%,8px);
-    }
+.number{
+font-size:9px;
+letter-spacing:5px;
+color:#555;
 }
 
-/* ===== TICKER ===== */
-
-.ticker{
-    background:#fff;
-    color:#000;
-    padding:15px 0;
-    overflow:hidden;
-    white-space:nowrap;
-    font-size:10px;
-    font-weight:1000;
-    letter-spacing:4px;
+.sectionHeader h2{
+font-size:clamp(40px,8vw,85px);
+font-weight:1000;
+margin-top:18px;
 }
 
-.ticker-track{
-    display:inline-block;
-    animation:ticker 18s linear infinite;
+.sectionHeader p{
+margin-top:18px;
+color:#666;
 }
 
-@keyframes ticker{
-    from{
-        transform:translateX(0);
-    }
-
-    to{
-        transform:translateX(-50%);
-    }
-}
-
-/* ===== INTRO ===== */
-
-.intro{
-    text-align:center;
-    padding:115px 20px 65px;
-}
-
-.label{
-    color:#555;
-    font-size:9px;
-    letter-spacing:6px;
-    margin-bottom:20px;
-}
-
-.intro h2{
-    font-size:clamp(43px,8vw,90px);
-    font-weight:1000;
-    letter-spacing:3px;
-}
-
-.intro p{
-    margin-top:18px;
-    color:#666;
-    font-size:14px;
-}
-
-/* ===== SHOP ===== */
-
-.shop{
-    max-width:1150px;
-    margin:auto;
-    padding:20px 20px 120px;
-}
+/* =========================
+   PRODUCTS
+========================= */
 
 .products{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
 }
 
 .product{
-    position:relative;
-    overflow:hidden;
-    background:#0b0b0b;
-    border:1px solid #222;
-    border-radius:24px;
-    transition:.4s;
-    box-shadow:0 10px 40px rgba(0,0,0,.45);
+position:relative;
+background:#0c0c0c;
+border:1px solid #222;
+border-radius:20px;
+overflow:hidden;
+transition:.35s;
 }
 
 .product:hover{
-    transform:translateY(-12px);
-    border-color:#555;
-    box-shadow:0 30px 80px rgba(255,255,255,.07);
+transform:translateY(-10px);
+border-color:#555;
+}
+
+.product img{
+width:100%;
+height:auto;
+display:block;
+background:#eee;
 }
 
 .badge{
-    position:absolute;
-    top:18px;
-    left:18px;
-    z-index:5;
-    background:#fff;
-    color:#000;
-    padding:8px 12px;
-    border-radius:30px;
-    font-size:8px;
-    font-weight:1000;
-    letter-spacing:2px;
+position:absolute;
+top:18px;
+left:18px;
+background:#fff;
+color:#000;
+padding:8px 12px;
+border-radius:30px;
+font-size:8px;
+font-weight:900;
+letter-spacing:2px;
+z-index:2;
 }
 
-.product-image{
-    width:100%;
-    height:auto;
-    display:block;
-    object-fit:contain;
-    background:#eee;
-    transition:.6s;
-}
-
-.product:hover .product-image{
-    transform:scale(1.04);
-}
-
-.product-info{
-    padding:28px;
+.details{
+padding:28px;
 }
 
 .category{
-    color:#555;
-    font-size:8px;
-    letter-spacing:4px;
-    margin-bottom:12px;
+font-size:8px;
+color:#555;
+letter-spacing:4px;
 }
 
-.product-name{
-    font-size:27px;
-    font-weight:1000;
-    letter-spacing:1px;
+.details h3{
+font-size:27px;
+margin-top:12px;
 }
 
 .price{
-    margin-top:8px;
-    color:#aaa;
-    font-size:19px;
-    font-weight:bold;
+font-size:19px;
+font-weight:bold;
+color:#aaa;
+margin-top:8px;
 }
 
 .add{
-    width:100%;
-    margin-top:25px;
-    padding:17px;
-    border:0;
-    border-radius:10px;
-    background:#fff;
-    color:#000;
-    font-size:10px;
-    font-weight:1000;
-    letter-spacing:2px;
-    cursor:pointer;
-    transition:.25s;
+width:100%;
+margin-top:24px;
+padding:17px;
+border:0;
+border-radius:10px;
+background:#fff;
+color:#000;
+font-size:10px;
+font-weight:900;
+letter-spacing:2px;
+cursor:pointer;
 }
 
 .add:hover{
-    transform:translateY(-3px);
-    background:#ddd;
+background:#ddd;
 }
 
-/* ===== BRAND ===== */
+/* =========================
+   BRAND
+========================= */
 
-.brand{
-    min-height:620px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:100px 20px;
+.about{
+min-height:600px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:100px 20px;
 
-    background:
-    radial-gradient(
-        circle at center,
-        #181818 0%,
-        #050505 55%,
-        #000 100%
-    );
-
-    border-top:1px solid #1d1d1d;
-    border-bottom:1px solid #1d1d1d;
+background:
+radial-gradient(
+circle,
+#191919,
+#050505 60%,
+#000
+);
 }
 
-.brand-inner{
-    max-width:850px;
+.aboutBox{
+max-width:800px;
 }
 
-.brand h2{
-    font-size:clamp(55px,10vw,115px);
-    font-weight:1000;
-    line-height:.86;
-    letter-spacing:5px;
+.aboutSmall{
+font-size:9px;
+letter-spacing:6px;
+color:#555;
 }
 
-.brand p{
-    max-width:600px;
-    margin:35px auto 0;
-    color:#777;
-    font-size:15px;
-    line-height:1.9;
+.about h2{
+font-size:clamp(55px,11vw,120px);
+line-height:.85;
+margin-top:25px;
+font-weight:1000;
 }
 
-/* ===== FOOTER ===== */
+.about p{
+max-width:600px;
+margin:35px auto;
+color:#777;
+line-height:1.9;
+}
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-    background:#000;
-    text-align:center;
-    padding:70px 20px;
+padding:70px 20px;
+text-align:center;
+border-top:1px solid #181818;
 }
 
-.footer-logo{
-    font-size:31px;
-    font-weight:1000;
-    letter-spacing:9px;
+.footerLogo{
+font-size:30px;
+font-weight:1000;
+letter-spacing:9px;
 }
 
 footer p{
-    margin-top:16px;
-    color:#444;
-    font-size:8px;
-    letter-spacing:3px;
+margin-top:15px;
+font-size:8px;
+color:#444;
+letter-spacing:3px;
 }
 
-/* ===== CART ===== */
+/* =========================
+   CART
+========================= */
 
 .overlay{
-    display:none;
-    position:fixed;
-    inset:0;
-    z-index:10000;
-    background:rgba(0,0,0,.82);
-    backdrop-filter:blur(8px);
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.8);
+z-index:10000;
 }
 
 .overlay.show{
-    display:block;
+display:block;
 }
 
 .cart{
-    position:fixed;
-    top:0;
-    right:-450px;
-    width:430px;
-    max-width:100%;
-    height:100%;
-    z-index:10001;
-    background:#fff;
-    color:#000;
-    padding:28px;
-    overflow-y:auto;
-    transition:.4s;
+position:fixed;
+top:0;
+right:-450px;
+width:430px;
+max-width:100%;
+height:100%;
+background:#fff;
+color:#000;
+z-index:10001;
+padding:28px;
+transition:.4s;
+overflow-y:auto;
 }
 
 .cart.show{
-    right:0;
+right:0;
 }
 
-.cart-header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding-bottom:22px;
-    border-bottom:1px solid #ddd;
+.cartHeader{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding-bottom:20px;
+border-bottom:1px solid #ddd;
 }
 
-.cart-header h2{
-    font-size:26px;
+.cartHeader h2{
+font-size:25px;
 }
 
 .close{
-    width:40px;
-    height:40px;
-    border:0;
-    border-radius:50%;
-    background:#eee;
-    font-size:22px;
-    cursor:pointer;
+width:40px;
+height:40px;
+border:0;
+border-radius:50%;
+background:#eee;
+font-size:22px;
+cursor:pointer;
 }
 
-.cart-item{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
-    padding:20px 0;
-    border-bottom:1px solid #ddd;
+.cartItem{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 0;
+border-bottom:1px solid #ddd;
 }
 
-.item-name{
-    font-weight:bold;
+.cartName{
+font-weight:bold;
 }
 
-.item-price{
-    margin-top:5px;
-    color:#777;
+.cartPrice{
+color:#777;
+margin-top:5px;
 }
 
 .remove{
-    border:0;
-    background:#eee;
-    padding:9px;
-    border-radius:7px;
-    font-size:9px;
-    font-weight:bold;
-    cursor:pointer;
+border:0;
+background:#eee;
+padding:9px;
+border-radius:7px;
+font-size:9px;
+font-weight:bold;
+cursor:pointer;
 }
 
 .empty{
-    text-align:center;
-    padding:50px 0;
-    color:#888;
-}
-
-.cart-bottom{
-    margin-top:28px;
+text-align:center;
+padding:50px 0;
+color:#888;
 }
 
 .total{
-    display:flex;
-    justify-content:space-between;
-    font-size:21px;
-    font-weight:1000;
+display:flex;
+justify-content:space-between;
+margin-top:30px;
+font-size:21px;
+font-weight:900;
 }
 
 .checkout{
-    width:100%;
-    padding:18px;
-    margin-top:22px;
-    border:0;
-    border-radius:10px;
-    background:#000;
-    color:#fff;
-    font-weight:1000;
-    cursor:pointer;
+width:100%;
+padding:18px;
+margin-top:20px;
+background:#000;
+color:#fff;
+border:0;
+border-radius:10px;
+font-weight:900;
+cursor:pointer;
 }
 
-/* ===== MOBILE ===== */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:700px){
 
-    header{
-        padding:0 15px;
-    }
+.products{
+grid-template-columns:1fr;
+}
 
-    .logo{
-        font-size:20px;
-        letter-spacing:5px;
-    }
+.top{
+padding:0 15px;
+}
 
-    .nav{
-        display:none;
-    }
+.logo{
+font-size:20px;
+letter-spacing:5px;
+}
 
-    .hero h1{
-        letter-spacing:6px;
-    }
+.heroTitle{
+letter-spacing:6px;
+}
 
-    .hero-sub{
-        letter-spacing:5px;
-    }
+.heroSlogan{
+letter-spacing:5px;
+}
 
-    .products{
-        grid-template-columns:1fr;
-    }
+.cart{
+width:100%;
+}
 
-    .cart{
-        width:100%;
-    }
 }
 
 </style>
@@ -615,129 +499,106 @@ footer p{
 
 <body>
 
-<header>
+<!-- TOP -->
+
+<header class="top">
 
 <div class="logo">
 ZUNYX
 </div>
 
-<nav class="nav">
-<a href="#shop">SHOP</a>
-<a href="#about">ABOUT</a>
-</nav>
-
-<button class="cart-button" onclick="openCart()">
+<button onclick="openCart()">
 CART (<span id="count">0</span>)
 </button>
 
 </header>
 
 
+<!-- HERO -->
+
 <section class="hero">
 
-<div class="hero-glow"></div>
+<div class="heroContent">
 
-<div class="hero-content">
-
-<div class="est">
-EST. 2026 • THE FIRST DROP
+<div class="alphaTag">
+ZUNYX ALPHA 02 • 2026
 </div>
 
-<h1>
+<div class="heroTitle">
 ZUNYX
-</h1>
+</div>
 
-<div class="hero-sub">
+<div class="heroLine"></div>
+
+<div class="heroSlogan">
 MADE FOR MORE.
 </div>
 
-<div class="hero-buttons">
+<div class="heroText">
+THE NEXT STANDARD IN SPORTSWEAR
+</div>
 
 <a
 href="#shop"
-class="btn primary"
+class="shopButton"
 >
-SHOP THE DROP
+ENTER THE DROP
 </a>
 
-<a
-href="#about"
-class="btn secondary"
->
-THE ZUNYX STANDARD
-</a>
-
-</div>
-
-</div>
-
-<div class="scroll">
-SCROLL TO EXPLORE ↓
 </div>
 
 </section>
 
 
-<div class="ticker">
+<!-- SHOP -->
 
-<div class="ticker-track">
+<section
+class="section"
+id="shop"
+>
 
-ZUNYX • MADE FOR MORE • BUILT FOR MORE •
-ZUNYX • MADE FOR MORE • BUILT FOR MORE •
-ZUNYX • MADE FOR MORE • BUILT FOR MORE •
-ZUNYX • MADE FOR MORE • BUILT FOR MORE •
+<div class="sectionHeader">
 
-</div>
-
-</div>
-
-
-<section class="intro">
-
-<div class="label">
-01 / THE FIRST DROP
+<div class="number">
+01 / THE COLLECTION
 </div>
 
 <h2>
-NO ORDINARY GEAR.
+THE DROP.
 </h2>
 
 <p>
-Two pieces. One identity.
+MADE FOR MORE. BUILT TO MOVE.
 </p>
 
-</section>
+</div>
 
-
-<section
-class="shop"
-id="shop"
->
 
 <div class="products">
 
 
+<!-- HOODIE -->
+
 <div class="product">
 
 <div class="badge">
-LIMITED DROP
+LIMITED
 </div>
 
 <img
 src="product1.jpg"
 alt="ZUNYX Hoodie"
-class="product-image"
 >
 
-<div class="product-info">
+<div class="details">
 
 <div class="category">
 ZUNYX ESSENTIALS
 </div>
 
-<div class="product-name">
+<h3>
 ZUNYX HOODIE
-</div>
+</h3>
 
 <div class="price">
 £34.99
@@ -755,27 +616,28 @@ ADD TO CART
 </div>
 
 
+<!-- CAP -->
+
 <div class="product">
 
 <div class="badge">
-NEW ARRIVAL
+NEW
 </div>
 
 <img
 src="product2.jpg"
 alt="ZUNYX Cap"
-class="product-image"
 >
 
-<div class="product-info">
+<div class="details">
 
 <div class="category">
 ZUNYX ACCESSORIES
 </div>
 
-<div class="product-name">
+<h3>
 ZUNYX CAP
-</div>
+</h3>
 
 <div class="price">
 £19.99
@@ -797,15 +659,17 @@ ADD TO CART
 </section>
 
 
+<!-- ABOUT -->
+
 <section
-class="brand"
+class="about"
 id="about"
 >
 
-<div class="brand-inner">
+<div class="aboutBox">
 
-<div class="label">
-THE ZUNYX STANDARD
+<div class="aboutSmall">
+02 / THE ZUNYX STANDARD
 </div>
 
 <h2>
@@ -814,9 +678,9 @@ MORE.
 </h2>
 
 <p>
-ZUNYX is made for movement, confidence and individuality.
-Built with purpose. Designed to stand out.
-Wear the difference.
+ZUNYX exists for people who refuse ordinary.
+Designed for movement, confidence and individuality.
+Every piece represents the mindset of being made for more.
 </p>
 
 </div>
@@ -824,9 +688,11 @@ Wear the difference.
 </section>
 
 
+<!-- FOOTER -->
+
 <footer>
 
-<div class="footer-logo">
+<div class="footerLogo">
 ZUNYX
 </div>
 
@@ -836,6 +702,8 @@ MADE FOR MORE • EST. 2026
 
 </footer>
 
+
+<!-- CART -->
 
 <div
 id="overlay"
@@ -849,7 +717,7 @@ id="cart"
 class="cart"
 >
 
-<div class="cart-header">
+<div class="cartHeader">
 
 <h2>
 YOUR CART
@@ -874,8 +742,6 @@ Your cart is empty.
 </div>
 
 
-<div class="cart-bottom">
-
 <div class="total">
 
 <span>
@@ -888,6 +754,7 @@ TOTAL
 
 </div>
 
+
 <button
 class="checkout"
 onclick="checkout()"
@@ -897,12 +764,10 @@ CHECKOUT
 
 </div>
 
-</div>
-
 
 <script>
 
-let cart = [];
+let cart=[];
 
 
 function addToCart(name,price){
@@ -913,6 +778,7 @@ price:price
 });
 
 updateCart();
+
 openCart();
 
 }
@@ -929,21 +795,21 @@ updateCart();
 
 function updateCart(){
 
-document.getElementById("count").textContent =
+document.getElementById("count").textContent=
 cart.length;
 
-const items =
+const items=
 document.getElementById("items");
 
-let total = 0;
+let total=0;
 
 
-if(cart.length === 0){
+if(cart.length===0){
 
-items.innerHTML =
+items.innerHTML=
 '<div class="empty">Your cart is empty.</div>';
 
-document.getElementById("total").textContent =
+document.getElementById("total").textContent=
 "0.00";
 
 return;
@@ -951,24 +817,24 @@ return;
 }
 
 
-items.innerHTML = "";
+items.innerHTML="";
 
 
 cart.forEach(function(item,index){
 
-total += item.price;
+total+=item.price;
 
-items.innerHTML += `
+items.innerHTML+=`
 
-<div class="cart-item">
+<div class="cartItem">
 
 <div>
 
-<div class="item-name">
+<div class="cartName">
 ${item.name}
 </div>
 
-<div class="item-price">
+<div class="cartPrice">
 £${item.price.toFixed(2)}
 </div>
 
@@ -988,7 +854,7 @@ REMOVE
 });
 
 
-document.getElementById("total").textContent =
+document.getElementById("total").textContent=
 total.toFixed(2);
 
 }
@@ -1022,18 +888,18 @@ document
 
 function checkout(){
 
-if(cart.length === 0){
+if(cart.length===0){
 
-alert("Your cart is empty!");
+alert("Your cart is empty.");
 
 return;
 
 }
 
 alert(
-"ZUNYX CHECKOUT\n\n" +
+"ZUNYX ALPHA 02\n\n" +
 "MADE FOR MORE.\n\n" +
-"Checkout is coming soon."
+"Checkout coming soon."
 );
 
 }
