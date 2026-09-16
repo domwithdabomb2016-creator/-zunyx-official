@@ -25,181 +25,146 @@ body{
 }
 
 /* HEADER */
+
 header{
   position:fixed;
   top:0;
   left:0;
   width:100%;
-  z-index:1000;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:22px 6%;
-  background:rgba(0,0,0,.65);
+  height:72px;
+  background:rgba(5,5,5,.9);
   backdrop-filter:blur(15px);
-  border-bottom:1px solid rgba(255,255,255,.08);
+  border-bottom:1px solid #222;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 25px;
+  z-index:1000;
 }
 
 .logo{
-  font-size:28px;
-  font-weight:1000;
-  letter-spacing:-2px;
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:4px;
 }
 
 nav{
   display:flex;
-  gap:30px;
+  gap:25px;
+  align-items:center;
 }
 
 nav a{
-  color:white;
+  color:#fff;
   text-decoration:none;
   font-size:12px;
   font-weight:bold;
   letter-spacing:2px;
 }
 
-/* CART - SAME DESIGN, NOW TAPPABLE */
-.cart{
-  border:1px solid white;
-  padding:10px 15px;
+.cart-button{
+  background:#fff;
+  color:#000;
+  border:none;
+  padding:11px 15px;
   border-radius:30px;
-  font-size:12px;
-  font-weight:bold;
-  background:transparent;
-  color:white;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:1px;
   cursor:pointer;
-  font-family:inherit;
   transition:.2s;
 }
 
-.cart:hover{
-  background:white;
-  color:black;
-}
-
-.cart:active{
-  transform:scale(.95);
+.cart-button:hover{
+  transform:scale(1.05);
 }
 
 /* HERO */
+
 .hero{
   min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  position:relative;
-  overflow:hidden;
-  padding:120px 20px 60px;
-}
-
-.hero:before{
-  content:"";
-  position:absolute;
-  width:700px;
-  height:700px;
-  background:radial-gradient(circle,rgba(255,255,255,.15),transparent 65%);
-  animation:pulse 5s infinite alternate;
-}
-
-@keyframes pulse{
-  from{transform:scale(.8);opacity:.4}
-  to{transform:scale(1.3);opacity:.9}
+  padding:120px 20px 70px;
+  background:
+    radial-gradient(circle at center,#242424 0%,#090909 40%,#000 75%);
 }
 
 .hero-content{
-  position:relative;
-  z-index:2;
+  max-width:900px;
 }
 
-.hero-tag{
-  font-size:12px;
+.small-title{
+  font-size:11px;
   letter-spacing:5px;
+  font-weight:bold;
   margin-bottom:25px;
-  opacity:.7;
+  color:#aaa;
 }
 
 .hero h1{
-  font-size:clamp(70px,17vw,190px);
+  font-size:clamp(70px,18vw,190px);
   line-height:.8;
   font-weight:1000;
-  letter-spacing:-9px;
-  background:linear-gradient(90deg,#fff,#777,#fff);
-  background-size:200%;
-  -webkit-background-clip:text;
-  color:transparent;
-  animation:gradient 4s infinite linear;
-}
-
-@keyframes gradient{
-  to{background-position:200%}
+  letter-spacing:-8px;
 }
 
 .hero h2{
+  font-size:clamp(28px,6vw,65px);
   margin-top:35px;
-  font-size:clamp(30px,6vw,70px);
-  letter-spacing:-3px;
+  letter-spacing:4px;
 }
 
 .hero p{
-  margin-top:18px;
-  color:#999;
-  font-size:14px;
-  letter-spacing:2px;
+  margin-top:25px;
+  color:#aaa;
+  letter-spacing:3px;
+  font-size:12px;
 }
 
-.buttons{
-  margin-top:35px;
+.hero-buttons{
+  margin-top:40px;
   display:flex;
   justify-content:center;
   gap:12px;
   flex-wrap:wrap;
 }
 
-.btn{
-  display:inline-block;
-  padding:16px 25px;
-  border-radius:50px;
+.hero-buttons a{
   text-decoration:none;
-  font-size:12px;
-  font-weight:bold;
-  letter-spacing:1px;
-}
-
-.btn-white{
-  background:#fff;
   color:#000;
+  background:#fff;
+  padding:17px 25px;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:2px;
+  border-radius:3px;
 }
 
-.btn-dark{
-  border:1px solid #555;
+.hero-buttons a.secondary{
   color:#fff;
-}
-
-.scroll{
-  position:absolute;
-  bottom:30px;
-  font-size:10px;
-  letter-spacing:4px;
-  color:#666;
+  background:#111;
+  border:1px solid #444;
 }
 
 /* TICKER */
+
 .ticker{
-  background:#fff;
-  color:#000;
   overflow:hidden;
   white-space:nowrap;
-  padding:15px 0;
-  font-size:13px;
+  border-top:1px solid #222;
+  border-bottom:1px solid #222;
+  padding:17px 0;
+  font-size:12px;
   font-weight:bold;
   letter-spacing:4px;
 }
 
-.ticker span{
+.ticker-inner{
   display:inline-block;
-  animation:move 15s linear infinite;
+  animation:move 18s linear infinite;
 }
 
 @keyframes move{
@@ -207,186 +172,242 @@ nav a{
   to{transform:translateX(-50%)}
 }
 
-/* SECTIONS */
-section{
-  padding:110px 6%;
-}
+/* INTRO */
 
 .intro{
-  max-width:850px;
+  padding:110px 25px;
+  max-width:1000px;
+  margin:auto;
 }
 
-.small{
-  color:#777;
+.label{
+  color:#888;
   font-size:11px;
   letter-spacing:4px;
   margin-bottom:20px;
 }
 
 .intro h2{
-  font-size:clamp(40px,7vw,85px);
+  font-size:clamp(45px,9vw,100px);
+  line-height:.9;
   letter-spacing:-4px;
-  line-height:.95;
 }
 
 .intro p{
-  margin-top:25px;
-  max-width:600px;
-  color:#999;
-  line-height:1.7;
+  max-width:650px;
+  color:#aaa;
+  line-height:1.8;
+  margin-top:30px;
 }
 
-/* PRODUCTS */
-.shop-title{
+/* SHOP */
+
+.shop{
+  padding:80px 20px 120px;
+  max-width:1200px;
+  margin:auto;
+}
+
+.shop-heading{
   display:flex;
   justify-content:space-between;
   align-items:end;
-  margin-bottom:45px;
+  margin-bottom:35px;
 }
 
-.shop-title h2{
-  font-size:clamp(45px,7vw,90px);
-  letter-spacing:-5px;
+.shop-heading h2{
+  font-size:60px;
+  letter-spacing:-3px;
+}
+
+.shop-heading p{
+  color:#888;
+  font-size:11px;
+  letter-spacing:3px;
 }
 
 .products{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:25px;
+  gap:20px;
 }
 
 .product{
-  background:#111;
+  background:#0d0d0d;
   border:1px solid #222;
-  overflow:hidden;
-  transition:.4s;
+  padding:15px;
+  position:relative;
+  transition:.3s;
 }
 
 .product:hover{
-  transform:translateY(-10px);
+  transform:translateY(-5px);
   border-color:#555;
 }
 
 .product-image{
   width:100%;
-  height:auto;
-  display:block;
-  background:#eee;
+  aspect-ratio:1/1;
+  background:#161616;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.product-info{
-  padding:25px;
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
 }
 
 .badge{
-  display:inline-block;
-  font-size:9px;
-  letter-spacing:2px;
-  border:1px solid #555;
+  position:absolute;
+  top:28px;
+  left:28px;
+  background:#fff;
+  color:#000;
   padding:7px 10px;
-  margin-bottom:18px;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1px;
+  z-index:2;
 }
 
-.product h3{
-  font-size:25px;
-  letter-spacing:-1px;
+.product-info{
+  padding:20px 5px 5px;
+}
+
+.product-info h3{
+  font-size:20px;
+  letter-spacing:1px;
 }
 
 .price{
-  color:#aaa;
   margin-top:8px;
+  font-size:18px;
+  font-weight:bold;
 }
 
-.buy{
+.description{
+  margin-top:12px;
+  color:#888;
+  font-size:12px;
+  line-height:1.6;
+}
+
+.sizes{
+  margin-top:15px;
+}
+
+.sizes label{
   display:block;
-  margin-top:22px;
+  font-size:10px;
+  color:#888;
+  letter-spacing:2px;
+  margin-bottom:7px;
+}
+
+.sizes select{
+  width:100%;
+  background:#111;
+  color:#fff;
+  border:1px solid #333;
+  padding:12px;
+  border-radius:0;
+}
+
+.add-button{
+  width:100%;
+  margin-top:15px;
+  padding:15px;
+  border:none;
+  background:#fff;
+  color:#000;
+  font-weight:900;
+  letter-spacing:2px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.add-button:hover{
+  background:#ddd;
+}
+
+.add-button:disabled{
+  background:#333;
+  color:#777;
+  cursor:not-allowed;
+}
+
+/* BRAND */
+
+.brand{
+  padding:130px 25px;
   background:#fff;
   color:#000;
   text-align:center;
-  padding:15px;
-  text-decoration:none;
+}
+
+.brand h2{
+  font-size:clamp(60px,14vw,160px);
+  font-weight:1000;
+  letter-spacing:-8px;
+  line-height:.8;
+}
+
+.brand p{
+  margin-top:35px;
   font-size:12px;
+  letter-spacing:5px;
   font-weight:bold;
-  letter-spacing:2px;
-  cursor:pointer;
-}
-
-/* STANDARD */
-.standard{
-  min-height:80vh;
-  display:flex;
-  align-items:center;
-}
-
-.standard h2{
-  font-size:clamp(55px,10vw,130px);
-  line-height:.85;
-  letter-spacing:-7px;
-}
-
-.standard p{
-  margin-top:30px;
-  max-width:550px;
-  color:#888;
-  line-height:1.7;
 }
 
 /* FOOTER */
+
 footer{
-  border-top:1px solid #222;
-  padding:50px 6%;
+  padding:45px 25px;
   display:flex;
   justify-content:space-between;
-  gap:30px;
+  border-top:1px solid #222;
+  color:#777;
+  font-size:10px;
+  letter-spacing:2px;
 }
 
-footer strong{
-  font-size:25px;
-  letter-spacing:-1px;
-}
-
-footer p{
-  color:#666;
-  font-size:11px;
-  margin-top:8px;
-}
-
-
-/* =========================
-   CART DRAWER
-========================= */
+/* CART DRAWER */
 
 .cart-overlay{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.65);
-  z-index:1999;
+  background:rgba(0,0,0,.7);
   opacity:0;
-  visibility:hidden;
+  pointer-events:none;
   transition:.3s;
+  z-index:1999;
 }
 
-.cart-overlay.open{
+.cart-overlay.active{
   opacity:1;
-  visibility:visible;
+  pointer-events:auto;
 }
 
 .cart-drawer{
   position:fixed;
   top:0;
-  right:-430px;
-  width:min(430px,90vw);
+  right:-420px;
+  width:min(420px,92%);
   height:100vh;
-  background:#080808;
-  border-left:1px solid #333;
+  background:#fff;
+  color:#000;
   z-index:2000;
   transition:.35s ease;
   display:flex;
   flex-direction:column;
-  padding:25px;
 }
 
-.cart-drawer.open{
+.cart-drawer.active{
   right:0;
 }
 
@@ -394,36 +415,36 @@ footer p{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding-bottom:20px;
-  border-bottom:1px solid #333;
+  padding:25px;
+  border-bottom:1px solid #ddd;
 }
 
 .cart-header h2{
   font-size:24px;
-  letter-spacing:-1px;
+  letter-spacing:1px;
 }
 
 .close-cart{
-  width:38px;
-  height:38px;
+  border:none;
+  background:#000;
+  color:#fff;
+  width:35px;
+  height:35px;
   border-radius:50%;
-  border:1px solid #555;
-  background:transparent;
-  color:white;
-  font-size:22px;
   cursor:pointer;
+  font-size:18px;
 }
 
 .cart-items{
   flex:1;
   overflow-y:auto;
-  padding:20px 0;
+  padding:20px;
 }
 
 .empty-cart{
-  text-align:center;
   color:#777;
-  padding-top:50px;
+  text-align:center;
+  margin-top:70px;
   font-size:13px;
   letter-spacing:1px;
 }
@@ -431,90 +452,76 @@ footer p{
 .cart-item{
   display:flex;
   justify-content:space-between;
-  align-items:center;
   gap:15px;
+  border-bottom:1px solid #ddd;
   padding:18px 0;
-  border-bottom:1px solid #222;
+}
+
+.cart-item-info{
+  flex:1;
 }
 
 .cart-item-name{
+  font-weight:900;
   font-size:14px;
-  font-weight:bold;
+}
+
+.cart-item-size{
+  color:#777;
+  font-size:11px;
+  margin-top:5px;
 }
 
 .cart-item-price{
-  color:#999;
-  margin-top:6px;
-  font-size:13px;
+  font-weight:bold;
+  margin-top:7px;
 }
 
 .remove-item{
-  background:transparent;
-  color:#aaa;
-  border:1px solid #444;
-  padding:8px 10px;
-  font-size:9px;
-  font-weight:bold;
-  letter-spacing:1px;
+  border:none;
+  background:none;
+  color:#999;
   cursor:pointer;
-}
-
-.remove-item:hover{
-  color:white;
-  border-color:white;
+  font-size:11px;
 }
 
 .cart-footer{
-  border-top:1px solid #333;
-  padding-top:20px;
+  border-top:1px solid #ddd;
+  padding:20px;
 }
 
-.cart-total{
+.total{
   display:flex;
   justify-content:space-between;
-  font-size:18px;
-  font-weight:bold;
-  margin-bottom:18px;
+  font-weight:900;
+  margin-bottom:15px;
 }
 
-.checkout-btn{
+.checkout{
   width:100%;
-  border:0;
-  background:white;
-  color:black;
+  background:#000;
+  color:#fff;
+  border:none;
   padding:17px;
-  font-weight:bold;
+  font-weight:900;
   letter-spacing:2px;
   cursor:pointer;
 }
 
-.checkout-btn:active{
-  transform:scale(.98);
-}
-
-
 /* MOBILE */
+
 @media(max-width:700px){
 
   header{
-    padding:18px 5%;
+    padding:0 15px;
   }
 
   .logo{
-    font-size:23px;
+    font-size:20px;
   }
 
   nav{
-    gap:14px;
-  }
-
-  nav a{
-    font-size:9px;
-  }
-
-  .cart{
-    padding:8px 10px;
-    font-size:9px;
+    display:none;
   }
 
   .hero h1{
@@ -525,24 +532,25 @@ footer p{
     grid-template-columns:1fr;
   }
 
-  .shop-title{
+  .shop-heading{
     display:block;
   }
 
-  .shop-title h2{
-    margin-bottom:15px;
+  .shop-heading h2{
+    font-size:50px;
   }
 
-  section{
-    padding:80px 5%;
+  .shop-heading p{
+    margin-top:10px;
   }
 
   footer{
-    flex-direction:column;
+    display:block;
+    line-height:2;
   }
 
-  .cart-drawer{
-    width:90vw;
+  .brand h2{
+    letter-spacing:-5px;
   }
 }
 </style>
@@ -550,145 +558,120 @@ footer p{
 
 <body>
 
-
 <header>
 
   <div class="logo">ZUNYX</div>
 
   <nav>
     <a href="#shop">SHOP</a>
-    <a href="#standard">ABOUT</a>
+    <a href="#about">ABOUT</a>
   </nav>
 
-  <!-- CART IS NOW TAPPABLE -->
-  <button class="cart" onclick="openCart()">
+  <button class="cart-button" onclick="openCart()">
     CART <span id="cartCount">0</span>
   </button>
 
 </header>
 
 
-<!-- HERO -->
 <section class="hero">
 
   <div class="hero-content">
 
-    <div class="hero-tag">
-      ZUNYX SPORTSWEAR • 2026
-    </div>
+    <div class="small-title">ZUNYX SPORTSWEAR • 2026</div>
 
     <h1>ZUNYX</h1>
 
     <h2>MADE FOR MORE.</h2>
 
-    <p>
-      PERFORMANCE. IDENTITY. MOVEMENT.
-    </p>
+    <p>PERFORMANCE. IDENTITY. MOVEMENT.</p>
 
-    <div class="buttons">
-
-      <a href="#shop" class="btn btn-white">
-        SHOP THE DROP
-      </a>
-
-      <a href="#standard" class="btn btn-dark">
-        THE ZUNYX STANDARD
-      </a>
-
+    <div class="hero-buttons">
+      <a href="#shop">SHOP THE DROP</a>
+      <a href="#about" class="secondary">THE ZUNYX STANDARD</a>
     </div>
 
-  </div>
-
-  <div class="scroll">
-    SCROLL TO EXPLORE ↓
   </div>
 
 </section>
 
 
-<!-- TICKER -->
 <div class="ticker">
-
-  <span>
+  <div class="ticker-inner">
     ZUNYX • MADE FOR MORE • ZUNYX • MADE FOR MORE • ZUNYX • MADE FOR MORE • ZUNYX • MADE FOR MORE •
-  </span>
-
+    ZUNYX • MADE FOR MORE • ZUNYX • MADE FOR MORE • ZUNYX • MADE FOR MORE •
+  </div>
 </div>
 
 
-<!-- INTRO -->
-<section>
+<section class="intro" id="about">
 
-  <div class="intro">
+  <div class="label">WELCOME TO ZUNYX</div>
 
-    <div class="small">
-      WELCOME TO ZUNYX
-    </div>
+  <h2>BUILT TO<br>MOVE.</h2>
 
-    <h2>
-      BUILT TO<br>
-      MOVE.
-    </h2>
-
-    <p>
-      ZUNYX is sportswear built around movement, confidence
-      and individuality. No limits. No excuses. Just more.
-    </p>
-
-  </div>
+  <p>
+    ZUNYX is sportswear built around movement, confidence and individuality.
+    No limits. No excuses. Just more.
+  </p>
 
 </section>
 
 
-<!-- SHOP -->
-<section id="shop">
+<section class="shop" id="shop">
 
-  <div class="shop-title">
+  <div class="shop-heading">
 
     <div>
-
-      <div class="small">
-        THE DROP
-      </div>
-
+      <div class="label">THE DROP</div>
       <h2>SHOP.</h2>
-
     </div>
+
+    <p>LIMITED ZUNYX RELEASE</p>
 
   </div>
 
 
   <div class="products">
 
-
     <!-- HOODIE -->
+
     <div class="product">
 
-      <img
-        src="product1.jpg"
-        alt="ZUNYX Hoodie"
-        class="product-image"
-      >
+      <div class="badge">SOLD OUT</div>
+
+      <div class="product-image">
+        <img src="product1.jpg" alt="ZUNYX Hoodie">
+      </div>
 
       <div class="product-info">
 
-        <div class="badge">
-          LIMITED DROP
-        </div>
-
         <h3>ZUNYX HOODIE</h3>
 
-        <div class="price">
-          £34.99
+        <div class="price">£34.99</div>
+
+        <div class="description">
+          Premium ZUNYX hoodie. 50% polyester / 50% cotton.
+          Designed for everyday movement and comfort.
         </div>
 
-        <a
-          href="#"
-          class="buy"
-          onclick="addToCart('ZUNYX HOODIE',34.99);return false;"
-        >
-          ADD TO CART
-        </a>
+        <div class="sizes">
+
+          <label>ADULT SIZE</label>
+
+          <select id="hoodieSize">
+            <option value="S">Small</option>
+            <option value="M">Medium</option>
+            <option value="L">Large</option>
+            <option value="XL">XL</option>
+            <option value="XXL">XXL</option>
+          </select>
+
+        </div>
+
+        <button class="add-button" disabled>
+          SOLD OUT
+        </button>
 
       </div>
 
@@ -696,121 +679,78 @@ footer p{
 
 
     <!-- CAP -->
+
     <div class="product">
 
-      <img
-        src="product2.jpg"
-        alt="ZUNYX Cap"
-        class="product-image"
-      >
+      <div class="badge">SOLD OUT</div>
+
+      <div class="product-image">
+        <img src="product2.jpg" alt="ZUNYX Cap">
+      </div>
 
       <div class="product-info">
 
-        <div class="badge">
-          NEW ARRIVAL
-        </div>
-
         <h3>ZUNYX CAP</h3>
 
-        <div class="price">
-          £19.99
+        <div class="price">£19.99</div>
+
+        <div class="description">
+          Clean ZUNYX cap built for everyday wear.
+          Minimal design. Maximum identity.
         </div>
 
-        <a
-          href="#"
-          class="buy"
-          onclick="addToCart('ZUNYX CAP',19.99);return false;"
-        >
-          ADD TO CART
-        </a>
+        <button class="add-button" disabled>
+          SOLD OUT
+        </button>
 
       </div>
 
     </div>
 
-
   </div>
 
 </section>
 
 
-<!-- BRAND -->
-<section id="standard" class="standard">
+<section class="brand">
 
-  <div>
+  <h2>MADE FOR<br>MORE.</h2>
 
-    <div class="small">
-      THE ZUNYX STANDARD
-    </div>
-
-    <h2>
-      MADE<br>
-      FOR<br>
-      MORE.
-    </h2>
-
-    <p>
-      We don't make sportswear for standing still.
-      ZUNYX is for the people who keep moving,
-      keep pushing and keep becoming more.
-    </p>
-
-  </div>
+  <p>THE ZUNYX STANDARD</p>
 
 </section>
 
 
-<!-- FOOTER -->
 <footer>
 
-  <div>
-    <strong>ZUNYX</strong>
-    <p>MADE FOR MORE.</p>
-  </div>
+  <div>ZUNYX</div>
 
-  <div>
-    <p>© 2026 ZUNYX</p>
-    <p>ALL RIGHTS RESERVED.</p>
-  </div>
+  <div>MADE FOR MORE.</div>
+
+  <div>© 2026 ZUNYX</div>
 
 </footer>
 
 
-<!-- CART DARK OVERLAY -->
-<div
-  id="cartOverlay"
-  class="cart-overlay"
-  onclick="closeCart()"
-></div>
+<!-- CART -->
 
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
 
-<!-- CART DRAWER -->
-<div
-  id="cartDrawer"
-  class="cart-drawer"
->
+<div class="cart-drawer" id="cartDrawer">
 
   <div class="cart-header">
 
     <h2>YOUR CART</h2>
 
-    <button
-      class="close-cart"
-      onclick="closeCart()"
-    >
-      ×
-    </button>
+    <button class="close-cart" onclick="closeCart()">×</button>
 
   </div>
 
 
-  <div
-    id="cartItems"
-    class="cart-items"
-  >
+  <div class="cart-items" id="cartItems">
 
     <div class="empty-cart">
-      YOUR CART IS EMPTY
+      YOUR ZUNYX CART IS EMPTY.
     </div>
 
   </div>
@@ -818,20 +758,12 @@ footer p{
 
   <div class="cart-footer">
 
-    <div class="cart-total">
-
+    <div class="total">
       <span>TOTAL</span>
-
-      <span>
-        £<span id="cartTotal">0.00</span>
-      </span>
-
+      <span id="cartTotal">£0.00</span>
     </div>
 
-    <button
-      class="checkout-btn"
-      onclick="checkout()"
-    >
+    <button class="checkout" onclick="checkout()">
       CHECKOUT
     </button>
 
@@ -846,39 +778,35 @@ let cart = [];
 
 
 /* OPEN CART */
+
 function openCart(){
 
-  document
-    .getElementById("cartDrawer")
-    .classList.add("open");
+  document.getElementById("cartDrawer").classList.add("active");
 
-  document
-    .getElementById("cartOverlay")
-    .classList.add("open");
+  document.getElementById("cartOverlay").classList.add("active");
 
 }
 
 
 /* CLOSE CART */
+
 function closeCart(){
 
-  document
-    .getElementById("cartDrawer")
-    .classList.remove("open");
+  document.getElementById("cartDrawer").classList.remove("active");
 
-  document
-    .getElementById("cartOverlay")
-    .classList.remove("open");
+  document.getElementById("cartOverlay").classList.remove("active");
 
 }
 
 
 /* ADD TO CART */
-function addToCart(name,price){
+
+function addToCart(name, price, size){
 
   cart.push({
     name:name,
-    price:price
+    price:price,
+    size:size
   });
 
   updateCart();
@@ -888,8 +816,9 @@ function addToCart(name,price){
 }
 
 
-/* REMOVE */
-function removeFromCart(index){
+/* REMOVE ITEM */
+
+function removeItem(index){
 
   cart.splice(index,1);
 
@@ -899,107 +828,116 @@ function removeFromCart(index){
 
 
 /* UPDATE CART */
+
 function updateCart(){
 
-  const count =
-    document.getElementById("cartCount");
+  const cartCount = document.getElementById("cartCount");
 
-  const items =
-    document.getElementById("cartItems");
+  const cartItems = document.getElementById("cartItems");
 
-  const total =
-    document.getElementById("cartTotal");
+  const cartTotal = document.getElementById("cartTotal");
 
-
-  count.textContent = cart.length;
+  cartCount.textContent = cart.length;
 
 
   if(cart.length === 0){
 
-    items.innerHTML =
-      '<div class="empty-cart">YOUR CART IS EMPTY</div>';
+    cartItems.innerHTML =
+      '<div class="empty-cart">YOUR ZUNYX CART IS EMPTY.</div>';
 
-    total.textContent = "0.00";
+    cartTotal.textContent = "£0.00";
 
     return;
 
   }
 
 
-  let html = "";
-  let totalPrice = 0;
+  let total = 0;
+
+  cartItems.innerHTML = "";
 
 
-  cart.forEach(function(item,index){
+  cart.forEach((item,index)=>{
 
-    totalPrice += item.price;
+    total += item.price;
 
-    html += `
-      <div class="cart-item">
 
-        <div>
+    const div = document.createElement("div");
 
-          <div class="cart-item-name">
-            ${item.name}
-          </div>
+    div.className = "cart-item";
 
-          <div class="cart-item-price">
-            £${item.price.toFixed(2)}
-          </div>
 
+    div.innerHTML = `
+
+      <div class="cart-item-info">
+
+        <div class="cart-item-name">
+          ${item.name}
         </div>
 
-        <button
-          class="remove-item"
-          onclick="removeFromCart(${index})"
-        >
-          REMOVE
-        </button>
+        ${
+          item.size
+          ?
+          `<div class="cart-item-size">
+            SIZE: ${item.size}
+          </div>`
+          :
+          ""
+        }
+
+        <div class="cart-item-price">
+          £${item.price.toFixed(2)}
+        </div>
 
       </div>
+
+      <button
+        class="remove-item"
+        onclick="removeItem(${index})">
+        REMOVE
+      </button>
+
     `;
+
+
+    cartItems.appendChild(div);
 
   });
 
 
-  items.innerHTML = html;
-
-  total.textContent =
-    totalPrice.toFixed(2);
+  cartTotal.textContent = "£" + total.toFixed(2);
 
 }
 
 
 /* CHECKOUT */
+
 function checkout(){
 
   if(cart.length === 0){
 
-    alert("YOUR ZUNYX CART IS EMPTY.");
+    alert("Your ZUNYX cart is empty.");
 
     return;
 
   }
 
-  alert(
-    "ZUNYX CHECKOUT\n\n" +
-    "Checkout is coming soon."
-  );
+  alert("ZUNYX checkout is coming soon.");
 
 }
 
 
-/* ESCAPE KEY */
-document.addEventListener(
-  "keydown",
-  function(event){
+/* ESCAPE KEY CLOSES CART */
 
-    if(event.key === "Escape"){
-      closeCart();
-    }
+document.addEventListener("keydown", function(event){
+
+  if(event.key === "Escape"){
+
+    closeCart();
 
   }
-);
+
+});
 
 </script>
 
