@@ -59,12 +59,27 @@ nav a{
   letter-spacing:2px;
 }
 
+/* CART - SAME DESIGN, NOW TAPPABLE */
 .cart{
   border:1px solid white;
   padding:10px 15px;
   border-radius:30px;
   font-size:12px;
   font-weight:bold;
+  background:transparent;
+  color:white;
+  cursor:pointer;
+  font-family:inherit;
+  transition:.2s;
+}
+
+.cart:hover{
+  background:white;
+  color:black;
+}
+
+.cart:active{
+  transform:scale(.95);
 }
 
 /* HERO */
@@ -293,6 +308,7 @@ section{
   font-size:12px;
   font-weight:bold;
   letter-spacing:2px;
+  cursor:pointer;
 }
 
 /* STANDARD */
@@ -334,6 +350,148 @@ footer p{
   font-size:11px;
   margin-top:8px;
 }
+
+
+/* =========================
+   CART DRAWER
+========================= */
+
+.cart-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:1999;
+  opacity:0;
+  visibility:hidden;
+  transition:.3s;
+}
+
+.cart-overlay.open{
+  opacity:1;
+  visibility:visible;
+}
+
+.cart-drawer{
+  position:fixed;
+  top:0;
+  right:-430px;
+  width:min(430px,90vw);
+  height:100vh;
+  background:#080808;
+  border-left:1px solid #333;
+  z-index:2000;
+  transition:.35s ease;
+  display:flex;
+  flex-direction:column;
+  padding:25px;
+}
+
+.cart-drawer.open{
+  right:0;
+}
+
+.cart-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-bottom:20px;
+  border-bottom:1px solid #333;
+}
+
+.cart-header h2{
+  font-size:24px;
+  letter-spacing:-1px;
+}
+
+.close-cart{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  border:1px solid #555;
+  background:transparent;
+  color:white;
+  font-size:22px;
+  cursor:pointer;
+}
+
+.cart-items{
+  flex:1;
+  overflow-y:auto;
+  padding:20px 0;
+}
+
+.empty-cart{
+  text-align:center;
+  color:#777;
+  padding-top:50px;
+  font-size:13px;
+  letter-spacing:1px;
+}
+
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  padding:18px 0;
+  border-bottom:1px solid #222;
+}
+
+.cart-item-name{
+  font-size:14px;
+  font-weight:bold;
+}
+
+.cart-item-price{
+  color:#999;
+  margin-top:6px;
+  font-size:13px;
+}
+
+.remove-item{
+  background:transparent;
+  color:#aaa;
+  border:1px solid #444;
+  padding:8px 10px;
+  font-size:9px;
+  font-weight:bold;
+  letter-spacing:1px;
+  cursor:pointer;
+}
+
+.remove-item:hover{
+  color:white;
+  border-color:white;
+}
+
+.cart-footer{
+  border-top:1px solid #333;
+  padding-top:20px;
+}
+
+.cart-total{
+  display:flex;
+  justify-content:space-between;
+  font-size:18px;
+  font-weight:bold;
+  margin-bottom:18px;
+}
+
+.checkout-btn{
+  width:100%;
+  border:0;
+  background:white;
+  color:black;
+  padding:17px;
+  font-weight:bold;
+  letter-spacing:2px;
+  cursor:pointer;
+}
+
+.checkout-btn:active{
+  transform:scale(.98);
+}
+
 
 /* MOBILE */
 @media(max-width:700px){
@@ -382,13 +540,19 @@ footer p{
   footer{
     flex-direction:column;
   }
+
+  .cart-drawer{
+    width:90vw;
+  }
 }
 </style>
 </head>
 
 <body>
 
+
 <header>
+
   <div class="logo">ZUNYX</div>
 
   <nav>
@@ -396,7 +560,11 @@ footer p{
     <a href="#standard">ABOUT</a>
   </nav>
 
-  <div class="cart">CART <span id="cartCount">0</span></div>
+  <!-- CART IS NOW TAPPABLE -->
+  <button class="cart" onclick="openCart()">
+    CART <span id="cartCount">0</span>
+  </button>
+
 </header>
 
 
@@ -418,6 +586,7 @@ footer p{
     </p>
 
     <div class="buttons">
+
       <a href="#shop" class="btn btn-white">
         SHOP THE DROP
       </a>
@@ -425,6 +594,7 @@ footer p{
       <a href="#standard" class="btn btn-dark">
         THE ZUNYX STANDARD
       </a>
+
     </div>
 
   </div>
@@ -438,9 +608,11 @@ footer p{
 
 <!-- TICKER -->
 <div class="ticker">
+
   <span>
     ZUNYX • MADE FOR MORE • ZUNYX • MADE FOR MORE • ZUNYX • MADE FOR MORE • ZUNYX • MADE FOR MORE •
   </span>
+
 </div>
 
 
@@ -474,17 +646,20 @@ footer p{
   <div class="shop-title">
 
     <div>
+
       <div class="small">
         THE DROP
       </div>
 
       <h2>SHOP.</h2>
+
     </div>
 
   </div>
 
 
   <div class="products">
+
 
     <!-- HOODIE -->
     <div class="product">
@@ -553,6 +728,7 @@ footer p{
 
     </div>
 
+
   </div>
 
 </section>
@@ -600,10 +776,104 @@ footer p{
 </footer>
 
 
+<!-- CART DARK OVERLAY -->
+<div
+  id="cartOverlay"
+  class="cart-overlay"
+  onclick="closeCart()"
+></div>
+
+
+<!-- CART DRAWER -->
+<div
+  id="cartDrawer"
+  class="cart-drawer"
+>
+
+  <div class="cart-header">
+
+    <h2>YOUR CART</h2>
+
+    <button
+      class="close-cart"
+      onclick="closeCart()"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <div
+    id="cartItems"
+    class="cart-items"
+  >
+
+    <div class="empty-cart">
+      YOUR CART IS EMPTY
+    </div>
+
+  </div>
+
+
+  <div class="cart-footer">
+
+    <div class="cart-total">
+
+      <span>TOTAL</span>
+
+      <span>
+        £<span id="cartTotal">0.00</span>
+      </span>
+
+    </div>
+
+    <button
+      class="checkout-btn"
+      onclick="checkout()"
+    >
+      CHECKOUT
+    </button>
+
+  </div>
+
+</div>
+
+
 <script>
 
 let cart = [];
 
+
+/* OPEN CART */
+function openCart(){
+
+  document
+    .getElementById("cartDrawer")
+    .classList.add("open");
+
+  document
+    .getElementById("cartOverlay")
+    .classList.add("open");
+
+}
+
+
+/* CLOSE CART */
+function closeCart(){
+
+  document
+    .getElementById("cartDrawer")
+    .classList.remove("open");
+
+  document
+    .getElementById("cartOverlay")
+    .classList.remove("open");
+
+}
+
+
+/* ADD TO CART */
 function addToCart(name,price){
 
   cart.push({
@@ -611,13 +881,125 @@ function addToCart(name,price){
     price:price
   });
 
-  document.getElementById("cartCount").textContent = cart.length;
+  updateCart();
+
+  openCart();
+
+}
+
+
+/* REMOVE */
+function removeFromCart(index){
+
+  cart.splice(index,1);
+
+  updateCart();
+
+}
+
+
+/* UPDATE CART */
+function updateCart(){
+
+  const count =
+    document.getElementById("cartCount");
+
+  const items =
+    document.getElementById("cartItems");
+
+  const total =
+    document.getElementById("cartTotal");
+
+
+  count.textContent = cart.length;
+
+
+  if(cart.length === 0){
+
+    items.innerHTML =
+      '<div class="empty-cart">YOUR CART IS EMPTY</div>';
+
+    total.textContent = "0.00";
+
+    return;
+
+  }
+
+
+  let html = "";
+  let totalPrice = 0;
+
+
+  cart.forEach(function(item,index){
+
+    totalPrice += item.price;
+
+    html += `
+      <div class="cart-item">
+
+        <div>
+
+          <div class="cart-item-name">
+            ${item.name}
+          </div>
+
+          <div class="cart-item-price">
+            £${item.price.toFixed(2)}
+          </div>
+
+        </div>
+
+        <button
+          class="remove-item"
+          onclick="removeFromCart(${index})"
+        >
+          REMOVE
+        </button>
+
+      </div>
+    `;
+
+  });
+
+
+  items.innerHTML = html;
+
+  total.textContent =
+    totalPrice.toFixed(2);
+
+}
+
+
+/* CHECKOUT */
+function checkout(){
+
+  if(cart.length === 0){
+
+    alert("YOUR ZUNYX CART IS EMPTY.");
+
+    return;
+
+  }
 
   alert(
-    name +
-    " added to your ZUNYX cart."
+    "ZUNYX CHECKOUT\n\n" +
+    "Checkout is coming soon."
   );
+
 }
+
+
+/* ESCAPE KEY */
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(event.key === "Escape"){
+      closeCart();
+    }
+
+  }
+);
 
 </script>
 
