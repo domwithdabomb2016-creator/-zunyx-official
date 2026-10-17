@@ -3,393 +3,241 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ZUNYX — MADE FOR MORE</title>
-<meta name="description" content="ZUNYX sportswear. Made for more.">
 <style>
-:root {
-  --black:#050505;
-  --panel:#101010;
-  --white:#f7f7f5;
-  --grey:#999;
-  --lime:#c8ff00;
-  --line:#292929;
+:root{--bg:#050505;--panel:#111;--white:#f7f7f7;--lime:#c8ff00;--grey:#aaa;--line:#292929}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif}
+button,select{font:inherit;cursor:pointer}
+a{color:inherit;text-decoration:none}
+header{height:72px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;background:#080808;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.logo{font-size:27px;font-weight:1000;letter-spacing:4px}
+.logo span,.lime{color:var(--lime)}
+nav{display:flex;gap:26px}
+nav a{font-size:11px;letter-spacing:2px}
+nav a:hover{color:var(--lime)}
+.head-buttons{display:flex;gap:8px}
+.small{background:transparent;border:1px solid #555;color:white;padding:10px 13px;font-size:11px}
+.small:hover{border-color:var(--lime);color:var(--lime)}
+#menuButton{display:none}
+.hero{min-height:590px;padding:95px 7%;display:flex;flex-direction:column;justify-content:center;background:radial-gradient(ellipse at 80% 40%,#1a2107,transparent 40%),#050505}
+.eyebrow{color:var(--lime);font-size:11px;letter-spacing:4px;margin-bottom:24px}
+h1{font-size:clamp(65px,13vw,155px);line-height:.82;letter-spacing:-.09em;font-weight:1000}
+.outline{color:transparent;-webkit-text-stroke:2px white}
+.hero p{max-width:430px;color:#aaa;line-height:1.8;font-size:14px;margin-top:30px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.primary,.secondary{padding:16px 22px;font-size:11px;font-weight:bold;letter-spacing:1px}
+.primary{background:var(--lime);color:#050505;border:1px solid var(--lime)}
+.primary:hover{background:white;border-color:white}
+.secondary{background:transparent;color:white;border:1px solid #555}
+.secondary:hover{border-color:var(--lime);color:var(--lime)}
+.marquee{padding:16px;text-align:center;color:var(--lime);border-block:1px solid var(--line);font-size:11px;letter-spacing:3px;font-weight:bold}
+section{padding:80px 7%}
+.section-head{margin-bottom:32px}
+.kicker{color:var(--lime);font-size:10px;letter-spacing:3px;margin-bottom:12px}
+h2{font-size:clamp(36px,6vw,68px);letter-spacing:-2px}
+.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.card{border:1px solid #292929;background:var(--panel);min-width:0}
+.photo{aspect-ratio:4/4.4;position:relative;background:#171717;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:contain;display:block}
+.tag{position:absolute;top:12px;left:12px;background:var(--lime);color:#000;font-size:9px;font-weight:bold;padding:7px}
+.info{padding:18px}
+.product-title{display:flex;justify-content:space-between;gap:8px;font-weight:bold;font-size:16px}
+.price{white-space:nowrap}
+.info p{font-size:12px;line-height:1.7;color:#aaa;margin-top:10px}
+label{display:block;color:#ccc;font-size:10px;letter-spacing:1px;margin:16px 0 7px}
+select{width:100%;background:#080808;color:white;border:1px solid #444;padding:12px}
+select:focus{outline:1px solid var(--lime)}
+.sold{width:100%;padding:14px;margin-top:14px;background:transparent;color:var(--lime);border:1px solid #555;font-size:10px;font-weight:bold;letter-spacing:2px}
+.sold:hover{background:var(--lime);color:#000;border-color:var(--lime)}
+.small-copy{font-size:10px!important;color:#777!important}
+.manifesto{background:var(--lime);color:#050505;padding:75px 7%}
+.manifesto .kicker{color:#333}
+.manifesto h2{font-size:clamp(42px,8vw,95px);line-height:.98;letter-spacing:-.07em}
+.manifesto p{max-width:500px;font-size:14px;line-height:1.8;margin-top:22px}
+.story{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.story p{color:#aaa;font-size:14px;line-height:1.9}
+.big-logo{text-align:center;border:1px solid #292929;padding:40px 10px;font-size:clamp(45px,9vw,100px);font-weight:1000;letter-spacing:-.09em}
+footer{border-top:1px solid var(--line);padding:30px 7%;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;color:#888;font-size:10px;letter-spacing:1px}
+.overlay{display:none;position:fixed;inset:0;background:#000b;z-index:19}
+.overlay.show{display:block}
+.drawer{position:fixed;z-index:20;right:0;top:0;bottom:0;width:min(400px,100%);padding:25px;background:#0b0b0b;border-left:1px solid #444;transform:translateX(105%);transition:transform .25s;display:flex;flex-direction:column}
+.drawer.open{transform:translateX(0)}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333;padding-bottom:20px}
+.drawer-head h2{font-size:24px;letter-spacing:0}
+.drawer p{color:#aaa;font-size:13px;line-height:1.8;margin-top:24px}
+.drawer-bottom{margin-top:auto;color:#777;font-size:11px;line-height:1.7}
+.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--lime);color:#000;padding:14px 20px;font-size:12px;font-weight:bold;z-index:30;transition:.2s;text-align:center;width:max-content;max-width:90%}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:800px){
+ header{padding:0 5%}
+ #menuButton{display:block}
+ nav{display:none;position:absolute;top:71px;left:0;right:0;background:#080808;padding:25px;flex-direction:column;border-bottom:1px solid #333}
+ nav.open{display:flex}
+ .hero{padding:80px 6%;min-height:550px}
+ section{padding:65px 6%}
+ .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ .info{padding:13px}
+ .product-title{font-size:14px}
+ .story{grid-template-columns:1fr}
 }
-* { box-sizing:border-box; margin:0; padding:0; }
-html { scroll-behavior:smooth; }
-body {
-  background:var(--black);
-  color:var(--white);
-  font-family:Arial,Helvetica,sans-serif;
-  overflow-x:hidden;
-}
-button,select,a { font:inherit; }
-button { cursor:pointer; }
-a { color:inherit; text-decoration:none; }
-header {
-  height:76px;
-  padding:0 6%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid var(--line);
-  position:sticky;
-  top:0;
-  z-index:20;
-  background:rgba(5,5,5,.95);
-  backdrop-filter:blur(12px);
-}
-.logo { font-size:27px; font-weight:1000; letter-spacing:4px; }
-.logo span { color:var(--lime); }
-nav { display:flex; gap:30px; align-items:center; }
-nav a { font-size:11px; letter-spacing:2px; color:#ddd; }
-nav a:hover { color:var(--lime); }
-.header-actions { display:flex; gap:10px; align-items:center; }
-.small-button {
-  background:transparent;
-  color:white;
-  border:1px solid #444;
-  padding:11px 15px;
-  font-size:11px;
-  letter-spacing:1px;
-}
-.small-button:hover { border-color:var(--lime); color:var(--lime); }
-.menu-button { display:none; }
-.hero {
-  min-height:690px;
-  padding:95px 7% 85px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  position:relative;
-  overflow:hidden;
-  background:
-    radial-gradient(ellipse at 80% 50%,rgba(200,255,0,.10),transparent 40%),
-    linear-gradient(135deg,#080808,#030303 70%);
-}
-.hero:after {
-  content:"";
-  position:absolute;
-  width:420px;height:420px;
-  border:1px solid rgba(200,255,0,.13);
-  border-radius:50%;
-  right:7%;top:20%;
-  box-shadow:0 0 90px rgba(200,255,0,.06),inset 0 0 80px rgba(200,255,0,.04);
-  pointer-events:none;
-}
-.eyebrow { color:var(--lime); font-size:11px; letter-spacing:4px; margin-bottom:25px; }
-.hero h1 {
-  position:relative;
-  z-index:1;
-  font-size:clamp(65px,13vw,170px);
-  line-height:.79;
-  letter-spacing:-.095em;
-  font-weight:1000;
-  max-width:1000px;
-}
-.hero h1 .outline {
-  color:transparent;
-  -webkit-text-stroke:2px var(--white);
-}
-.hero-copy {
-  position:relative;z-index:1;
-  max-width:410px;
-  margin-top:35px;
-  color:#aaa;
-  line-height:1.8;
-  font-size:14px;
-}
-.hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; position:relative; z-index:1; }
-.primary-button {
-  background:var(--lime);
-  color:#080808;
-  border:1px solid var(--lime);
-  padding:16px 23px;
-  font-weight:900;
-  font-size:11px;
-  letter-spacing:1.5px;
-  transition:.2s;
-}
-.primary-button:hover { background:white; border-color:white; transform:translateY(-2px); }
-.secondary-button {
-  background:transparent;
-  border:1px solid #555;
-  color:white;
-  padding:16px 23px;
-  font-size:11px;
-  letter-spacing:1.5px;
-}
-.secondary-button:hover { border-color:var(--lime); color:var(--lime); }
-.marquee {
-  overflow:hidden;
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  padding:17px 0;
-  white-space:nowrap;
-  color:var(--lime);
-  font-weight:900;
-  letter-spacing:4px;
-  font-size:12px;
-}
-.marquee span { display:inline-block; padding-left:25px; animation:scroll 24s linear infinite; }
-@keyframes scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-section { padding:95px 7%; }
-.section-top { display:flex; justify-content:space-between; align-items:end; gap:20px; margin-bottom:38px; }
-.kicker { color:var(--lime); font-size:10px; letter-spacing:3px; margin-bottom:12px; }
-h2 { font-size:clamp(34px,5vw,65px); letter-spacing:-2px; line-height:.98; }
-.section-note { color:var(--grey); font-size:12px; line-height:1.7; max-width:260px; }
-.products { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:17px; }
-.product-card { background:var(--panel); border:1px solid #222; min-width:0; }
-.product-image {
-  aspect-ratio:4/4.4;
-  background:#151515;
-  overflow:hidden;
-  position:relative;
-}
-.product-image img { width:100%; height:100%; object-fit:contain; display:block; transition:transform .5s; }
-.product-card:hover .product-image img { transform:scale(1.045); }
-.tag {
-  position:absolute; top:14px; left:14px;
-  background:var(--lime); color:#050505;
-  padding:7px 9px; font-size:9px; font-weight:900; letter-spacing:1px;
-}
-.product-info { padding:20px; }
-.product-line { display:flex; justify-content:space-between; gap:10px; align-items:start; }
-.product-info h3 { font-size:17px; letter-spacing:-.3px; }
-.price { font-size:15px; font-weight:800; white-space:nowrap; }
-.product-info p { color:#aaa; font-size:12px; line-height:1.7; margin-top:10px; }
-.selector-label { display:block; color:#bbb; font-size:10px; letter-spacing:1px; margin:17px 0 8px; }
-select {
-  width:100%; background:#080808; color:white; border:1px solid #444;
-  padding:12px; outline:none;
-}
-select:focus { border-color:var(--lime); }
-.sold-button {
-  width:100%; margin-top:14px; padding:14px;
-  color:var(--lime); background:transparent;
-  border:1px solid #454545; font-size:10px;
-  font-weight:900; letter-spacing:2px;
-}
-.sold-button:hover { background:var(--lime); color:#050505; border-color:var(--lime); }
-.product-small { font-size:10px !important; color:#777 !important; }
-.manifesto {
-  background:var(--lime); color:#050505;
-  padding:80px 7%;
-}
-.manifesto .kicker { color:#222; }
-.manifesto h2 { max-width:900px; font-size:clamp(40px,8vw,100px); letter-spacing:-.07em; }
-.manifesto p { max-width:480px; line-height:1.8; margin-top:23px; font-size:14px; }
-.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; }
-.about-grid p { color:#aaa; font-size:14px; line-height:1.9; }
-.about-mark { border:1px solid #292929; padding:50px 20px; text-align:center; font-size:clamp(55px,10vw,125px); font-weight:1000; letter-spacing:-.1em; }
-.about-mark span { color:var(--lime); }
-footer { padding:35px 7%; border-top:1px solid var(--line); display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; color:#888; font-size:10px; letter-spacing:1px; }
-footer strong { color:white; }
-.overlay {
-  display:none; position:fixed; inset:0; z-index:40;
-  background:rgba(0,0,0,.7);
-}
-.overlay.show { display:block; }
-.drawer {
-  position:fixed; z-index:41; right:0; top:0; bottom:0;
-  width:min(420px,100%); background:#0b0b0b; border-left:1px solid #333;
-  padding:27px; transform:translateX(105%); transition:transform .3s;
-  display:flex; flex-direction:column;
-}
-.drawer.open { transform:translateX(0); }
-.drawer-head { display:flex; justify-content:space-between; align-items:center; padding-bottom:22px; border-bottom:1px solid #333; }
-.drawer h2 { font-size:25px; letter-spacing:0; }
-.close-button { background:none; color:white; border:1px solid #444; padding:9px 13px; }
-.drawer-body { padding:25px 0; color:#aaa; font-size:13px; line-height:1.8; }
-.drawer-body strong { color:white; }
-.drawer-foot { margin-top:auto; color:#777; font-size:11px; line-height:1.7; }
-.toast {
-  position:fixed; bottom:20px; left:50%; transform:translate(-50%,20px);
-  background:var(--lime); color:#050505; padding:14px 20px;
-  font-weight:800; font-size:12px; z-index:60;
-  opacity:0; pointer-events:none; transition:.25s; max-width:90%; text-align:center;
-}
-.toast.show { opacity:1; transform:translate(-50%,0); }
-@media(max-width:800px) {
-  header { padding:0 5%; height:68px; }
-  nav {
-    display:none; position:absolute; top:68px; left:0; right:0;
-    background:#080808; border-bottom:1px solid #333;
-    padding:25px 6%; flex-direction:column; align-items:flex-start; gap:22px;
-  }
-  nav.open { display:flex; }
-  .menu-button { display:inline-block; }
-  .logo { font-size:23px; }
-  .hero { min-height:610px; padding:85px 6%; }
-  .hero:after { width:230px; height:230px; right:-50px; top:18%; }
-  section { padding:70px 6%; }
-  .products { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
-  .product-info { padding:14px; }
-  .product-info h3 { font-size:14px; }
-  .price { font-size:13px; }
-  .section-top { align-items:start; flex-direction:column; }
-  .about-grid { grid-template-columns:1fr; gap:25px; }
-}
-@media(max-width:430px) {
-  .products { grid-template-columns:1fr; }
-  .product-image { aspect-ratio:1/1; }
-  .hero h1 { font-size:19vw; }
-  .header-actions { gap:5px; }
-  .small-button { padding:10px; font-size:10px; }
+@media(max-width:430px){
+ .products{grid-template-columns:1fr}
+ .photo{aspect-ratio:1/1}
+ .hero h1{font-size:19vw}
+ .small{padding:9px;font-size:10px}
 }
 </style>
 </head>
 <body>
-
 <header>
-  <a class="logo" href="#home" aria-label="ZUNYX home">ZUN<span>Y</span>X</a>
-  <nav id="mainNav">
+  <a href="#home" class="logo">ZUN<span>Y</span>X</a>
+  <nav id="nav">
     <a href="#home">HOME</a>
     <a href="#products">SHOP</a>
     <a href="#story">OUR STORY</a>
   </nav>
-  <div class="header-actions">
-    <button class="small-button" id="bagButton" type="button">BAG <span id="bagCount">0</span></button>
-    <button class="small-button menu-button" id="menuButton" type="button" aria-expanded="false">MENU ☰</button>
+  <div class="head-buttons">
+    <button class="small" id="bagButton">BAG <span id="bagCount">0</span></button>
+    <button class="small" id="menuButton">MENU ☰</button>
   </div>
 </header>
 
 <main>
-  <section class="hero" id="home">
-    <div class="eyebrow">INDEPENDENT SPORTSWEAR · DROP 001</div>
-    <h1>MADE<br><span class="outline">FOR</span><br>MORE<span style="color:var(--lime)">.</span></h1>
-    <p class="hero-copy">Built for the ones who keep going. Introducing ZUNYX — sportswear driven by ambition, confidence and the next level.</p>
-    <div class="hero-actions">
-      <button class="primary-button" id="shopButton" type="button">EXPLORE THE DROP ↘</button>
-      <button class="secondary-button" id="storyButton" type="button">OUR MINDSET</button>
-    </div>
-  </section>
+<section class="hero" id="home">
+  <div class="eyebrow">INDEPENDENT SPORTSWEAR · DROP 001</div>
+  <h1>MADE<br><span class="outline">FOR</span><br>MORE<span class="lime">.</span></h1>
+  <p>Built for the ones who keep going. Sportswear driven by ambition, confidence and the next level.</p>
+  <div class="actions">
+    <button class="primary" id="shopButton">EXPLORE THE DROP ↘</button>
+    <button class="secondary" id="storyButton">OUR MINDSET</button>
+  </div>
+</section>
 
-  <div class="marquee"><span> ZUNYX · MADE FOR MORE · BUILT TO MOVE · NEVER SETTLE · ZUNYX · MADE FOR MORE · BUILT TO MOVE · NEVER SETTLE · ZUNYX · MADE FOR MORE · BUILT TO MOVE · NEVER SETTLE · </span></div>
+<div class="marquee">ZUNYX · MADE FOR MORE · BUILT TO MOVE · NEVER SETTLE · ZUNYX · MADE FOR MORE</div>
 
-  <section id="products">
-    <div class="section-top">
-      <div>
-        <div class="kicker">THE COLLECTION / 001</div>
-        <h2>THE FIRST<br>DROP.</h2>
-      </div>
-      <p class="section-note">Three essentials. One mindset. Select a hoodie version to see its price and available sizes.</p>
-    </div>
-
-    <div class="products">
-      <article class="product-card">
-        <div class="product-image">
-          <img src="product1.PNG" alt="ZUNYX hoodie collection" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;color:#777;font-size:12px;text-align:center;padding:20px;">HOODIE IMAGE NOT FOUND<br><br>Check product1.PNG</div>
-          <span class="tag">DROP 001</span>
-        </div>
-        <div class="product-info">
-          <div class="product-line"><h3>ZUNYX Hoodie</h3><span class="price" id="hoodiePrice">£30.00</span></div>
-          <p id="hoodieDescription">Adult fit · 50% polyester / 50% cotton.</p>
-          <label class="selector-label" for="hoodieVersion">CHOOSE VERSION</label>
-          <select id="hoodieVersion">
-            <option value="adult">Adult hoodie — £30</option>
-            <option value="kids">Kids hoodie — £25</option>
-          </select>
-          <label class="selector-label" for="hoodieSize">CHOOSE SIZE</label>
-          <select id="hoodieSize">
-            <option value="">Choose adult size</option>
-            <option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
-          </select>
-          <button class="sold-button" type="button" data-sold="hoodie">SOLD OUT — NOT AVAILABLE</button>
-          <p class="product-small">Adult and kids versions shown under the same listing.</p>
-        </div>
-      </article>
-
-      <article class="product-card">
-        <div class="product-image">
-          <img src="product2.jpg" alt="ZUNYX cap" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;color:#777;font-size:12px;text-align:center;padding:20px;">CAP IMAGE NOT FOUND<br><br>Check product2.jpg</div>
-          <span class="tag">DROP 002</span>
-        </div>
-        <div class="product-info">
-          <div class="product-line"><h3>ZUNYX Cap</h3><span class="price">£19.99</span></div>
-          <p>A clean everyday essential. Simple style, ZUNYX identity.</p>
-          <button class="sold-button" type="button" data-sold="cap">SOLD OUT — NOT AVAILABLE</button>
-          <p class="product-small">Availability will be updated when the next drop is ready.</p>
-        </div>
-      </article>
-
-      <article class="product-card">
-        <div class="product-image" style="display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,#242424,#0b0b0b 65%);">
-          <div style="text-align:center;">
-            <div style="font-size:clamp(48px,8vw,90px);font-weight:1000;letter-spacing:-.1em;">ZUN<span style="color:var(--lime)">Y</span>X</div>
-            <div style="font-size:10px;letter-spacing:4px;margin-top:15px;color:#aaa;">MADE FOR MORE</div>
-          </div>
-          <span class="tag">THE MINDSET</span>
-        </div>
-        <div class="product-info">
-          <div class="product-line"><h3>The ZUNYX Standard</h3><span class="price">001</span></div>
-          <p>More focus. More effort. More ambition. This is bigger than what you wear.</p>
-          <button class="sold-button" id="mindsetButton" type="button">DISCOVER THE MINDSET ↘</button>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <div class="manifesto" id="story">
-    <div class="kicker">THE ZUNYX MINDSET</div>
-    <h2>DON'T WAIT<br>FOR MORE.<br><span style="color:white">BECOME MORE.</span></h2>
-    <p>Every goal starts somewhere. ZUNYX stands for showing up, putting in the work and pushing beyond what you thought was possible. Whatever your next level looks like, move towards it.</p>
+<section id="products">
+  <div class="section-head">
+    <div class="kicker">THE COLLECTION / 001</div>
+    <h2>THE FIRST DROP.</h2>
   </div>
 
-  <section>
-    <div class="about-grid">
-      <div>
-        <div class="kicker">WHO WE ARE</div>
-        <h2>BUILT ON<br>AMBITION.</h2>
+  <div class="products">
+    <article class="card">
+      <div class="photo">
+        <img src="product1.PNG" alt="ZUNYX adult and kids hoodies" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;text-align:center;color:#aaa;font-size:12px">Hoodie image missing<br>Check product1.PNG</div>
+        <span class="tag">DROP 001</span>
       </div>
-      <p>ZUNYX is an independent sportswear brand with one message: MADE FOR MORE. We believe your mindset matters as much as your movement. This is the beginning of the journey — the first drops are only the start.</p>
+      <div class="info">
+        <div class="product-title"><span>ZUNYX Hoodie</span><span class="price" id="hoodiePrice">£30.00</span></div>
+        <p id="hoodieDescription">Adult fit · 50% polyester / 50% cotton.</p>
+
+        <label for="hoodieVersion">CHOOSE HOODIE VERSION</label>
+        <select id="hoodieVersion">
+          <option value="adult">Adult hoodie — £30.00</option>
+          <option value="kids">Kids hoodie — £25.00</option>
+        </select>
+
+        <label for="hoodieSize">CHOOSE SIZE</label>
+        <select id="hoodieSize">
+          <option value="">Choose adult size</option>
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+          <option value="XXL">XXL</option>
+        </select>
+
+        <button class="sold" type="button" data-item="hoodie">SOLD OUT — NOT AVAILABLE</button>
+        <p class="small-copy" id="sizeNote">Adult sizes: S, M, L, XL and XXL.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="photo">
+        <img src="product2.jpg" alt="ZUNYX cap" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;text-align:center;color:#aaa;font-size:12px">Cap image missing<br>Check product2.jpg</div>
+        <span class="tag">DROP 002</span>
+      </div>
+      <div class="info">
+        <div class="product-title"><span>ZUNYX Cap</span><span class="price">£19.99</span></div>
+        <p>A clean everyday essential. Simple style, ZUNYX identity.</p>
+        <button class="sold" type="button" data-item="cap">SOLD OUT — NOT AVAILABLE</button>
+        <p class="small-copy">Availability will be updated for the next drop.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="photo" style="display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,#252525,#090909 70%)">
+        <div style="text-align:center;font-size:clamp(45px,8vw,85px);font-weight:1000;letter-spacing:-.1em">ZUN<span class="lime">Y</span>X</div>
+        <span class="tag">THE MINDSET</span>
+      </div>
+      <div class="info">
+        <div class="product-title"><span>The ZUNYX Standard</span><span>001</span></div>
+        <p>More focus. More effort. More ambition. This is bigger than what you wear.</p>
+        <button class="sold" type="button" id="mindsetButton">DISCOVER THE MINDSET ↘</button>
+      </div>
+    </article>
+  </div>
+</section>
+
+<div class="manifesto" id="story">
+  <div class="kicker">THE ZUNYX MINDSET</div>
+  <h2>DON'T WAIT FOR MORE.<br><span style="color:white">BECOME MORE.</span></h2>
+  <p>Every goal starts somewhere. ZUNYX stands for showing up, putting in the work and pushing beyond what you thought was possible. Whatever your next level looks like, move towards it.</p>
+</div>
+
+<section>
+  <div class="story">
+    <div>
+      <div class="kicker">WHO WE ARE</div>
+      <h2>BUILT ON AMBITION.</h2>
     </div>
-    <div class="about-mark" style="margin-top:40px;">ZUN<span>Y</span>X</div>
-  </section>
+    <p>ZUNYX is an independent sportswear brand with one message: MADE FOR MORE. We believe your mindset matters as much as your movement. This is the beginning of the journey.</p>
+  </div>
+  <div class="big-logo" style="margin-top:35px">ZUN<span class="lime">Y</span>X</div>
+</section>
 </main>
 
 <footer>
-  <div><strong>ZUNYX</strong> — MADE FOR MORE.</div>
-  <div>INDEPENDENT SPORTSWEAR · DROP 001</div>
+  <strong>ZUNYX — MADE FOR MORE.</strong>
+  <span>INDEPENDENT SPORTSWEAR</span>
   <a href="#home">BACK TO TOP ↑</a>
 </footer>
 
 <div class="overlay" id="overlay"></div>
-<aside class="drawer" id="bagDrawer" aria-label="Shopping bag" aria-hidden="true">
+<aside class="drawer" id="drawer" aria-hidden="true">
   <div class="drawer-head">
-    <h2>YOUR BAG <span style="color:var(--lime)">.</span></h2>
-    <button class="close-button" id="closeBag" type="button">CLOSE ✕</button>
+    <h2>YOUR BAG <span class="lime">.</span></h2>
+    <button class="small" id="closeBag">CLOSE ✕</button>
   </div>
-  <div class="drawer-body" id="bagContents">
-    <strong>Your bag is empty.</strong><br><br>The current ZUNYX products are sold out, so you cannot add them to your bag right now.
-  </div>
-  <div class="drawer-foot">MADE FOR MORE.<br><br>This demo shop does not yet have payment or checkout connected.</div>
+  <p id="bagMessage"><strong style="color:white">Your bag is empty.</strong><br><br>Our hoodie and cap are currently sold out, so they cannot be added to your bag yet.</p>
+  <div class="drawer-bottom">MADE FOR MORE.<br>This website does not yet have payment or checkout connected.</div>
 </aside>
-
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
-(function () {
-  const $ = (selector) => document.querySelector(selector);
-  const nav = $("#mainNav");
-  const menuButton = $("#menuButton");
-  const drawer = $("#bagDrawer");
-  const overlay = $("#overlay");
-  const toast = $("#toast");
+(() => {
+  const nav = document.getElementById("nav");
+  const menuButton = document.getElementById("menuButton");
+  const drawer = document.getElementById("drawer");
+  const overlay = document.getElementById("overlay");
+  const toast = document.getElementById("toast");
   let toastTimer;
 
-  function showToast(message) {
+  function notify(message) {
     toast.textContent = message;
     toast.classList.add("show");
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => toast.classList.remove("show"), 2600);
   }
 
-  function scrollToSection(selector) {
-    const section = $(selector);
-    if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
+  function scrollToId(id) {
+    const target = document.getElementById(id);
+    if (target) target.scrollIntoView({behavior:"smooth"});
     nav.classList.remove("open");
     menuButton.setAttribute("aria-expanded", "false");
   }
@@ -408,58 +256,63 @@ footer strong { color:white; }
     document.body.style.overflow = "";
   }
 
-  $("#shopButton").addEventListener("click", () => scrollToSection("#products"));
-  $("#storyButton").addEventListener("click", () => scrollToSection("#story"));
-  $("#mindsetButton").addEventListener("click", () => scrollToSection("#story"));
-  $("#bagButton").addEventListener("click", openBag);
-  $("#closeBag").addEventListener("click", closeBag);
+  document.getElementById("shopButton").addEventListener("click", () => scrollToId("products"));
+  document.getElementById("storyButton").addEventListener("click", () => scrollToId("story"));
+  document.getElementById("mindsetButton").addEventListener("click", () => scrollToId("story"));
+  document.getElementById("bagButton").addEventListener("click", openBag);
+  document.getElementById("closeBag").addEventListener("click", closeBag);
   overlay.addEventListener("click", closeBag);
 
   menuButton.addEventListener("click", () => {
-    const isOpen = nav.classList.toggle("open");
-    menuButton.setAttribute("aria-expanded", String(isOpen));
+    const opened = nav.classList.toggle("open");
+    menuButton.setAttribute("aria-expanded", String(opened));
   });
 
   nav.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", event => {
-      const target = link.getAttribute("href");
-      if (target && target.startsWith("#") && $(target)) {
+      const id = link.getAttribute("href").slice(1);
+      if (document.getElementById(id)) {
         event.preventDefault();
-        scrollToSection(target);
+        scrollToId(id);
       }
     });
   });
 
-  const version = $("#hoodieVersion");
-  const size = $("#hoodieSize");
-  const price = $("#hoodiePrice");
-  const description = $("#hoodieDescription");
+  const version = document.getElementById("hoodieVersion");
+  const size = document.getElementById("hoodieSize");
+  const price = document.getElementById("hoodiePrice");
+  const description = document.getElementById("hoodieDescription");
+  const sizeNote = document.getElementById("sizeNote");
 
   function updateHoodie() {
     const kids = version.value === "kids";
     price.textContent = kids ? "£25.00" : "£30.00";
     description.textContent = kids
-      ? "Kids version · Sizes S–XL."
+      ? "Kids hoodie · Choose a size from S to XL."
       : "Adult fit · 50% polyester / 50% cotton.";
+    sizeNote.textContent = kids
+      ? "Kids sizes: S, M, L and XL."
+      : "Adult sizes: S, M, L, XL and XXL.";
 
-    const options = kids
+    const sizes = kids
       ? ["Choose kids size", "S", "M", "L", "XL"]
       : ["Choose adult size", "S", "M", "L", "XL", "XXL"];
 
     size.innerHTML = "";
-    options.forEach((label, index) => {
+    sizes.forEach((label, index) => {
       const option = document.createElement("option");
       option.value = index === 0 ? "" : label;
       option.textContent = label;
       size.appendChild(option);
     });
   }
+
   version.addEventListener("change", updateHoodie);
 
-  document.querySelectorAll("[data-sold]").forEach(button => {
+  document.querySelectorAll("[data-item]").forEach(button => {
     button.addEventListener("click", () => {
-      const item = button.dataset.sold === "cap" ? "ZUNYX Cap" : "ZUNYX Hoodie";
-      showToast(item + " is currently sold out.");
+      const item = button.dataset.item === "cap" ? "ZUNYX Cap" : "ZUNYX Hoodie";
+      notify(item + " is currently sold out.");
     });
   });
 
