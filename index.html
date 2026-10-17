@@ -3,155 +3,184 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZUNYX — Made For More</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZUNYX® | MADE FOR MORE</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#080808;color:#fff;font-family:Arial,Helvetica,sans-serif}
-header{height:75px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #292929;position:sticky;top:0;background:#080808;z-index:5}
-.logo{font-size:29px;font-weight:1000;letter-spacing:4px}
-button{cursor:pointer;font-weight:bold}
-.cart-button{background:white;color:black;border:0;padding:12px 17px;border-radius:3px}
-.hero{min-height:440px;padding:95px 7%;display:flex;flex-direction:column;justify-content:center;background:radial-gradient(ellipse at 75% 35%,#292929 0%,#111 35%,#080808 70%)}
-.eyebrow{font-size:11px;letter-spacing:4px;color:#aaa}
-h1{font-size:clamp(48px,10vw,100px);line-height:.9;letter-spacing:-5px;margin:22px 0}
-h1 span{color:#777}
-.hero p{color:#aaa;max-width:400px;line-height:1.7}
-.cta{margin-top:18px;width:max-content;background:white;color:black;text-decoration:none;padding:16px 24px;font-size:12px;font-weight:bold;letter-spacing:1px;border:0}
-section{padding:65px 6%}
-.section-top{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:28px}
-h2{font-size:30px;letter-spacing:1px;margin:0}
-.muted{color:#888;font-size:12px}
-.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.product{background:#111;border:1px solid #242424;overflow:hidden}
-.product-image{height:clamp(200px,42vw,440px);background:#171717;display:flex;align-items:center;justify-content:center;position:relative}
-.product-image img{width:100%;height:100%;object-fit:contain;padding:10px}
-.tag{position:absolute;top:13px;left:13px;background:white;color:black;padding:8px 10px;font-size:9px;letter-spacing:1px;font-weight:bold}
-.details{padding:20px}
-.details h3{margin:0 0 8px;font-size:17px}
-.price{font-size:18px;font-weight:bold}
-.description{font-size:12px;line-height:1.6;color:#999;min-height:38px}
-label{display:block;font-size:11px;color:#bbb;margin:15px 0 7px}
-select{width:100%;padding:12px;background:#090909;color:white;border:1px solid #444}
-.add{width:100%;padding:14px;margin-top:14px;background:white;color:black;border:0}
-.add:disabled{background:#333;color:#aaa;cursor:not-allowed}
-footer{border-top:1px solid #292929;padding:30px 6%;color:#888;font-size:11px;letter-spacing:2px}
-.overlay{display:none;position:fixed;inset:0;background:#000a;z-index:10}
+html{scroll-behavior:smooth}
+body{margin:0;background:#080808;color:#f7f7f7;font-family:Arial,Helvetica,sans-serif}
+button,a,select{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+.top{background:#eee;color:#080808;text-align:center;padding:10px;font-size:10px;font-weight:bold;letter-spacing:3px}
+header{height:75px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #292929;background:#080808;position:sticky;top:0;z-index:5}
+.logo{font-size:28px;letter-spacing:5px;font-weight:1000}
+.cart{background:transparent;color:white;border:1px solid #555;padding:12px 16px;font-size:11px;letter-spacing:1px}
+.hero{padding:100px 7% 65px;min-height:580px;display:flex;flex-direction:column;justify-content:center;background:radial-gradient(ellipse at 80% 45%,#292929 0%,#111 35%,#080808 70%);overflow:hidden}
+.kicker{font-size:10px;letter-spacing:4px;color:#aaa;font-weight:bold}
+h1{font-size:clamp(70px,14vw,155px);line-height:.78;letter-spacing:-.085em;margin:30px 0;font-weight:1000}
+h1 span{color:transparent;-webkit-text-stroke:1px #eee}
+.hero p{color:#aaa;font-size:13px;line-height:1.9;max-width:370px}
+.btn{display:inline-block;margin-top:20px;background:#f4f4f0;color:#080808;padding:17px 23px;border:0;font-size:10px;font-weight:bold;letter-spacing:1.5px}
+.ticker{padding:19px 0;border-top:1px solid #292929;border-bottom:1px solid #292929;text-align:center;font-size:10px;font-weight:bold;letter-spacing:4px}
+section.shop{padding:85px 6%}
+.heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:32px;gap:15px}
+h2{font-size:clamp(35px,6vw,65px);letter-spacing:-3px;margin:12px 0 0}
+.mini{font-size:9px;letter-spacing:3px;color:#888}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.product{border:1px solid #292929;background:#0c0c0c;min-width:0}
+.photo{height:clamp(280px,48vw,530px);position:relative;background:radial-gradient(ellipse,#252525,#101010 68%);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.photo img{height:100%;width:100%;object-fit:contain;padding:12px;transition:transform .4s}
+.product:hover .photo img{transform:scale(1.03)}
+.tag{position:absolute;z-index:2;top:14px;left:14px;background:#eee;color:#080808;padding:8px 10px;font-size:9px;font-weight:bold;letter-spacing:1px}
+.info{padding:21px}
+.nameprice{display:flex;justify-content:space-between;gap:10px;align-items:start}
+h3{font-size:16px;margin:0 0 8px}
+.price{font-size:17px;font-weight:bold;white-space:nowrap}
+.desc{font-size:11px;line-height:1.8;color:#999;margin:12px 0}
+label{display:block;color:#aaa;font-size:9px;letter-spacing:2px;margin:16px 0 8px}
+select{width:100%;padding:13px;background:#090909;color:white;border:1px solid #444}
+.add{width:100%;padding:16px;background:#f4f4f0;color:#080808;border:1px solid #f4f4f0;margin-top:15px;font-size:10px;font-weight:bold;letter-spacing:1px}
+.add:hover{background:#ccc}
+.status{color:#888;font-size:9px;letter-spacing:1px;margin-top:13px}
+.manifesto{padding:85px 7%;background:#eee;color:#080808}
+.manifesto .mini{color:#555}
+.manifesto h2{font-size:clamp(45px,9vw,100px);line-height:.9;letter-spacing:-.07em}
+.manifesto p{max-width:430px;color:#555;font-size:12px;line-height:2;margin-top:25px}
+.end{text-align:center;padding:95px 6%;background:radial-gradient(ellipse,#202020,#080808 70%)}
+.end h2{font-size:clamp(50px,10vw,105px);line-height:.9;letter-spacing:-.07em}
+footer{padding:30px 6%;border-top:1px solid #292929;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;color:#888;font-size:9px;letter-spacing:2px}
+.overlay{display:none;position:fixed;inset:0;background:#000b;z-index:20}
 .overlay.open{display:block}
-.drawer{position:absolute;right:0;top:0;height:100%;width:min(420px,100%);background:#101010;padding:25px;overflow:auto}
-.drawer-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333;padding-bottom:20px}
-.close{background:none;color:white;border:0;font-size:27px}
-.cart-line{padding:18px 0;border-bottom:1px solid #333;font-size:14px}
-.cart-line button{background:none;color:#aaa;border:0;text-decoration:underline;margin-top:8px}
-.total{display:flex;justify-content:space-between;font-weight:bold;margin-top:24px}
-.empty{color:#999;padding:25px 0}
-.note{font-size:11px;color:#888;line-height:1.6}
-@media(max-width:600px){header{padding:0 5%;height:66px}.logo{font-size:24px}.hero{min-height:370px;padding:75px 6%}h1{letter-spacing:-3px}.products{grid-template-columns:1fr}.product-image{height:340px}section{padding:45px 5%}}
+.drawer{position:absolute;right:0;top:0;height:100%;overflow:auto;width:min(420px,100%);background:#101010;padding:24px}
+.drawerhead{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #333;padding-bottom:20px}
+.drawerhead h2{font-size:25px;margin:0}
+.close{background:none;color:white;border:0;font-size:28px}
+.line{padding:18px 0;border-bottom:1px solid #333;font-size:12px;line-height:1.9}
+.line button{background:none;border:0;color:#aaa;text-decoration:underline;font-size:10px}
+.total{display:flex;justify-content:space-between;padding:24px 0;font-weight:bold}
+.empty{color:#999;padding:25px 0;font-size:13px}
+.note{color:#888;font-size:10px;line-height:1.8}
+@media(max-width:620px){
+ header{height:65px;padding:0 5%}.logo{font-size:23px}
+ .hero{min-height:490px;padding:75px 6%}
+ section.shop{padding:65px 5%}
+ .grid{grid-template-columns:1fr;gap:20px}
+ .photo{height:370px}
+ .info{padding:18px}
+ .manifesto{padding:70px 6%}
+}
 </style>
 </head>
 <body>
+<div class="top">ZUNYX® OFFICIAL — MADE FOR MORE.</div>
 <header>
-  <div class="logo">ZUNYX</div>
-  <button class="cart-button" onclick="openCart()">BAG (<span id="count">0</span>) 🛍</button>
+<a class="logo" href="#home">ZUNYX®</a>
+<button class="cart" onclick="openBag()">BAG [<span id="count">0</span>] ↗</button>
 </header>
 
 <main>
-  <div class="hero">
-    <div class="eyebrow">INDEPENDENT SPORTSWEAR</div>
-    <h1>MADE FOR<br><span>MORE.</span></h1>
-    <p>Built for ambition. Designed for movement. Welcome to ZUNYX — your next level starts here.</p>
-    <button class="cta" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">EXPLORE THE COLLECTION ↘</button>
-  </div>
+<div class="hero" id="home">
+<div class="kicker">ZUNYX SPORTSWEAR / DROP 001</div>
+<h1>MADE<br><span>FOR</span><br>MORE.</h1>
+<p>Not here to stand still. Designed for everyday movement, driven by ambition. This is ZUNYX.</p>
+<a class="btn" href="#shop">EXPLORE THE DROP ↘</a>
+</div>
 
-  <section id="shop">
-    <div class="section-top">
-      <div><div class="eyebrow">ZUNYX OFFICIAL</div><h2 style="margin-top:10px">THE COLLECTION</h2></div>
-      <div class="muted">DROP 001</div>
-    </div>
+<div class="ticker">✳ MADE FOR MORE &nbsp; ✳ OWN YOUR PATH &nbsp; ✳ ZUNYX® &nbsp; ✳ MADE FOR MORE</div>
 
-    <div class="products">
-      <article class="product">
-        <div class="product-image">
-          <span class="tag">DROP 001</span>
-          <img src="product1.jpg" alt="ZUNYX hoodie" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-          <div style="display:none;text-align:center;color:#aaa;padding:25px;font-size:12px">HOODIE IMAGE NOT FOUND<br><br>Upload product1.jpg beside index.html</div>
-        </div>
-        <div class="details">
-          <h3>ZUNYX Essential Hoodie</h3>
-          <div class="price">£30.00</div>
-          <p class="description">Everyday comfort. 50% polyester / 50% cotton. Made for more.</p>
-          <label for="hoodie-size">SELECT ADULT SIZE</label>
-          <select id="hoodie-size">
-            <option value="S">Small (S)</option>
-            <option value="M">Medium (M)</option>
-            <option value="L">Large (L)</option>
-            <option value="XL">Extra Large (XL)</option>
-            <option value="XXL">XXL</option>
-          </select>
-          <button class="add" onclick="addToCart('ZUNYX Essential Hoodie',30,document.getElementById('hoodie-size').value)">ADD TO BAG — £30.00</button>
-        </div>
-      </article>
+<section class="shop" id="shop">
+<div class="heading">
+<div><div class="mini">THE FIRST COLLECTION / 001</div><h2>SHOP ZUNYX.</h2></div>
+<div class="mini">TWO ESSENTIALS</div>
+</div>
 
-      <article class="product">
-        <div class="product-image">
-          <span class="tag">DROP 001</span>
-          <img src="product2.jpg" alt="ZUNYX cap" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-          <div style="display:none;text-align:center;color:#aaa;padding:25px;font-size:12px">CAP IMAGE NOT FOUND<br><br>Upload product2.jpg beside index.html</div>
-        </div>
-        <div class="details">
-          <h3>ZUNYX Essential Cap</h3>
-          <div class="price">£19.99</div>
-          <p class="description">A clean everyday essential. Simple style, ZUNYX identity.</p>
-          <button class="add" onclick="addToCart('ZUNYX Essential Cap',19.99,'One size')">ADD TO BAG — £19.99</button>
-        </div>
-      </article>
-    </div>
-  </section>
+<div class="grid">
+<article class="product">
+<div class="photo">
+<span class="tag">HOODIE / 001</span>
+<img src="product1.jpg" alt="Front view of the ZUNYX hoodie" onerror="this.style.display='none';document.getElementById('hoodieMissing').style.display='block'">
+<div id="hoodieMissing" style="display:none;position:absolute;text-align:center;color:#aaa;font-size:11px;line-height:2;padding:20px">HOODIE IMAGE MISSING<br>Upload your front-view image as<br>product1.jpg beside index.html</div>
+</div>
+<div class="info">
+<div class="nameprice"><div><h3>ZUNYX Essential Hoodie</h3><div class="mini">MADE FOR MORE.</div></div><div class="price">£30.00</div></div>
+<p class="desc">Your everyday layer. 50% polyester / 50% cotton. Clean style, everyday comfort.</p>
+<label for="hoodieSize">CHOOSE ADULT SIZE</label>
+<select id="hoodieSize">
+<option value="S">Small / S</option>
+<option value="M">Medium / M</option>
+<option value="L">Large / L</option>
+<option value="XL">Extra Large / XL</option>
+<option value="XXL">XXL</option>
+</select>
+<button class="add" onclick="addItem('ZUNYX Essential Hoodie',30,document.getElementById('hoodieSize').value)">ADD TO BAG — £30.00 ↗</button>
+<div class="status">CHECK STOCK BEFORE ACCEPTING ORDERS</div>
+</div>
+</article>
+
+<article class="product">
+<div class="photo">
+<span class="tag">CAP / 002</span>
+<img src="product2.jpg" alt="ZUNYX cap" onerror="this.style.display='none';document.getElementById('capMissing').style.display='block'">
+<div id="capMissing" style="display:none;position:absolute;text-align:center;color:#aaa;font-size:11px;line-height:2;padding:20px">CAP IMAGE MISSING<br>Upload your cap image as<br>product2.jpg beside index.html</div>
+</div>
+<div class="info">
+<div class="nameprice"><div><h3>ZUNYX Essential Cap</h3><div class="mini">MADE FOR MORE.</div></div><div class="price">£19.99</div></div>
+<p class="desc">An everyday essential. Minimal design and a clean ZUNYX finish.</p>
+<label>SIZE</label>
+<div style="border:1px solid #444;padding:13px;font-size:12px">ONE SIZE</div>
+<button class="add" onclick="addItem('ZUNYX Essential Cap',19.99,'One size')">ADD TO BAG — £19.99 ↗</button>
+<div class="status">CHECK STOCK BEFORE ACCEPTING ORDERS</div>
+</div>
+</article>
+</div>
+</section>
+
+<section class="manifesto">
+<div class="mini">THE ZUNYX MINDSET</div>
+<h2>DON'T WAIT<br>FOR MORE.<br>MAKE MORE.</h2>
+<p>Every goal starts with a decision. ZUNYX is for those who keep moving, stay focused and make their own path. Whatever comes next, make it yours.</p>
+</section>
+
+<section class="end">
+<div class="mini">YOUR NEXT MOVE STARTS HERE</div>
+<h2>MADE FOR<br>MORE.</h2>
+<a class="btn" href="#shop">SHOP THE COLLECTION ↗</a>
+</section>
 </main>
 
-<footer>
-  <div style="font-size:20px;font-weight:1000;letter-spacing:4px;color:white">ZUNYX</div>
-  <p>MADE FOR MORE.</p>
-  <p>© 2026 ZUNYX OFFICIAL</p>
-</footer>
+<footer><strong style="font-size:19px;letter-spacing:4px;color:white">ZUNYX®</strong><span>MADE FOR MORE.</span><span>© 2026 ZUNYX OFFICIAL</span></footer>
 
-<div class="overlay" id="overlay" onclick="if(event.target===this)closeCart()">
-  <div class="drawer">
-    <div class="drawer-head">
-      <h2>YOUR BAG</h2>
-      <button class="close" onclick="closeCart()" aria-label="Close bag">×</button>
-    </div>
-    <div id="cart-items"><p class="empty">Your bag is empty.</p></div>
-    <div class="total"><span>TOTAL</span><span id="total">£0.00</span></div>
-    <button class="add" onclick="checkout()">CONTINUE TO CHECKOUT</button>
-    <p class="note">Checkout is not connected yet. Before taking real orders, connect a secure payment provider and confirm your stock.</p>
-  </div>
+<div class="overlay" id="overlay" onclick="if(event.target===this)closeBag()">
+<aside class="drawer">
+<div class="drawerhead"><h2>YOUR BAG</h2><button class="close" onclick="closeBag()">×</button></div>
+<div id="items"><div class="empty">Your bag is empty.</div></div>
+<div class="total"><span>SUBTOTAL</span><span id="total">£0.00</span></div>
+<button class="add" onclick="checkout()">CONTINUE TO CHECKOUT ↗</button>
+<p class="note">This bag is a demo. Real online payments are not connected yet. Connect a secure checkout before accepting orders.</p>
+</aside>
 </div>
 
 <script>
-let cart=[];
-function money(n){return '£'+n.toFixed(2)}
-function addToCart(name,price,size){
-  cart.push({name,price,size});
-  renderCart();
-  openCart();
+let bag=[];
+const money=n=>'£'+n.toFixed(2);
+function addItem(name,price,size){
+bag.push({name,price,size});
+renderBag();
+openBag();
 }
-function renderCart(){
-  document.getElementById('count').textContent=cart.length;
-  const items=document.getElementById('cart-items');
-  if(!cart.length){
-    items.innerHTML='<p class="empty">Your bag is empty.</p>';
-  }else{
-    items.innerHTML=cart.map((item,i)=>'<div class="cart-line"><strong>'+item.name+'</strong><br><span style="color:#999">Size: '+item.size+'</span><br>'+money(item.price)+'<br><button onclick="removeItem('+i+')">Remove</button></div>').join('');
-  }
-  document.getElementById('total').textContent=money(cart.reduce((sum,item)=>sum+item.price,0));
+function renderBag(){
+document.getElementById('count').textContent=bag.length;
+document.getElementById('total').textContent=money(bag.reduce((sum,item)=>sum+item.price,0));
+const el=document.getElementById('items');
+if(!bag.length){el.innerHTML='<div class="empty">Your bag is empty.</div>';return}
+el.innerHTML=bag.map((item,i)=>'<div class="line"><strong>'+item.name+'</strong><br><span style="color:#999">Size: '+item.size+'</span><br>'+money(item.price)+'<br><button onclick="removeItem('+i+')">REMOVE</button></div>').join('');
 }
-function removeItem(i){cart.splice(i,1);renderCart()}
-function openCart(){document.getElementById('overlay').classList.add('open')}
-function closeCart(){document.getElementById('overlay').classList.remove('open')}
-function checkout(){
-  alert('Online payments are not connected yet. Connect your store to a secure checkout before accepting payments.');
-}
+function removeItem(i){bag.splice(i,1);renderBag()}
+function openBag(){document.getElementById('overlay').classList.add('open')}
+function closeBag(){document.getElementById('overlay').classList.remove('open')}
+function checkout(){alert('Secure online checkout is not connected yet. Connect Square or another payment provider before taking payments.')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeBag()});
 </script>
 </body>
 </html>
