@@ -3,14 +3,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080808">
   <title>ZUNYX — Made For More</title>
 
   <style>
     :root {
       --bg: #080808;
-      --panel: #111111;
+      --panel: #111;
       --white: #f5f5f5;
       --muted: #a1a1a1;
       --lime: #c7ff00;
@@ -62,7 +62,7 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(8, 8, 8, 0.96);
+      background: rgba(8, 8, 8, .97);
       border-bottom: 1px solid var(--border);
       backdrop-filter: blur(12px);
     }
@@ -96,7 +96,8 @@
       letter-spacing: 1px;
     }
 
-    .nav-links a:hover {
+    .nav-links a:hover,
+    .footer-links a:hover {
       color: var(--lime);
     }
 
@@ -111,7 +112,7 @@
       margin: auto;
       min-height: 550px;
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 1.15fr .85fr;
       align-items: center;
       gap: 45px;
       padding: 75px 0;
@@ -127,7 +128,7 @@
 
     .hero h1 {
       font-size: clamp(58px, 9vw, 108px);
-      line-height: 0.88;
+      line-height: .88;
       letter-spacing: -7px;
       margin: 22px 0;
       font-weight: 1000;
@@ -155,7 +156,7 @@
       font-size: 12px;
       font-weight: 1000;
       letter-spacing: 1px;
-      transition: 0.2s;
+      transition: .2s;
     }
 
     .button:hover {
@@ -167,8 +168,7 @@
       min-height: 370px;
       position: relative;
       overflow: hidden;
-      background:
-        radial-gradient(ellipse at 50% 35%, #353535 0%, #171717 38%, #0b0b0b 75%);
+      background: radial-gradient(ellipse at 50% 35%, #353535, #171717 38%, #0b0b0b 75%);
       border: 1px solid #242424;
       display: flex;
       justify-content: center;
@@ -180,8 +180,8 @@
       line-height: 1;
       font-weight: 1000;
       letter-spacing: -12px;
-      color: #ffffff;
-      opacity: 0.08;
+      color: white;
+      opacity: .08;
       transform: rotate(-90deg);
       position: absolute;
     }
@@ -272,7 +272,7 @@
       min-width: 0;
       background: var(--panel);
       border: 1px solid var(--border);
-      transition: border-color 0.2s, transform 0.2s;
+      transition: border-color .2s, transform .2s;
     }
 
     .product:hover {
@@ -293,11 +293,23 @@
       object-fit: contain;
       display: block;
       padding: 12px;
-      transition: transform 0.35s;
+      transition: transform .35s;
     }
 
     .product:hover .product-image {
       transform: scale(1.04);
+    }
+
+    .image-fallback {
+      display: none;
+      position: absolute;
+      inset: 0;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      color: var(--muted);
+      font-size: 12px;
     }
 
     .product-label {
@@ -383,8 +395,7 @@
       font-size: 11px;
       font-weight: 1000;
       letter-spacing: 2px;
-      cursor: pointer;
-      transition: 0.2s;
+      transition: .2s;
     }
 
     .sold-out:hover {
@@ -410,7 +421,7 @@
 
     .story h2 {
       font-size: clamp(42px, 6vw, 70px);
-      line-height: 0.95;
+      line-height: .95;
       letter-spacing: -4px;
       margin: 18px 0;
     }
@@ -496,10 +507,6 @@
       font-weight: 800;
     }
 
-    .footer-links a:hover {
-      color: var(--lime);
-    }
-
     .toast {
       position: fixed;
       z-index: 50;
@@ -517,7 +524,7 @@
       font-weight: 900;
       text-align: center;
       box-shadow: 0 8px 30px #0008;
-      transition: 0.25s;
+      transition: .25s;
     }
 
     .toast.show {
@@ -556,8 +563,8 @@
       }
 
       .nav-links {
-        gap: 12px;
-        font-size: 10px;
+        gap: 10px;
+        font-size: 9px;
       }
 
       .nav-links .nav-cta {
@@ -607,22 +614,19 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="announcement">
-    ZUNYX // MADE FOR MORE
-  </div>
+  <div class="announcement">ZUNYX // MADE FOR MORE</div>
 
   <header>
     <nav class="nav" aria-label="Main navigation">
-      <a class="logo" href="#home" aria-label="ZUNYX home">ZUN<span>Y</span>X</a>
-
+      <a class="logo" href="#home">ZUN<span>Y</span>X</a>
       <div class="nav-links">
         <a href="#shop">SHOP</a>
         <a href="#story">OUR STORY</a>
@@ -643,7 +647,7 @@
         <a class="button" href="#shop">EXPLORE THE DROP&nbsp; ↗</a>
       </div>
 
-      <div class="hero-visual" aria-label="ZUNYX brand graphic">
+      <div class="hero-visual">
         <div class="hero-mark" aria-hidden="true">Z</div>
         <span class="hero-number">001 / ZUNYX</span>
         <div class="hero-stamp">
@@ -653,7 +657,7 @@
       </div>
     </section>
 
-    <div class="ticker" aria-label="ZUNYX brand message">
+    <div class="ticker">
       <div class="ticker-track" aria-hidden="true">
         <span>MADE FOR MORE ✳ ZUNYX ✳ BUILT DIFFERENT ✳ NO LIMITS ✳</span>
         <span>MADE FOR MORE ✳ ZUNYX ✳ BUILT DIFFERENT ✳ NO LIMITS ✳</span>
@@ -666,12 +670,11 @@
           <p class="eyebrow">The collection</p>
           <h2>THE DROP<span style="color:var(--lime)">.</span></h2>
         </div>
-        <p>
-          Everyday essentials. Clean design. Made to move with you.
-        </p>
+        <p>Everyday essentials. Clean design. Made to move with you.</p>
       </div>
 
       <div class="product-grid">
+
         <!-- HOODIE -->
         <article class="product">
           <div class="product-image-wrap">
@@ -680,7 +683,9 @@
               class="product-image"
               src="product1.PNG"
               alt="ZUNYX hoodie"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
             >
+            <div class="image-fallback">Hoodie image unavailable.<br>Check product1.PNG</div>
           </div>
 
           <div class="product-info">
@@ -689,9 +694,7 @@
               <span class="price" id="hoodie-price">£25</span>
             </div>
 
-            <p class="description">
-              Your everyday layer. Clean, comfortable and unmistakably ZUNYX.
-            </p>
+            <p class="description">Your everyday layer. Clean, comfortable and unmistakably ZUNYX.</p>
 
             <label class="field-label" for="hoodie-version">Collection</label>
             <select class="product-select" id="hoodie-version">
@@ -701,23 +704,14 @@
 
             <label class="field-label" for="hoodie-size">Size</label>
             <select class="product-select" id="hoodie-size">
-              <option value="S">S</option>
-              <option value="M">M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
-              <option value="XXL">XXL</option>
-              <option value="3XL">3XL</option>
-              <option value="4XL">4XL</option>
-              <option value="5XL">5XL</option>
+              <option>S</option><option>M</option><option>L</option>
+              <option>XL</option><option>XXL</option><option>3XL</option>
+              <option>4XL</option><option>5XL</option>
             </select>
 
-            <p class="size-note" id="hoodie-size-note">
-              Adult sizes: S–5XL
-            </p>
+            <p class="size-note" id="hoodie-size-note">Adult sizes: S–5XL</p>
 
-            <button class="sold-out" type="button" data-product="hoodie">
-              SOLD OUT
-            </button>
+            <button class="sold-out" type="button" data-product="hoodie">SOLD OUT</button>
           </div>
         </article>
 
@@ -729,7 +723,9 @@
               class="product-image"
               src="zunyx-tee.JPG"
               alt="ZUNYX T-shirt"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
             >
+            <div class="image-fallback">T-shirt image unavailable.<br>Check zunyx-tee.JPG</div>
           </div>
 
           <div class="product-info">
@@ -738,9 +734,7 @@
               <span class="price" id="tee-price">£25</span>
             </div>
 
-            <p class="description">
-              A clean everyday essential. Simple fit, strong identity.
-            </p>
+            <p class="description">A clean everyday essential. Simple fit, strong identity.</p>
 
             <label class="field-label" for="tee-version">Collection</label>
             <select class="product-select" id="tee-version">
@@ -750,23 +744,14 @@
 
             <label class="field-label" for="tee-size">Size</label>
             <select class="product-select" id="tee-size">
-              <option value="S">S</option>
-              <option value="M">M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
-              <option value="XXL">XXL</option>
-              <option value="3XL">3XL</option>
-              <option value="4XL">4XL</option>
-              <option value="5XL">5XL</option>
+              <option>S</option><option>M</option><option>L</option>
+              <option>XL</option><option>XXL</option><option>3XL</option>
+              <option>4XL</option><option>5XL</option>
             </select>
 
-            <p class="size-note" id="tee-size-note">
-              Adult sizes: S–5XL
-            </p>
+            <p class="size-note" id="tee-size-note">Adult sizes: S–5XL</p>
 
-            <button class="sold-out" type="button" data-product="tee">
-              SOLD OUT
-            </button>
+            <button class="sold-out" type="button" data-product="tee">SOLD OUT</button>
           </div>
         </article>
 
@@ -778,7 +763,9 @@
               class="product-image"
               src="product2.jpg"
               alt="ZUNYX cap"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
             >
+            <div class="image-fallback">Cap image unavailable.<br>Check product2.jpg</div>
           </div>
 
           <div class="product-info">
@@ -787,17 +774,13 @@
               <span class="price">£19.99</span>
             </div>
 
-            <p class="description">
-              Finish the fit with the ZUNYX everyday cap.
-            </p>
-
+            <p class="description">Finish the fit with the ZUNYX everyday cap.</p>
             <p class="size-note">Size: One size</p>
 
-            <button class="sold-out" type="button" data-product="cap">
-              SOLD OUT
-            </button>
+            <button class="sold-out" type="button" data-product="cap">SOLD OUT</button>
           </div>
         </article>
+
       </div>
     </section>
 
@@ -814,22 +797,10 @@
         </div>
 
         <div class="story-stats">
-          <div class="stat">
-            <strong>01</strong>
-            <span>KEEP MOVING</span>
-          </div>
-          <div class="stat">
-            <strong>02</strong>
-            <span>STAY FOCUSED</span>
-          </div>
-          <div class="stat">
-            <strong>03</strong>
-            <span>BE YOURSELF</span>
-          </div>
-          <div class="stat">
-            <strong>∞</strong>
-            <span>NO LIMITS</span>
-          </div>
+          <div class="stat"><strong>01</strong><span>KEEP MOVING</span></div>
+          <div class="stat"><strong>02</strong><span>STAY FOCUSED</span></div>
+          <div class="stat"><strong>03</strong><span>BE YOURSELF</span></div>
+          <div class="stat"><strong>∞</strong><span>NO LIMITS</span></div>
         </div>
       </div>
     </section>
@@ -845,9 +816,7 @@
   <footer>
     <div class="footer-inner">
       <a class="logo" href="#home">ZUN<span>Y</span>X</a>
-      <p class="footer-copy">
-        © <span id="year"></span> ZUNYX. MADE FOR MORE.
-      </p>
+      <p class="footer-copy">© <span id="year"></span> ZUNYX. MADE FOR MORE.</p>
       <div class="footer-links">
         <a href="#shop">SHOP</a>
         <a href="#story">OUR STORY</a>
@@ -859,7 +828,7 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script>
-    const sizeOptions = {
+    const sizes = {
       adult: ["S", "M", "L", "XL", "XXL", "3XL", "4XL", "5XL"],
       kids: ["XS", "S", "M", "L", "XL"]
     };
@@ -870,11 +839,9 @@
       const price = document.getElementById(product + "-price");
       const note = document.getElementById(product + "-size-note");
 
-      const sizes = sizeOptions[version];
-
       sizeSelect.replaceChildren();
 
-      sizes.forEach(function(size) {
+      sizes[version].forEach(function(size) {
         const option = document.createElement("option");
         option.value = size;
         option.textContent = size;
@@ -887,12 +854,10 @@
         : "Adult sizes: S–5XL";
     }
 
-    document.getElementById("hoodie-version").addEventListener("change", function() {
-      updateProduct("hoodie");
-    });
-
-    document.getElementById("tee-version").addEventListener("change", function() {
-      updateProduct("tee");
+    ["hoodie", "tee"].forEach(function(product) {
+      document.getElementById(product + "-version").addEventListener("change", function() {
+        updateProduct(product);
+      });
     });
 
     let toastTimer;
@@ -917,15 +882,14 @@
           return;
         }
 
-        const version = document.getElementById(product + "-version");
-        const size = document.getElementById(product + "-size");
-
-        const collection = version.value === "kids" ? "Kids" : "Adult";
+        const version = document.getElementById(product + "-version").value;
+        const size = document.getElementById(product + "-size").value;
+        const collection = version === "kids" ? "Kids" : "Adult";
         const productName = product === "hoodie" ? "hoodie" : "T-shirt";
 
         showToast(
-          collection + " " + productName +
-          " size " + size.value + " is currently sold out."
+          collection + " " + productName + " size " + size +
+          " is currently sold out."
         );
       });
     });
