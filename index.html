@@ -5,103 +5,96 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080908">
-<meta name="description" content="ZUNYX streetwear. Made for more.">
-<title>ZUNYX® — Built To Stand Out</title>
+<title>ZUNYX UPDATE 7391 | Built To Stand Out</title>
 <style>
-:root{--bg:#080908;--panel:#11130f;--lime:#c8ff00;--white:#f8f9f5;--muted:#a6aa9e;--line:#30342a}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{background:var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
+:root{--black:#080908;--panel:#11130f;--lime:#c8ff00;--white:#f7f8f3;--muted:#a4a99a;--line:#303429}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{margin:0;background:var(--black);color:var(--white);font-family:Arial,Helvetica,sans-serif}
 a{color:inherit;text-decoration:none}
 button,select{font:inherit}
-.announcement{background:var(--lime);color:#080908;text-align:center;padding:9px;font-size:10px;font-weight:1000;letter-spacing:2px}
-header{position:sticky;top:0;z-index:20;background:#080908f2;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav{width:92%;max-width:1280px;margin:auto;min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.logo{font-size:30px;font-weight:1000;font-style:italic;letter-spacing:-1.5px}
+.announcement{background:var(--lime);color:var(--black);padding:11px 15px;text-align:center;font-size:10px;font-weight:900;letter-spacing:2px}
+header{position:sticky;top:0;z-index:10;background:#080908f5;border-bottom:1px solid var(--line)}
+nav{max-width:1250px;width:92%;min-height:75px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.logo{font-size:31px;font-weight:1000;font-style:italic;letter-spacing:-2px}
 .logo span{color:var(--lime)}
-.nav-links{display:flex;align-items:center;gap:25px}
-.nav-links a{font-size:10px;font-weight:900;letter-spacing:1.3px;text-transform:uppercase}
-.nav-links a:hover{color:var(--lime)}
-.nav-cta{border:1px solid var(--lime);padding:11px 15px;color:var(--lime)}
-.hero{position:relative;isolation:isolate;min-height:590px;display:flex;align-items:center;overflow:hidden;border-bottom:2px solid var(--lime);background:radial-gradient(ellipse at 77% 45%,#38450c 0%,#171b0d 23%,transparent 52%),linear-gradient(115deg,#080908 35%,#141610)}
-.hero:before{content:"Z";position:absolute;z-index:-1;right:3%;top:50%;transform:translateY(-50%) rotate(-9deg);font-size:clamp(300px,48vw,650px);font-weight:1000;font-style:italic;color:#c8ff000e}
-.hero-inner{width:92%;max-width:1280px;margin:auto;padding:95px 0}
-.kicker,.label{color:var(--lime);font-size:10px;font-weight:1000;letter-spacing:3px;text-transform:uppercase}
-.kicker{margin-bottom:22px}
-.hero h1{font-size:clamp(55px,9vw,118px);line-height:.86;letter-spacing:-.075em;font-weight:1000;font-style:italic}
-.hero h1 span{display:block;color:var(--lime);text-shadow:0 0 35px #c8ff0033}
-.hero-copy{max-width:450px;margin-top:26px;color:#d0d3c9;font-size:14px;line-height:1.8}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;background:var(--lime);color:#080908;border:1px solid var(--lime);font-size:10px;font-weight:1000;letter-spacing:1px;text-transform:uppercase;transition:.2s}
-.btn:hover{transform:translateY(-3px);box-shadow:0 0 25px #c8ff0040}
-.btn.secondary{background:transparent;color:white;border-color:#62665b}
-.btn.secondary:hover{border-color:var(--lime);color:var(--lime)}
-.hero-note{margin-top:35px;font-size:9px;letter-spacing:2px;color:#a5aa9a;font-weight:900}
-.ticker{overflow:hidden;border-bottom:1px solid var(--line);padding:15px 0;background:#0d0f0b;white-space:nowrap}
-.ticker-track{display:flex;width:max-content;gap:30px;animation:move 26s linear infinite}
-.ticker span{font-size:10px;font-weight:1000;letter-spacing:2px}
-.ticker b{color:var(--lime)}
-@keyframes move{to{transform:translateX(-50%)}}
-section{padding:85px 0}
-.container{width:92%;max-width:1280px;margin:auto}
-.section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:32px}
-.label{margin-bottom:12px}
-.section-title{font-size:clamp(38px,6vw,68px);font-weight:1000;font-style:italic;line-height:.9;letter-spacing:-.06em}
-.section-intro{max-width:350px;color:var(--muted);font-size:13px;line-height:1.8}
-.product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
-.product{min-width:0;background:var(--panel);border:1px solid #2b3025;transition:.25s}
-.product:hover{border-color:var(--lime);transform:translateY(-4px)}
-.product-image{height:320px;position:relative;overflow:hidden;background:#191b16}
-.product-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
-.product:hover .product-image img{transform:scale(1.045)}
-.badge{position:absolute;top:13px;left:13px;padding:7px 10px;background:var(--lime);color:#080908;font-size:9px;font-weight:1000;letter-spacing:1px}
-.product-info{padding:20px}
-.product-title-row{display:flex;justify-content:space-between;align-items:start;gap:10px}
-.product h3{font-size:16px;font-weight:1000;text-transform:uppercase}
-.price{color:var(--lime);font-size:18px;font-weight:1000;white-space:nowrap}
-.product-desc{color:var(--muted);font-size:11px;line-height:1.7;margin:8px 0 17px}
-.field-label{display:block;margin-bottom:7px;color:#d7dacf;font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase}
-select{display:block;width:100%;height:43px;margin-bottom:13px;padding:0 11px;background:#090a08;border:1px solid #414638;border-radius:0;color:white;outline:none}
-select:focus{border-color:var(--lime)}
-.one-size{height:43px;display:flex;align-items:center;margin-bottom:13px;font-size:12px;color:#ddd}
-.sold-button{width:100%;height:46px;background:#20221e;color:#c0c3b9;border:1px solid #484c40;font-size:10px;font-weight:1000;letter-spacing:2px;text-transform:uppercase}
-.sold-button:hover{border-color:var(--lime);color:var(--lime)}
-.stock-note{margin-top:10px;text-align:center;font-size:9px;color:#868b7d;letter-spacing:1px}
+.links{display:flex;align-items:center;gap:22px}
+.links a{font-size:10px;font-weight:900;letter-spacing:1px;text-transform:uppercase}
+.links a:hover{color:var(--lime)}
+.hero{min-height:570px;display:flex;align-items:center;position:relative;overflow:hidden;border-bottom:2px solid var(--lime);background:radial-gradient(ellipse at 85% 50%,#35440d,transparent 45%),linear-gradient(120deg,#080908,#151811)}
+.hero:after{content:"Z";position:absolute;z-index:0;right:3%;top:50%;transform:translateY(-50%) rotate(-10deg);font-size:clamp(300px,48vw,620px);font-weight:1000;font-style:italic;color:#c8ff000c;pointer-events:none}
+.hero-inner{position:relative;z-index:1;width:92%;max-width:1250px;margin:auto;padding:85px 0}
+.eyebrow,.label{font-size:10px;color:var(--lime);font-weight:900;letter-spacing:3px;text-transform:uppercase}
+h1{margin:25px 0 20px;font-size:clamp(58px,10vw,120px);font-weight:1000;font-style:italic;line-height:.83;letter-spacing:-.075em}
+h1 span{display:block;color:var(--lime)}
+.hero p{max-width:440px;color:#d0d4c8;font-size:14px;line-height:1.9}
+.buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;background:var(--lime);color:#080908;font-size:10px;font-weight:900;letter-spacing:1px;text-transform:uppercase;border:1px solid var(--lime);cursor:pointer}
+.btn:hover{filter:brightness(.88)}
+.btn.outline{background:transparent;color:white;border-color:#62665a}
+.hero-note{margin-top:30px;font-size:10px;font-weight:900;letter-spacing:2px;color:#b4b8aa}
+.ticker{overflow:hidden;padding:17px 0;background:#0d0f0b;border-bottom:1px solid var(--line);white-space:nowrap}
+.ticker-inner{width:max-content;display:flex;gap:28px;align-items:center;animation:scroll 24s linear infinite}
+.ticker-inner span{font-size:11px;font-weight:1000;letter-spacing:2px}
+.ticker-inner b{color:var(--lime)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+section.content{padding:85px 0}
+.wrap{width:92%;max-width:1250px;margin:auto}
+.heading{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:30px}
+h2{margin:12px 0 0;font-size:clamp(42px,6vw,68px);font-style:italic;font-weight:1000;line-height:.9;letter-spacing:-.06em}
+.intro{max-width:350px;color:var(--muted);font-size:13px;line-height:1.8}
+.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.card{min-width:0;background:var(--panel);border:1px solid var(--line);transition:border-color .2s}
+.card:hover{border-color:var(--lime)}
+.photo{height:320px;position:relative;background:#191b16;overflow:hidden}
+.photo img{width:100%;height:100%;display:block;object-fit:cover}
+.sold-label{position:absolute;top:13px;left:13px;background:var(--lime);color:#080908;padding:8px 11px;font-size:9px;font-weight:1000;letter-spacing:1px}
+.details{padding:20px}
+.product-top{display:flex;align-items:start;justify-content:space-between;gap:10px}
+h3{margin:0;font-size:16px;font-weight:1000;text-transform:uppercase}
+.price{font-size:18px;color:var(--lime);font-weight:1000;white-space:nowrap}
+.description{margin:10px 0 18px;font-size:11px;line-height:1.7;color:var(--muted)}
+label,.field-title{display:block;margin-bottom:7px;font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#e1e4da}
+select{width:100%;height:44px;margin-bottom:15px;padding:0 12px;background:#080908;color:white;border:1px solid #454a3b;border-radius:0}
+select:focus{outline:1px solid var(--lime)}
+.one-size{height:44px;display:flex;align-items:center;font-size:12px;margin-bottom:15px}
+.sold-button{width:100%;height:46px;background:#20221e;color:#c7cabe;border:1px solid #454a3b;font-size:10px;font-weight:1000;letter-spacing:2px}
+.sold-button:hover{color:var(--lime);border-color:var(--lime)}
+.stock{text-align:center;color:#8c9183;font-size:9px;letter-spacing:1px;margin:11px 0 0}
 .story{background:#0d0f0b;border-block:1px solid var(--line)}
-.story-grid{display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:55px}
-.story-art{min-height:350px;display:grid;place-items:center;position:relative;overflow:hidden;border:1px solid #34392b;background:radial-gradient(circle,#293411,#0b0d09 68%)}
-.story-art:before,.story-art:after{content:"";position:absolute;width:120%;height:2px;background:var(--lime);transform:rotate(-34deg);box-shadow:0 0 25px #c8ff0066}
-.story-art:after{transform:rotate(34deg)}
-.story-art span{z-index:1;font-size:clamp(150px,22vw,250px);font-weight:1000;font-style:italic;color:var(--lime)}
-.story-copy p{margin-top:18px;color:var(--muted);font-size:13px;line-height:1.9}
-.values{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:27px}
-.value{border-top:1px solid #3b4032;padding-top:12px}
-.value strong{display:block;font-size:11px;text-transform:uppercase;letter-spacing:1px}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.story-art{min-height:350px;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle,#293411,#0a0c08 68%);border:1px solid #343a29}
+.story-art span{font-size:clamp(150px,24vw,260px);font-weight:1000;font-style:italic;color:var(--lime)}
+.story-text p,.contact-text{color:var(--muted);font-size:13px;line-height:1.9;margin-top:18px}
+.values{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:25px}
+.value{border-top:1px solid var(--line);padding-top:12px}
+.value strong{display:block;font-size:11px;text-transform:uppercase}
 .value span{font-size:11px;color:var(--muted)}
-.contact-panel{display:flex;justify-content:space-between;align-items:center;gap:25px;padding:35px;border:1px solid #424b2c;background:radial-gradient(ellipse at 100% 0%,#202a0d,transparent 45%),#0d0f0b}
-.contact-panel p{max-width:470px;margin-top:12px;color:var(--muted);font-size:13px;line-height:1.8}
-footer{border-top:1px solid var(--line);padding:28px 0}
-.footer-inner{width:92%;max-width:1280px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.footer-copy{font-size:10px;color:#92968a}
-.footer-links{display:flex;gap:18px}
+.contact-box{display:flex;align-items:center;justify-content:space-between;gap:25px;padding:35px;border:1px solid #424b2c;background:radial-gradient(ellipse at 100% 0%,#202a0d,transparent 50%),#0d0f0b}
+.contact-text{max-width:480px}
+footer{padding:28px 0;border-top:1px solid var(--line)}
+.footer-inner{width:92%;max-width:1250px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.copyright{font-size:10px;color:var(--muted)}
+.footer-links{display:flex;gap:16px}
 .footer-links a{font-size:10px;font-weight:900;text-transform:uppercase}
-.footer-links a:hover{color:var(--lime)}
-.toast{position:fixed;z-index:50;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;pointer-events:none;max-width:90%;padding:15px 20px;background:var(--lime);color:#080908;font-size:12px;font-weight:900;text-align:center;transition:.25s}
+.toast{position:fixed;z-index:50;bottom:20px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;width:max-content;max-width:90%;padding:15px 20px;background:var(--lime);color:#080908;font-size:12px;font-weight:900;text-align:center;transition:.2s}
 .toast.show{opacity:1;transform:translate(-50%,0)}
-@media(max-width:850px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nav-links{gap:13px}.nav-links a{font-size:9px}.story-grid{gap:28px}}
-@media(max-width:600px){.nav{padding:14px 0;flex-wrap:wrap;gap:14px}.logo{font-size:26px}.nav-links{width:100%;justify-content:space-between;gap:6px}.nav-links a{font-size:9px;letter-spacing:.4px}.nav-cta{padding:8px!important}.hero{min-height:510px}.hero-inner{padding:75px 0}.hero h1{font-size:clamp(48px,11vw,72px)}section{padding:65px 0}.section-head{align-items:start;flex-direction:column}.product-grid{grid-template-columns:1fr}.product-image{height:350px}.story-grid{grid-template-columns:1fr}.story-art{min-height:255px}.contact-panel{align-items:start;flex-direction:column;padding:25px}.footer-inner{align-items:start;flex-direction:column}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+@media(max-width:850px){.products{grid-template-columns:repeat(2,minmax(0,1fr))}.story-grid{gap:25px}.links{gap:12px}}
+@media(max-width:600px){nav{padding:13px 0;flex-wrap:wrap;gap:13px}.logo{font-size:27px}.links{width:100%;justify-content:space-between;gap:6px}.links a{font-size:9px;letter-spacing:.3px}.hero{min-height:500px}.hero-inner{padding:65px 0}h1{font-size:clamp(49px,11vw,72px)}section.content{padding:62px 0}.heading{align-items:start;flex-direction:column}.products{grid-template-columns:1fr}.photo{height:350px}.story-grid{grid-template-columns:1fr}.story-art{min-height:250px}.contact-box{align-items:start;flex-direction:column;padding:25px}.footer-inner{align-items:start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto;animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-
-<div class="announcement">ZUNYX STREETWEAR // MADE FOR MORE</div>
+<div class="announcement">ZUNYX STREETWEAR // MADE FOR MORE // UPDATE 7391</div>
 
 <header>
-<nav class="nav">
+<nav>
 <a class="logo" href="#home">ZUNY<span>X</span></a>
-<div class="nav-links">
-<a href="#home">Home</a><a href="#collection">Collection</a><a href="#story">Our Story</a><a class="nav-cta" href="#contact">Contact</a>
+<div class="links">
+<a href="#home">Home</a>
+<a href="#collection">Collection</a>
+<a href="#story">Our story</a>
+<a href="#contact">Contact</a>
 </div>
 </nav>
 </header>
@@ -109,78 +102,78 @@ footer{border-top:1px solid var(--line);padding:28px 0}
 <main>
 <section class="hero" id="home">
 <div class="hero-inner">
-<div class="kicker">ZUNYX STREETWEAR ━━━━━</div>
+<div class="eyebrow">ZUNYX STREETWEAR — EST. TO STAND OUT</div>
 <h1>BUILT TO<span>STAND OUT.</span></h1>
-<p class="hero-copy">Own your look. Set your own standard. ZUNYX is streetwear for those who choose their own path and make every move count.</p>
-<div class="actions">
+<p>Own your look. Set your own standard. ZUNYX is streetwear for those who choose their own path and make every move count.</p>
+<div class="buttons">
 <a class="btn" href="#collection">Explore collection ↗</a>
-<a class="btn secondary" href="#story">Our story</a>
+<a class="btn outline" href="#story">Our story</a>
 </div>
 <div class="hero-note">MADE FOR MORE. OWN YOUR MOVEMENT.</div>
 </div>
 </section>
 
-<div class="ticker"><div class="ticker-track">
+<div class="ticker"><div class="ticker-inner">
 <span>MADE FOR MORE</span><b>✳</b><span>BUILT TO STAND OUT</span><b>✳</b><span>OWN YOUR MOVEMENT</span><b>✳</b>
 <span>MADE FOR MORE</span><b>✳</b><span>BUILT TO STAND OUT</span><b>✳</b><span>OWN YOUR MOVEMENT</span><b>✳</b>
 </div></div>
 
-<section id="collection">
-<div class="container">
-<div class="section-head">
-<div><div class="label">THE ZUNYX COLLECTION</div><h2 class="section-title">THE<br>ESSENTIALS.</h2></div>
-<p class="section-intro">Premium streetwear. A bold identity. Choose your fit and define your style.</p>
+<section class="content" id="collection">
+<div class="wrap">
+<div class="heading">
+<div><div class="label">THE ZUNYX COLLECTION</div><h2>THE<br>ESSENTIALS.</h2></div>
+<p class="intro">Premium streetwear. A bold identity. Choose your fit and define your style.</p>
 </div>
 
-<div class="product-grid">
-<article class="product">
-<div class="product-image"><img src="product1.PNG" alt="ZUNYX hoodie" loading="lazy"><span class="badge">SOLD OUT</span></div>
-<div class="product-info">
-<div class="product-title-row"><h3>ZUNYX Hoodie</h3><span class="price" id="hoodie-price">£30.00</span></div>
-<p class="product-desc">Everyday comfort. Signature ZUNYX style.</p>
-<label class="field-label" for="hoodie-version">Collection</label>
+<div class="products">
+<article class="card">
+<div class="photo"><img src="product1.PNG" alt="ZUNYX hoodie" loading="lazy"><span class="sold-label">SOLD OUT</span></div>
+<div class="details">
+<div class="product-top"><h3>ZUNYX Hoodie</h3><span class="price" id="hoodie-price">£30.00</span></div>
+<p class="description">Everyday comfort. Signature ZUNYX style.</p>
+<label for="hoodie-version">Collection</label>
 <select id="hoodie-version"><option value="adult">Adult — £30.00</option><option value="kids">Kids — £25.00</option></select>
-<label class="field-label" for="hoodie-size">Size</label>
+<label for="hoodie-size">Size</label>
 <select id="hoodie-size"><option value="">Choose size</option></select>
-<button class="sold-button" data-product="hoodie">Sold out</button>
-<p class="stock-note">CURRENTLY UNAVAILABLE</p>
+<button class="sold-button" data-product="hoodie">SOLD OUT</button>
+<p class="stock">CURRENTLY UNAVAILABLE</p>
 </div>
 </article>
 
-<article class="product">
-<div class="product-image"><img src="product2.jpg" alt="ZUNYX cap" loading="lazy"><span class="badge">SOLD OUT</span></div>
-<div class="product-info">
-<div class="product-title-row"><h3>ZUNYX Cap</h3><span class="price">£19.99</span></div>
-<p class="product-desc">The finishing touch to your everyday fit.</p>
-<span class="field-label">Size</span><div class="one-size">One size</div>
-<button class="sold-button" data-product="cap">Sold out</button>
-<p class="stock-note">CURRENTLY UNAVAILABLE</p>
+<article class="card">
+<div class="photo"><img src="product2.jpg" alt="ZUNYX cap" loading="lazy"><span class="sold-label">SOLD OUT</span></div>
+<div class="details">
+<div class="product-top"><h3>ZUNYX Cap</h3><span class="price">£19.99</span></div>
+<p class="description">The finishing touch to your everyday fit.</p>
+<span class="field-title">Size</span><div class="one-size">One size</div>
+<button class="sold-button" data-product="cap">SOLD OUT</button>
+<p class="stock">CURRENTLY UNAVAILABLE</p>
 </div>
 </article>
 
-<article class="product">
-<div class="product-image"><img src="zunyx-tee.JPG" alt="ZUNYX T-shirt" loading="lazy"><span class="badge">SOLD OUT</span></div>
-<div class="product-info">
-<div class="product-title-row"><h3>ZUNYX T-Shirt</h3><span class="price" id="tee-price">£30.00</span></div>
-<p class="product-desc">Clean design. Everyday streetwear.</p>
-<label class="field-label" for="tee-version">Collection</label>
+<article class="card">
+<div class="photo"><img src="zunyx-tee.JPG" alt="ZUNYX T-shirt" loading="lazy"><span class="sold-label">SOLD OUT</span></div>
+<div class="details">
+<div class="product-top"><h3>ZUNYX T-Shirt</h3><span class="price" id="tee-price">£30.00</span></div>
+<p class="description">Clean design. Everyday streetwear.</p>
+<label for="tee-version">Collection</label>
 <select id="tee-version"><option value="adult">Adult — £30.00</option><option value="kids">Kids — £25.00</option></select>
-<label class="field-label" for="tee-size">Size</label>
+<label for="tee-size">Size</label>
 <select id="tee-size"><option value="">Choose size</option></select>
-<button class="sold-button" data-product="tee">Sold out</button>
-<p class="stock-note">ADULT AND KIDS FITS</p>
+<button class="sold-button" data-product="tee">SOLD OUT</button>
+<p class="stock">ADULT AND KIDS FITS</p>
 </div>
 </article>
 </div>
 </div>
 </section>
 
-<section class="story" id="story">
-<div class="container story-grid">
+<section class="content story" id="story">
+<div class="wrap story-grid">
 <div class="story-art"><span>Z.</span></div>
-<div class="story-copy">
+<div class="story-text">
 <div class="label">WHO WE ARE</div>
-<h2 class="section-title">NOT JUST<br>ANOTHER <span style="color:var(--lime)">BRAND.</span></h2>
+<h2>NOT JUST<br>ANOTHER <span style="color:var(--lime)">BRAND.</span></h2>
 <p>ZUNYX is built around ambition, individuality and the mindset to keep moving forward. We believe what you wear should reflect who you are and who you want to become.</p>
 <p>No shortcuts. Own your movement. Define your style.</p>
 <div class="values">
@@ -193,12 +186,14 @@ footer{border-top:1px solid var(--line);padding:28px 0}
 </div>
 </section>
 
-<section id="contact">
-<div class="container">
-<div class="contact-panel">
-<div><div class="label">STAY CONNECTED</div><h2 class="section-title">BE PART OF<br>ZUNYX.</h2><p>Have a question about the collection? Get in touch with the ZUNYX team.</p></div>
-<a class="btn" href="mailto:YOUR-EMAIL@example.com">Contact us ↗</a>
+<section class="content" id="contact">
+<div class="wrap contact-box">
+<div>
+<div class="label">STAY CONNECTED</div>
+<h2>BE PART OF<br>ZUNYX.</h2>
+<p class="contact-text">Have a question about the collection? Get in touch with the ZUNYX team.</p>
 </div>
+<a class="btn" href="mailto:YOUR-EMAIL@example.com">Contact us ↗</a>
 </div>
 </section>
 </main>
@@ -206,15 +201,17 @@ footer{border-top:1px solid var(--line);padding:28px 0}
 <footer>
 <div class="footer-inner">
 <a class="logo" href="#home">ZUNY<span>X</span></a>
-<p class="footer-copy">© <span id="year"></span> ZUNYX.</p>
-<div class="footer-links"><a href="#home">Home</a><a href="#collection">Collection</a><a href="#story">Our story</a><a href="#contact">Contact</a></div>
+<p class="copyright">© <span id="year"></span> ZUNYX. MADE FOR MORE.</p>
+<div class="footer-links"><a href="#home">Home</a><a href="#collection">Collection</a><a href="#contact">Contact</a></div>
 </div>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
-const sizes={
+(function(){
+"use strict";
+const sizeOptions={
  hoodie:{
   adult:["S","M","L","XL","XXL","3XL","4XL","5XL"],
   kids:["S","M","L","XL"]
@@ -226,43 +223,49 @@ const sizes={
 };
 const prices={adult:"£30.00",kids:"£25.00"};
 
-function updateProduct(kind){
- const version=document.getElementById(kind+"-version").value;
- const sizeSelect=document.getElementById(kind+"-size");
- document.getElementById(kind+"-price").textContent=prices[version];
- sizeSelect.replaceChildren(new Option("Choose size",""));
- sizes[kind][version].forEach(size=>sizeSelect.add(new Option(size,size)));
+function fillSizes(kind){
+ const version=document.getElementById(kind+"-version");
+ const size=document.getElementById(kind+"-size");
+ const price=document.getElementById(kind+"-price");
+ if(!version||!size||!price)return;
+ const selected=version.value;
+ price.textContent=prices[selected];
+ size.replaceChildren(new Option("Choose size",""));
+ sizeOptions[kind][selected].forEach(function(value){
+  size.add(new Option(value,value));
+ });
 }
-["hoodie","tee"].forEach(kind=>{
- document.getElementById(kind+"-version").addEventListener("change",()=>updateProduct(kind));
- updateProduct(kind);
+["hoodie","tee"].forEach(function(kind){
+ const version=document.getElementById(kind+"-version");
+ version.addEventListener("change",function(){fillSizes(kind);});
+ fillSizes(kind);
 });
 
 const toast=document.getElementById("toast");
 let toastTimer;
-function notify(message){
+function showToast(message){
  toast.textContent=message;
  toast.classList.add("show");
  clearTimeout(toastTimer);
- toastTimer=setTimeout(()=>toast.classList.remove("show"),3000);
+ toastTimer=setTimeout(function(){toast.classList.remove("show");},3200);
 }
-
-document.querySelectorAll(".sold-button").forEach(button=>{
- button.addEventListener("click",()=>{
-  const product=button.dataset.product;
-  if(product==="cap"){
-   notify("ZUNYX Cap · One size · £19.99 · SOLD OUT");
+document.querySelectorAll(".sold-button").forEach(function(button){
+ button.addEventListener("click",function(){
+  const kind=button.dataset.product;
+  if(kind==="cap"){
+   showToast("ZUNYX Cap · One size · £19.99 · SOLD OUT");
    return;
   }
-  const version=document.getElementById(product+"-version").value;
-  const size=document.getElementById(product+"-size").value;
-  if(!size){notify("Choose your size first.");return;}
-  const label=version==="kids"?"Kids'":"Adult";
-  const name=product==="hoodie"?"hoodie":"T-shirt";
-  notify(label+" "+name+" · "+size+" · "+prices[version]+" · SOLD OUT");
+  const version=document.getElementById(kind+"-version").value;
+  const size=document.getElementById(kind+"-size").value;
+  if(!size){showToast("Choose a size first.");return;}
+  const productName=kind==="hoodie"?"Hoodie":"T-shirt";
+  const collectionName=version==="kids"?"Kids'":"Adult";
+  showToast(collectionName+" "+productName+" · Size "+size+" · "+prices[version]+" · SOLD OUT");
  });
 });
 document.getElementById("year").textContent=new Date().getFullYear();
+})();
 </script>
 </body>
 </html>
